@@ -12,12 +12,12 @@ const Input = ({ str, str2 }) => {
   };
   return (
     <div>
-      <button onClick={handleClick}>concat</button>
       <p>
         {str + " "}
         {done ? input : <input onChange={handleChange}></input>}
         {" " + str2}
       </p>
+      <button onClick={handleClick}>submit</button>
     </div>
   );
 };
