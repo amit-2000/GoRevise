@@ -29,8 +29,8 @@ function Suffix() {
   } else {
     return (
       <div>
-        <button onClick={handleClick}>change string</button>
         <p>{para}</p>
+        <button onClick={handleClick}>change string</button>
       </div>
     );
   }
