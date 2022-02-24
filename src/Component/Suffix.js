@@ -3,10 +3,11 @@ import Input from "./Input";
 
 function Suffix() {
   const para =
-    "In , concat() is a string method that is used to concatenate strings together. The concat() method appends one or more string values to the calling string and then returns the concatenated result as a new string. Because the concat() method is a method of the String object, it must be invoked through a particular instance of the String class.";
+    "In , concat() is a string method that is used to concatenate strings together. The concat() method appends one or more string values to the calling string and then returns the concatenated result as a new string. Because the concat way to use this tool to begin a daily writing routine. One way is to generate a random paragraph with the intention to try to rewrite it while still keeping the original meaning. The purpose here is to just get the writing started so that when the writer goes onto their day's writing projects, words are already flowing from their fingers.";
   const [done, setDone] = useState(false);
   let [str1, setStr1] = useState(null);
   let [str2, setStr2] = useState(null);
+  const [removedWord, setRemovedWord] = useState(null);
   let start, end;
 
   const handleClick = () => {
@@ -16,6 +17,7 @@ function Suffix() {
       const range = selectedString.getRangeAt(0);
       start = range.startOffset;
       end = range.endOffset;
+      setRemovedWord(para.substring(start, end));
       str1 = para.slice(0, start);
       str2 = para.slice(end);
       setStr1(str1);
@@ -23,9 +25,16 @@ function Suffix() {
       setDone(true);
     }
   };
-
+  console.log(removedWord);
   if (done) {
-    return <Input str={str1} str2={str2} />;
+    return (
+      <Input
+        str={str1}
+        str2={str2}
+        removedWord={removedWord}
+        inputDone={setDone}
+      />
+    );
   } else {
     return (
       <div>
