@@ -11,13 +11,13 @@ function Suffix() {
   let start, end;
 
   const handleClick = () => {
-    const selectedString = document.getSelection();
-    console.log(selectedString.toString().length);
+    const selectedString = document.getSelection(); // get selection
+    console.log("length of selected string: ",selectedString.toString().length);
     if (selectedString.toString().length > 0) {
-      const range = selectedString.getRangeAt(0);
+      const range = selectedString.getRangeAt(0); // index of selected string
       start = range.startOffset;
       end = range.endOffset;
-      setRemovedWord(para.substring(start, end));
+      setRemovedWord(para.substring(start, end)); // removed word to validation
       str1 = para.slice(0, start);
       str2 = para.slice(end);
       setStr1(str1);
@@ -25,7 +25,7 @@ function Suffix() {
       setDone(true);
     }
   };
-  console.log(removedWord);
+  console.log("removedWord word :", removedWord);
   if (done) {
     return (
       <Input
