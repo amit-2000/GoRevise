@@ -1,3 +1,4 @@
+import { Box } from "@chakra-ui/react";
 import React, { useState } from "react";
 import "./input.css";
 const Input = ({ str, str2, removedWord, inputDone }) => {
@@ -22,28 +23,30 @@ const Input = ({ str, str2, removedWord, inputDone }) => {
   };
 
   return (
-    <div>
-      <p>
-        {str + " "}
-        <span
-          className={
-            done
-              ? input === removedWord
-                ? "replaced__word-correct"
-                : "replaced__word-wrong"
-              : ""
-          }
-        >
-          {" "}
-          {done ? input : <input onChange={handleChange}></input>}
-        </span>
-        {" " + str2}
-      </p>
-      <button onClick={handleClick} disabled={disable}>
-        submit
-      </button>
-      <button onClick={handleRestart}>restart</button>
-    </div>
+    <Box bg={'white'}>
+      <div>
+        <p>
+          {str + " "}
+          <span
+            className={
+              done
+                ? input === removedWord
+                  ? "replaced__word-correct"
+                  : "replaced__word-wrong"
+                : ""
+            }
+          >
+            {" "}
+            {done ? input : <input onChange={handleChange}></input>}
+          </span>
+          {" " + str2}
+        </p>
+        <button onClick={handleClick} disabled={disable}>
+          submit
+        </button>
+        <button onClick={handleRestart}>restart</button>
+      </div>
+    </Box>
   );
 };
 
