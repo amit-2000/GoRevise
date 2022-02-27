@@ -5,7 +5,7 @@ import Suffix from "./Component/Suffix";
 function App() {
   return (
     <Box className="App"  minH={'100vh'} bgImage={'/bg.png'} bgRepeat={'no-repeat'} bgSize={'cover'}>
-      <Navbar />0
+      <Navbar />
       <Suffix />
     </Box>
   );

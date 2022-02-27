@@ -1,5 +1,6 @@
+import { Box, Button, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
-import Input from "./Input";
+import InputBox from "./Input";
 
 function Suffix() {
   const para =
@@ -12,7 +13,7 @@ function Suffix() {
 
   const handleClick = () => {
     const selectedString = document.getSelection(); // get selection
-    console.log("length of selected string: ",selectedString.toString().length);
+    console.log("length of selected string: ", selectedString.toString().length);
     if (selectedString.toString().length > 0) {
       const range = selectedString.getRangeAt(0); // index of selected string
       start = range.startOffset;
@@ -28,7 +29,7 @@ function Suffix() {
   console.log("removedWord word :", removedWord);
   if (done) {
     return (
-      <Input
+      <InputBox
         str={str1}
         str2={str2}
         removedWord={removedWord}
@@ -37,10 +38,10 @@ function Suffix() {
     );
   } else {
     return (
-      <div>
-        <p>{para}</p>
-        <button onClick={handleClick}>change string</button>
-      </div>
+      <Box bg={'white'} m={20} p={10} rounded={'2xl'}>
+        <Text fontSize={'xl'}>{para}</Text>
+        <Button onClick={handleClick} m={10} bg={'teal.300'}>Change String</Button>
+      </Box>
     );
   }
 }
