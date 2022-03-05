@@ -13,7 +13,10 @@ function Suffix() {
 
   const handleClick = () => {
     const selectedString = document.getSelection(); // get selection
-    console.log("length of selected string: ", selectedString.toString().length);
+    console.log(
+      "length of selected string: ",
+      selectedString.toString().length
+    );
     if (selectedString.toString().length > 0) {
       const range = selectedString.getRangeAt(0); // index of selected string
       start = range.startOffset;
@@ -26,6 +29,7 @@ function Suffix() {
       setDone(true);
     }
   };
+
   console.log("removedWord word :", removedWord);
   if (done) {
     return (
@@ -38,9 +42,11 @@ function Suffix() {
     );
   } else {
     return (
-      <Box bg={'white'} m={20} p={10} rounded={'2xl'}>
-        <Text fontSize={'xl'}>{para}</Text>
-        <Button onClick={handleClick} m={10} bg={'teal.300'}>Change String</Button>
+      <Box bg={"white"} m={20} p={10} rounded={"2xl"}>
+        <Text fontSize={"xl"}>{para}</Text>
+        <Button onClick={handleClick} m={10} bg={"teal.300"}>
+          Change String
+        </Button>
       </Box>
     );
   }
