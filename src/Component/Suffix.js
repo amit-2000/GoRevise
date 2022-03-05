@@ -30,7 +30,7 @@ function Suffix() {
     }
   };
 
-  console.log("removedWord word :", removedWord);
+  // console.log("removedWord word :", removedWord);
   if (done) {
     return (
       <InputBox
