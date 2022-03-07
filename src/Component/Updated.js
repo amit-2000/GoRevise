@@ -35,17 +35,21 @@ function Updated() {
     index_array.map((id) => {
       const val = document.getElementById(id).value;
 
-      return ansArray.push(val.trim());
+      ansArray.push(val.trim());
     });
-    let p;
-    ansArray.map((item, idx) => {
-      if (item == removed_word_array[idx]) {
-        console.log("Success");
-      } else {
-        console.log("Fail");
-      }
-    });
-    setPara(p);
+    let i = 0;
+    let newPara = para
+      .split("")
+      .map((char, index) =>
+        index_array.includes(index) ? ansArray[i++] + " " : char
+      )
+      .join("");
+    // document.getElementById("new__para").innerHTML = newPara;
+    // } else {
+    //   console.log("Fail");
+    // }
+    // });
+    setPara(newPara);
     console.log(ansArray);
   };
 
@@ -87,18 +91,3 @@ function Updated() {
 }
 
 export default Updated;
-
-
-
-
-
-
-
-
-
-
-
-
-
-//  const end = index_array[idx] + removed_word_array.length;
-//  p = para.slice(0, index_array[idx]) + ansArray[idx] + " " + para.slice(end);
