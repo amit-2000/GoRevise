@@ -35,7 +35,7 @@ function Updated() {
     index_array.map((id) => {
       const val = document.getElementById(id).value;
 
-      ansArray.push(val.trim());
+      return ansArray.push(val.trim());
     });
     let i = 0;
     let newPara = para
