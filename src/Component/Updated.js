@@ -27,6 +27,14 @@ function Updated() {
       )
       .join("");
     document.getElementById("new__para").innerHTML = newPara;
+
+    // newPara.split("")
+    // .map((char, index) =>
+    //   index_array.includes(index)
+    //     ? `<input id=${index.toString()}></input>`
+    //     : char
+    // )
+    // .join("");
   };
 
   const handleSubmit = () => {
@@ -37,6 +45,14 @@ function Updated() {
 
       return ansArray.push(val.trim());
     });
+    // ansArray.map((item, idx) => {
+    //   if (item === removed_word_array[idx]) {
+    //     console.log("Success");
+    //   } else {
+    //     console.log("Fail");
+    //   }
+    //   return item;
+    // });
     let i = 0;
     let newPara = para
       .split("")
@@ -71,9 +87,9 @@ function Updated() {
       para.substring(start, end).trim(),
     ]); // removed word to validation)
 
-    const str1 = para.slice(0, start);
-    const str2 = para.slice(end);
-    setPara(str1 + " " + str2);
+    // const str1 = para.slice(0, start);
+    // const str2 = para.slice(end);
+    // setPara(str1 + s + str2);
   };
   console.log("Index array ", index_array);
   console.log("removed word array ", removed_word_array);
