@@ -87,6 +87,20 @@ function Updated() {
       para.substring(start, end).trim(),
     ]); // removed word to validation)
 
+    let j = 0;
+    let newP = para
+      .split(" ")
+      .map((word, index) =>
+        index_array.includes(index)
+          ? `<span style="background-color: red">${"REMOVED WORD"}</span>`
+          : word + " "
+      )
+      .join("");
+    document.getElementById("new__para").innerHTML = newP;
+    // setPara(newP);
+
+    console.log(typeof newP);
+    // setPara(newP);
     // const str1 = para.slice(0, start);
     // const str2 = para.slice(end);
     // setPara(str1 + s + str2);
@@ -98,6 +112,7 @@ function Updated() {
     <div>
       <Box bg={"white"} m={20} p={10} rounded={"2xl"}>
         <p id="new__para">{para}</p>
+
         <Button onClick={handlePush}>Highlight</Button>
         <Button onClick={handlechange}>Replace</Button>
         <Button onClick={handleSubmit}>Done</Button>

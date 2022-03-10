@@ -13,7 +13,7 @@ function App() {
       bgSize={"cover"}
     >
       <Navbar />
-      <Suffix />
+      {/* <Suffix /> */}
       <Updated />
     </Box>
   );
