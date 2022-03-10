@@ -1,6 +1,9 @@
 import { Box } from "@chakra-ui/react";
 import "./App.css";
+import Create from "./Component/Create";
+import Home from "./Component/Home";
 import Navbar from "./Component/Navbar";
+import Quiz from "./Component/Quiz";
 import Suffix from "./Component/Suffix";
 import Updated from "./Component/Updated";
 function App() {
@@ -12,7 +15,7 @@ function App() {
       bgRepeat={"no-repeat"}
       bgSize={"cover"}
     >
-      <Navbar />
+      <Navbar color={'white'}/>
       {/* <Suffix /> */}
       <Updated />
     </Box>

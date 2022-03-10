@@ -1,10 +1,10 @@
 import React from "react";
 import { Box, Flex, Heading, Text, Center } from "@chakra-ui/react";
 
-function Navbar() {
+function Navbar({ color }) {
   return (
     <Center>
-      <Box bg={"white"} m={10} w={"70rem"} borderRadius={"25px"}>
+      <Box bg={color} m={10} w={"70rem"} borderRadius={"25px"}>
         <Flex
           justifyContent={"space-around"}
           alignItems={"center"}
