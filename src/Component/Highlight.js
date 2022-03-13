@@ -9,7 +9,7 @@ function Highlight() {
   const [removed_word_array, set_Removed_word_array] = useState([]);
 
   const handlePush = () => {
-    // debugger;
+    debugger;
     const str = document.getSelection();
     const range = str.getRangeAt(0); // index of selected string
     console.log(range);
@@ -21,12 +21,11 @@ function Highlight() {
     set_Index_array(updated_index_array); // Array of Index
 
     console.log(start, end);
-    console.log(para);
     set_Removed_word_array([
       ...removed_word_array,
       para.substring(start, end).trim(),
     ]); // array of removed words
-
+   
     // let p = para.split("").map((word, index) =>
     //   index_array.includes(index) ? (
     //     <span key={index} style={{ backgroundColor: "red" }}>
@@ -41,7 +40,6 @@ function Highlight() {
   };
   console.log("Index array ", index_array);
   console.log("removed word array ", removed_word_array);
-  let i = 0;
   //
   if (index_array.length <= 0) {
     return (
