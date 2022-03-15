@@ -39,13 +39,11 @@ function Highlight() {
     let i = 0;
     document.getElementById(
       str.focusNode.parentNode.id
-    ).innerHTML = `<span  id=${
-      new Date().valueOf() + 1
-    }  style="background-color:yellow;">${pre}</span><span  id=${
+    ).innerHTML = `<span  id=${new Date().valueOf() + 1} >${pre}</span>
+    <span  id=${
       new Date().valueOf() + 2
-    } style="background-color:red;">${rm_word}</span><span style="background-color:green;" id=${
-      new Date().valueOf() + 3
-    }>${post}</span>`;
+    } style="background-color:yellow;">${rm_word}</span>
+    <span id=${new Date().valueOf() + 3}>${post}</span>`;
   };
   console.log("Index array ", index_array);
   console.log("removed word array ", removed_word_array);
