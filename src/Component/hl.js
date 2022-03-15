@@ -9,61 +9,68 @@ function Highlight() {
   const [removed_word_array, set_Removed_word_array] = useState([]);
 
   const handlePush = () => {
-    debugger;
+    // debugger;
     const str = document.getSelection();
+    console.log(str);
+    console.log(str.focusNode.parentNode.id);
     console.log(str.toString());
     const range = str.getRangeAt(0); // index of selected string
     // console.log(range);
-    console.log(str.toString());
 
     const start = range.startOffset; // starting Index
     const end = start + str.toString().trim().length; // ending index
     // const newEnd = start + str.toString().trim().length;
-
     const updated_index_array = [...index_array, start];
     set_Index_array(updated_index_array); // Array of Index
 
     console.log("old ", start, end);
-    console.log(para);
+    // console.log(para);
     const removedWord = { start, word: para.substring(start, end).trim() };
     set_Removed_word_array([...removed_word_array, removedWord]); // array of removed words
 
-    const pre = para.substring(0, start);
-    const post = para.substring(end);
-    setPara(pre + " " + post);
+    const TextContent = str.focusNode.nodeValue;
+    console.log(TextContent);
+
+    const pre = TextContent.substring(0, start);
+    const post = TextContent.substring(end);
+    const rm_word = str.toString().trim();
+    // console.log(pre.props, post);
+    // setPara(pre + rm_word + post);
+    let i = 0;
+    document.getElementById(
+      str.focusNode.parentNode.id
+    ).innerHTML = `<span  id=${
+      i + 1
+    }  style="background-color:yellow;">${pre}</span><span  id=${
+      i + 2
+    } style="background-color:red;">${rm_word}</span><span style="background-color:green;" id=${
+      i + 3
+    }>${post}</span>`;
   };
   console.log("Index array ", index_array);
   console.log("removed word array ", removed_word_array);
   //
-  if (index_array.length <= 0) {
-    return (
-      <Box bg={"white"} m={20} p={10} rounded={"2xl"}>
-        <p id="new__para">{para}</p>
-        <Button onClick={handlePush}>Highlight</Button>
-      </Box>
-    );
-  } else {
-    return (
-      <Box bg={"white"} m={20} p={10} rounded={"2xl"}>
-        <p id="new__para">
-          {para.split("").map((word, index) =>
-            index_array.includes(index) ? (
-              <span key={index} style={{ backgroundColor: "yellow" }}>
-                {removed_word_array.map((item) => {
-                  if (item.start === index) {
-                    return item.word;
-                  }
-                })}
-              </span>
-            ) : (
-              word
-            )
-          )}
-        </p>
-        <Button onClick={handlePush}>Highlight</Button>
-      </Box>
-    );
-  }
+  return (
+    <Box bg={"white"} m={20} p={10} rounded={"2xl"}>
+      <p id="new__para">{para}</p>
+      <Button onClick={handlePush}>Highlight</Button>{" "}
+    </Box>
+  );
+  // if (index_array.length <= 0) {
+  //   return (
+  //     <Box bg={"white"} m={20} p={10} rounded={"2xl"}>
+  //       <p id="new__para">{para}</p>
+  //       <Button onClick={handlePush}>Highlight</Button>
+  //     </Box>
+  //   );
+  // } else {
+  //   return (
+  //     <Box bg={"white"} m={20} p={10} rounded={"2xl"}>
+  //       <span></span>
+  //       <Button onClick={handlePush}>Highlight</Button>
+  //     </Box>
+  //   );
+  // }
 }
 
 export default Highlight;
