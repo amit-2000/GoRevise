@@ -1,13 +1,13 @@
 import { Box } from "@chakra-ui/react";
 import "./App.css";
-import Create from "./Component/Create";
+// import Create from "./Component/Create";
 // import Highlight from "./Component/Highlight";
 import Highlight from "./Component/hl";
-import Home from "./Component/Home";
+// import Home from "./Component/Home";
 import Navbar from "./Component/Navbar";
-import Quiz from "./Component/Quiz";
-import Suffix from "./Component/Suffix";
-import Updated from "./Component/Updated";
+// import Quiz from "./Component/Quiz";
+// import Suffix from "./Component/Suffix";
+// import Updated from "./Component/Updated";
 function App() {
   return (
     <Box

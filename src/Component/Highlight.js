@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, Button } from "@chakra-ui/react";
 
 function Highlight() {
-  const [para, setPara] = useState(
+  const [para] = useState(
     "In, concat() is a string method that is used to concatenate strings together. The concat() method appends one or more string values to the calling string and then returns the concatenated result as a new string. Because the concat way to use this tool to begin a daily writing routine. One way is to generate a random paragraph with the intention to try to rewrite it while still keeping the original meaning. The purpose here is to just get the writing started so that when the writer goes onto their day's writing projects, words are already flowing from their fingers."
   );
   let [index_array, set_Index_array] = useState([]);
@@ -25,7 +25,7 @@ function Highlight() {
       ...removed_word_array,
       para.substring(start, end).trim(),
     ]); // array of removed words
-   
+
     // let p = para.split("").map((word, index) =>
     //   index_array.includes(index) ? (
     //     <span key={index} style={{ backgroundColor: "red" }}>
