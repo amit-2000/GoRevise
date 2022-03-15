@@ -34,17 +34,17 @@ function Highlight() {
     const pre = TextContent.substring(0, start);
     const post = TextContent.substring(end);
     const rm_word = str.toString().trim();
-    // console.log(pre.props, post);
+    console.log(new Date().valueOf());
     // setPara(pre + rm_word + post);
     let i = 0;
     document.getElementById(
       str.focusNode.parentNode.id
     ).innerHTML = `<span  id=${
-      i + 1
+      new Date().valueOf() + 1
     }  style="background-color:yellow;">${pre}</span><span  id=${
-      i + 2
+      new Date().valueOf() + 2
     } style="background-color:red;">${rm_word}</span><span style="background-color:green;" id=${
-      i + 3
+      new Date().valueOf() + 3
     }>${post}</span>`;
   };
   console.log("Index array ", index_array);
@@ -56,21 +56,6 @@ function Highlight() {
       <Button onClick={handlePush}>Highlight</Button>{" "}
     </Box>
   );
-  // if (index_array.length <= 0) {
-  //   return (
-  //     <Box bg={"white"} m={20} p={10} rounded={"2xl"}>
-  //       <p id="new__para">{para}</p>
-  //       <Button onClick={handlePush}>Highlight</Button>
-  //     </Box>
-  //   );
-  // } else {
-  //   return (
-  //     <Box bg={"white"} m={20} p={10} rounded={"2xl"}>
-  //       <span></span>
-  //       <Button onClick={handlePush}>Highlight</Button>
-  //     </Box>
-  //   );
-  // }
 }
 
 export default Highlight;
