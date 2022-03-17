@@ -1,5 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import "./App.css";
+import Contact from "./Component/Contact";
 // import Create from "./Component/Create";
 import Highlight from "./Component/Highlight";
 // import Highlight from "./Component/hl";
@@ -18,7 +19,8 @@ function App() {
       bgSize={"cover"}
     >
       <Navbar color={"white"} />
-      <Highlight />
+      {/* <Highlight /> */}
+      <Contact />
     </Box>
   );
 }

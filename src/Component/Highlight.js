@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { Box, Button } from "@chakra-ui/react";
+import { Box, Button, HStack, Text, Stack } from "@chakra-ui/react";
+import { BiUndo, BiRedo, BiPencil, BiReset, BiCheck } from "react-icons/bi";
 import "./highlight.css";
+
 function Highlight() {
   const [para] = useState(
     "Many novice writers tend to make a sharp distinction between content and style, thinking that a paper can be strong in one and weak in the other, but focusing on organization shows how content and style converge in deliberative academic writing. Your professors will view even the most elegant prose as rambling and tedious if there isn’t a careful, coherent argument to give the text meaning. Paragraphs are the “stuff ” of academic writing and, thus, worth our attention here."
@@ -44,7 +46,6 @@ function Highlight() {
   // console.log("Index array ", index_array);
   // console.log("removed word array ", removed_word_array);
 
-  //
   const handleReplace = () => {
     index_array.map((id, idx) => {
       return (document.getElementById(id).innerHTML = `<input id=${
@@ -72,12 +73,55 @@ function Highlight() {
       }
     });
   };
+
   return (
-    <Box bg={"white"} m={20} p={10} rounded={"2xl"}>
-      <p id="new__para">{para}</p>
-      <Button onClick={handlePush}>Highlight</Button>{" "}
-      <Button onClick={handleReplace}>Done</Button>{" "}
-      <Button onClick={handleSubmit}>Submit</Button>{" "}
+    <Box bg={"white"} m={20} rounded={"2xl"}>
+      <HStack
+        bg="black"
+        color="white"
+        px={"96"}
+        justifyContent={"space-around"}
+        alignItems={"center"}
+        roundedTop={"2xl"}
+        py={5}
+      >
+        <Box>
+          <BiUndo fontSize={"30px"} color={"cyan"} />
+          <Text>Undo</Text>
+        </Box>
+        <Box>
+          <BiRedo fontSize={"30px"} color={"cyan"} />
+          <Text>Redo</Text>
+        </Box>
+        <Box>
+          <BiPencil fontSize={"30px"} color={"cyan"} />
+          <Text>Highlight</Text>
+        </Box>
+        <Box>
+          <BiReset fontSize={"30px"} color={"cyan"} />
+          <Text>Restart</Text>
+        </Box>
+        <Box>
+          <BiCheck fontSize={"30px"} color={"cyan"} />
+          <Text>Done</Text>
+        </Box>
+      </HStack>
+      <Stack p={10}>
+        <Text id="new_para" as={"p"} fontSize={"lg"}>
+          {para}
+        </Text>
+        <Box p={5}>
+          <Button mx={5} onClick={handlePush}>
+            Highlight
+          </Button>
+          <Button mx={5} onClick={handleReplace}>
+            Done
+          </Button>
+          <Button mx={5} onClick={handleSubmit}>
+            Submit
+          </Button>
+        </Box>
+      </Stack>
     </Box>
   );
 }
