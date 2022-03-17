@@ -1,27 +1,40 @@
 import { Box } from "@chakra-ui/react";
 import "./App.css";
 import Contact from "./Component/Contact";
-// import Create from "./Component/Create";
+import Create from "./Component/Create";
 import Highlight from "./Component/Highlight";
-// import Highlight from "./Component/hl";
-// import Home from "./Component/Home";
+import Home from "./Component/Home";
 import Navbar from "./Component/Navbar";
-// import Quiz from "./Component/Quiz";
-// import Suffix from "./Component/Suffix";
-// import Updated from "./Component/Updated";
+import Quiz from "./Component/Quiz";
+import Suffix from "./Component/Suffix";
+import Updated from "./Component/Updated";
+import Input from "./Component/Input";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Routes,
+  Link
+} from "react-router-dom";
+
+
+
 function App() {
   return (
-    <Box
-      className="App"
-      minH={"100vh"}
-      bgImage={"/bg.png"}
-      bgRepeat={"no-repeat"}
-      bgSize={"cover"}
-    >
-      <Navbar color={"white"} />
-      {/* <Highlight /> */}
-      <Contact />
-    </Box>
+    
+    <Router>
+      <Routes>
+        <Route path="/" exact element={<Home/>}/>
+        <Route path="/quiz" exact element={<Quiz/>}/>
+        <Route path="/highlight" exact element={<Highlight/>}/>
+        <Route path="/create" exact element={<Create/>}/>
+        <Route path="/contact" exact element={<Contact/>}/>
+        <Route path="/input" exact element={<Input/>}/>
+        <Route path="/suffix" exact element={<Suffix/>}/>
+        <Route path="/updated" exact element={<Updated/>}/>
+      </Routes>
+    </Router>
+
   );
 }
 

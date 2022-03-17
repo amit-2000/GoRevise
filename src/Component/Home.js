@@ -9,9 +9,20 @@ import {
     Image,
     IconButton,
 } from '@chakra-ui/react';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Routes,
+    Link
+  } from "react-router-dom";
+import Navbar from './Navbar';
+import Quiz from './Quiz';
 
 export default function Home() {
     return (
+    <>
+        <Navbar/>
         <Container maxW={'7xl'} minH={'100vh'}>
             <Stack
                 align={'center'}
@@ -45,7 +56,7 @@ export default function Home() {
                             _hover={{ bg: 'cyan.500' }}
                             _focus={{ border: 'none' }}
                         >
-                            Get started
+                        <Link to="/create">Get started</Link>
                         </Button>
                     </Stack>
                 </Stack>
@@ -87,5 +98,6 @@ export default function Home() {
                 </Flex>
             </Stack>
         </Container>
+    </>
     );
 }

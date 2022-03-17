@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 import { Box, Button, HStack, Text, Stack } from "@chakra-ui/react";
 import { BiUndo, BiRedo, BiPencil, BiReset, BiCheck } from "react-icons/bi";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Routes,
+  Link
+} from "react-router-dom";
+import Navbar from './Navbar';
 import "./highlight.css";
 
 function Highlight() {
@@ -75,6 +83,8 @@ function Highlight() {
   };
 
   return (
+    <>
+      <Navbar/>
     <Box bg={"white"} m={20} rounded={"2xl"}>
       <HStack
         bg="black"
@@ -118,11 +128,12 @@ function Highlight() {
             Done
           </Button>
           <Button mx={5} onClick={handleSubmit}>
-            Submit
+          <Link to="/quiz">Submit</Link>
           </Button>
         </Box>
       </Stack>
     </Box>
+    </>
   );
 }
 
