@@ -22,10 +22,12 @@ import {
   MdOutlineEmail,
 } from "react-icons/md";
 import { BsPerson } from "react-icons/bs";
-
+import Navbar from './Navbar';
 export default function Contact() {
   return (
-    <Container maxW="full" centerContent overflow="hidden">
+    <>
+        <Navbar/>
+    <Container maxW="full" centerContent overflow="hidden"  bgImage={"/bg.png"} minH={"100vh"} bgRepeat={"no-repeat"} bgSize={"cover"}>
       <Flex>
         <Box
           bg="black"
@@ -133,5 +135,6 @@ export default function Contact() {
         </Box>
       </Flex>
     </Container>
+    </>
   );
 }

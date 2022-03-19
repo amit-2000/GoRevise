@@ -1,9 +1,18 @@
 import { Box, Button, Center, Flex, Heading, Text } from '@chakra-ui/react'
 import React from 'react'
 import { MdOutlineCreate } from 'react-icons/md';
-
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Routes,
+    Link
+  } from "react-router-dom";
+  import Navbar from './Navbar';
 function Create() {
     return (
+        <>
+        <Navbar/>
         <Center minH={'100vh'}>
             <Flex h={'sm'} w={'sm'} bg={'gray.100'} flexDir={'column'} justifyContent={'space-around'} alignItems={'center'} rounded={'xl'}>
                 <Box textAlign={'center'}>
@@ -21,11 +30,12 @@ function Create() {
                         _focus={{ border: 'none' }}
                     >
                         <MdOutlineCreate fontSize={'24px'}/>
-                        Create
+                        <Link to="/highlight">Create</Link>
                     </Button>
                 </Box>
             </Flex>
         </Center>
+        </>
     )
 }
 
