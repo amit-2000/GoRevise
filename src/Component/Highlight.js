@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { Box, Button, HStack, Text, Stack } from "@chakra-ui/react";
+import { Box, Button, HStack, Text, Stack, Flex } from "@chakra-ui/react";
 import { BiUndo, BiRedo, BiPencil, BiReset, BiCheck } from "react-icons/bi";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Routes,
-  Link
+  Link,
 } from "react-router-dom";
-import Navbar from './Navbar';
+import Navbar from "./Navbar";
 import "./highlight.css";
 
 function Highlight() {
@@ -17,7 +17,7 @@ function Highlight() {
   );
   let [index_array, set_Index_array] = useState([]);
   const [removed_word_array, set_Removed_word_array] = useState([]);
-
+  const [toogle, setToggle] = useState(false);
   const handlePush = () => {
     // debugger;
     const str = document.getSelection();
@@ -69,6 +69,8 @@ function Highlight() {
       return ans_array.push({ val, id });
     });
     // console.log(ans_array);
+    setToggle(true);
+
     index_array.map((id, idx) => {
       if (removed_word_array[idx] === ans_array[idx].val) {
         return (document.getElementById(
@@ -84,39 +86,51 @@ function Highlight() {
 
   return (
     <>
-      <Navbar/>
-    <Box bg={"white"} m={20} rounded={"2xl"}>
-      <HStack
-        bg="black"
-        color="white"
-        px={"96"}
-        justifyContent={"space-around"}
-        alignItems={"center"}
-        roundedTop={"2xl"}
-        py={5}
-      >
-        <Box>
-          <BiUndo fontSize={"30px"} color={"cyan"} />
-          <Text>Undo</Text>
-        </Box>
-        <Box>
-          <BiRedo fontSize={"30px"} color={"cyan"} />
-          <Text>Redo</Text>
-        </Box>
-        <Box>
-          <BiPencil fontSize={"30px"} color={"cyan"} />
-          <Text>Highlight</Text>
-        </Box>
-        <Box>
-          <BiReset fontSize={"30px"} color={"cyan"} />
-          <Text>Restart</Text>
-        </Box>
-        <Box>
-          <BiCheck fontSize={"30px"} color={"cyan"} />
-          <Text>Done</Text>
-        </Box>
-      </HStack>
-      <Stack p={10}>
+      <Navbar />
+      <Box bg={"white"} m={20} rounded={"2xl"}>
+        <HStack
+          bg="black"
+          color="white"
+          px={"96"}
+          justifyContent={"space-around"}
+          alignItems={"center"}
+          roundedTop={"2xl"}
+          py={2}
+        >
+          <Box mx={5}>
+            <BiUndo fontSize={"30px"} color={"cyan"} />
+            <Text>Undo</Text>
+          </Box>
+          <Box mx={5}>
+            <BiRedo fontSize={"30px"} color={"cyan"} />
+            <Text>Redo</Text>
+          </Box>
+          {!toogle ? (
+            <Box>
+              <Flex justifyContent={"space-around"}>
+                <Box onClick={handlePush} mx={5}>
+                  <BiPencil fontSize={"30px"} color={"cyan"} />
+                  <Text>Highlight</Text>
+                </Box>
+
+                <Box onClick={handleReplace} mx={5}>
+                  <BiCheck fontSize={"30px"} color={"cyan"} />
+                  <Text>Done</Text>
+                </Box>
+                <Box onClick={handleSubmit} mx={5}>
+                  <BiCheck fontSize={"30px"} color={"cyan"} />
+                  <Text>Submit</Text>
+                </Box>
+              </Flex>
+            </Box>
+          ) : (
+            <Box onClick={handleSubmit}>
+              <BiCheck fontSize={"30px"} color={"cyan"} />
+              <Text>Submit</Text>
+            </Box>
+          )}
+        </HStack>
+        {/* <Stack p={10}> */}
         <Text id="new_para" as={"p"} fontSize={"lg"}>
           {para}
         </Text>
@@ -128,11 +142,11 @@ function Highlight() {
             Done
           </Button>
           <Button mx={5} onClick={handleSubmit}>
-          <Link to="/quiz">Submit</Link>
+            Submit
           </Button>
         </Box>
-      </Stack>
-    </Box>
+        {/* </Stack> */}
+      </Box>
     </>
   );
 }

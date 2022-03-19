@@ -1,12 +1,6 @@
 import React from "react";
-import { Box, Button, Center, Flex, Heading, Text } from '@chakra-ui/react'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Routes,
-  Link
-} from "react-router-dom";
+import { Box, Button, Center, Flex, Heading, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 function Navbar({ color }) {
   return (
     <Center>
@@ -29,10 +23,10 @@ function Navbar({ color }) {
             justifyContent={"space-between"}
             alignItems={"center"}
           >
-            <Button size={'xl'}>
+            <Button size={"xl"} p={2}>
               <Link to="/">Home</Link>
             </Button>
-            <Button size={'xl'}>
+            <Button size={"xl"} p={2}>
               <Link to="/contact">Contact</Link>
             </Button>
           </Flex>
