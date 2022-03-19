@@ -32,7 +32,7 @@ function Quiz() {
                         _focus={{ border: 'none' }}
                     >
                         <MdOutlineCreate fontSize={'24px'} />
-                        <Link to="/suffix">Quiz</Link>
+                        <Link to="/">Quiz</Link>
                     </Button>
                 </Box>
             </Flex>
