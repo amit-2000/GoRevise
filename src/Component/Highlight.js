@@ -18,11 +18,13 @@ function Highlight() {
   let [index_array, set_Index_array] = useState([]);
   const [removed_word_array, set_Removed_word_array] = useState([]);
   const [toogle, setToggle] = useState(false);
+  const [correct_ans, setCorrect_ans] = useState([]);
+  const [wrong_ans, setWrong_ans] = useState([]);
   const handlePush = () => {
     // debugger;
     const str = document.getSelection();
     // console.log(str.focusNode.parentNode.id);
-    // console.log(str.toString());
+    console.log(str.toString());
     const range = str.getRangeAt(0); // index of selected string
     // console.log(range);
 
@@ -32,7 +34,7 @@ function Highlight() {
     // console.log("old ", start, end);
 
     const TextContent = str.focusNode.nodeValue;
-    // console.log(TextContent);
+    console.log(str.focusNode.parentNode.id);
 
     const pre = TextContent.substring(0, start); // pre content
     const post = TextContent.substring(end); // post content
@@ -68,34 +70,42 @@ function Highlight() {
       let val = document.getElementById(id + "b").value;
       return ans_array.push({ val, id });
     });
+    if (index_array.length > 0) {
+      setToggle(true);
+    }
     // console.log(ans_array);
-    setToggle(true);
 
     index_array.map((id, idx) => {
       if (removed_word_array[idx] === ans_array[idx].val) {
+        const ca = [...correct_ans, 0];
+        setCorrect_ans(ca);
         return (document.getElementById(
           id
         ).innerHTML = `<span class="correct">${ans_array[idx].val}</span>`);
       } else {
+        const wa = [...wrong_ans, 0];
+        setCorrect_ans(wa);
         return (document.getElementById(
           id
         ).innerHTML = `<span class="wrong">${ans_array[idx].val}</span>`);
       }
     });
   };
+  console.log(correct_ans.length, " ", wrong_ans.length);
 
   return (
     <>
       <Navbar />
       <Box bg={"white"} m={20} rounded={"2xl"}>
         <HStack
+          my={5}
           bg="black"
           color="white"
           px={"96"}
           justifyContent={"space-around"}
           alignItems={"center"}
           roundedTop={"2xl"}
-          py={2}
+          py={1}
         >
           <Box mx={5}>
             <BiUndo fontSize={"30px"} color={"cyan"} />
@@ -105,19 +115,20 @@ function Highlight() {
             <BiRedo fontSize={"30px"} color={"cyan"} />
             <Text>Redo</Text>
           </Box>
+          {/* Fix handlePush bug */}
           {!toogle ? (
             <Box>
               <Flex justifyContent={"space-around"}>
-                <Box onClick={handlePush} mx={5}>
-                  <BiPencil fontSize={"30px"} color={"cyan"} />
+                <Box mx={5} onClick={handlePush}>
+                  <BiCheck fontSize={"30px"} color={"cyan"} />
                   <Text>Highlight</Text>
                 </Box>
 
-                <Box onClick={handleReplace} mx={5}>
+                <Box mx={5} onClick={handleReplace}>
                   <BiCheck fontSize={"30px"} color={"cyan"} />
                   <Text>Done</Text>
                 </Box>
-                <Box onClick={handleSubmit} mx={5}>
+                <Box mx={5} onClick={handleSubmit}>
                   <BiCheck fontSize={"30px"} color={"cyan"} />
                   <Text>Submit</Text>
                 </Box>
