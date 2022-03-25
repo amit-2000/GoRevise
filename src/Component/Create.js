@@ -2,10 +2,6 @@ import { Box, Button, Center, Flex, Heading, Text } from '@chakra-ui/react'
 import React from 'react'
 import { MdOutlineCreate } from 'react-icons/md';
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Routes,
     Link
   } from "react-router-dom";
   import Navbar from './Navbar';

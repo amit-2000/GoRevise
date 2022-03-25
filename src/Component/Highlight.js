@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { Box, Button, HStack, Text, Stack, Flex } from "@chakra-ui/react";
-import { BiUndo, BiRedo, BiPencil, BiReset, BiCheck } from "react-icons/bi";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Routes,
-  Link,
-} from "react-router-dom";
+import { Box, Button, HStack, Text, Flex } from "@chakra-ui/react";
+import { BiUndo, BiRedo, BiCheck } from "react-icons/bi";
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route,
+//   Routes,
+//   Link,
+// } from "react-router-dom";
 import Navbar from "./Navbar";
 import "./highlight.css";
 
@@ -19,7 +19,7 @@ function Highlight() {
   const [removed_word_array, set_Removed_word_array] = useState([]);
   const [toogle, setToggle] = useState(false);
   const [correct_ans, setCorrect_ans] = useState([]);
-  const [wrong_ans, setWrong_ans] = useState([]);
+  const [wrong_ans] = useState([]);
   const handlePush = () => {
     // debugger;
     const str = document.getSelection();
@@ -108,38 +108,70 @@ function Highlight() {
           py={1}
         >
           <Box mx={5}>
-          <Button color={"cyan"} backgroundColor={"black"} _hover={"black"}>
-            <BiUndo fontSize={"30px"} color={"cyan"} onClick={handleReplace}/>
-          </Button>
+            <Button color={"cyan"} backgroundColor={"black"} _hover={"black"}>
+              <BiUndo
+                fontSize={"30px"}
+                color={"cyan"}
+                onClick={handleReplace}
+              />
+            </Button>
             <Text className="textshift">Undo</Text>
           </Box>
-        
+
           <Box mx={5}>
-          <Button color={"cyan"} backgroundColor={"black"} _hover={"black"}>
-            <BiRedo fontSize={"30px"} color={"cyan"} onClick={handleReplace} />
-          </Button>
-          <Text className="textshift">Redo</Text>
+            <Button color={"cyan"} backgroundColor={"black"} _hover={"black"}>
+              <BiRedo
+                fontSize={"30px"}
+                color={"cyan"}
+                onClick={handleReplace}
+              />
+            </Button>
+            <Text className="textshift">Redo</Text>
           </Box>
           {/* Fix handlePush bug */}
           {!toogle ? (
             <Box>
               <Flex justifyContent={"space-around"}>
                 <Box mx={5}>
-                <Button color={"cyan"} backgroundColor={"black"} _hover={"black"}>
-                  <BiUndo fontSize={"30px"} color={"cyan"} onClick={handlePush}/>
-                </Button>
+                  <Button
+                    color={"cyan"}
+                    backgroundColor={"black"}
+                    _hover={"black"}
+                  >
+                    <BiUndo
+                      fontSize={"30px"}
+                      color={"cyan"}
+                      onClick={handlePush}
+                    />
+                  </Button>
                   <Text className="textshift">Highlight</Text>
                 </Box>
                 <Box mx={5}>
-                <Button color={"cyan"} backgroundColor={"black"} _hover={"black"}>
-                  <BiCheck fontSize={"30px"} color={"cyan"} onClick={handleReplace}/>
-                </Button>
+                  <Button
+                    color={"cyan"}
+                    backgroundColor={"black"}
+                    _hover={"black"}
+                  >
+                    <BiCheck
+                      fontSize={"30px"}
+                      color={"cyan"}
+                      onClick={handleReplace}
+                    />
+                  </Button>
                   <Text className="textshift">Done</Text>
                 </Box>
                 <Box mx={5} onClick={handleSubmit}>
-                <Button color={"cyan"} backgroundColor={"black"} _hover={"black"}>
-                  <BiCheck fontSize={"30px"} color={"cyan"} onClick={handleSubmit}/>
-                </Button>  
+                  <Button
+                    color={"cyan"}
+                    backgroundColor={"black"}
+                    _hover={"black"}
+                  >
+                    <BiCheck
+                      fontSize={"30px"}
+                      color={"cyan"}
+                      onClick={handleSubmit}
+                    />
+                  </Button>
                   <Text className="textshift">Submit</Text>
                 </Box>
               </Flex>

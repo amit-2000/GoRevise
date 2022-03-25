@@ -10,14 +10,10 @@ import {
     IconButton,
 } from '@chakra-ui/react';
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Routes,
     Link
   } from "react-router-dom";
 import Navbar from './Navbar';
-import Quiz from './Quiz';
+// import Quiz from './Quiz';
 
 export default function Home() {
     return (
