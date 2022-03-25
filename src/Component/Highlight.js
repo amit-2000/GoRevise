@@ -108,29 +108,39 @@ function Highlight() {
           py={1}
         >
           <Box mx={5}>
-            <BiUndo fontSize={"30px"} color={"cyan"} />
-            <Text>Undo</Text>
+          <Button color={"cyan"} backgroundColor={"black"} _hover={"black"}>
+            <BiUndo fontSize={"30px"} color={"cyan"} onClick={handleReplace}/>
+          </Button>
+            <Text className="textshift">Undo</Text>
           </Box>
+        
           <Box mx={5}>
-            <BiRedo fontSize={"30px"} color={"cyan"} />
-            <Text>Redo</Text>
+          <Button color={"cyan"} backgroundColor={"black"} _hover={"black"}>
+            <BiRedo fontSize={"30px"} color={"cyan"} onClick={handleReplace} />
+          </Button>
+          <Text className="textshift">Redo</Text>
           </Box>
           {/* Fix handlePush bug */}
           {!toogle ? (
             <Box>
               <Flex justifyContent={"space-around"}>
-                <Box mx={5} onClick={handlePush}>
-                  <BiCheck fontSize={"30px"} color={"cyan"} />
-                  <Text>Highlight</Text>
+                <Box mx={5}>
+                <Button color={"cyan"} backgroundColor={"black"} _hover={"black"}>
+                  <BiUndo fontSize={"30px"} color={"cyan"} onClick={handlePush}/>
+                </Button>
+                  <Text className="textshift">Highlight</Text>
                 </Box>
-
-                <Box mx={5} onClick={handleReplace}>
-                  <BiCheck fontSize={"30px"} color={"cyan"} />
-                  <Text>Done</Text>
+                <Box mx={5}>
+                <Button color={"cyan"} backgroundColor={"black"} _hover={"black"}>
+                  <BiCheck fontSize={"30px"} color={"cyan"} onClick={handleReplace}/>
+                </Button>
+                  <Text className="textshift">Done</Text>
                 </Box>
                 <Box mx={5} onClick={handleSubmit}>
-                  <BiCheck fontSize={"30px"} color={"cyan"} />
-                  <Text>Submit</Text>
+                <Button color={"cyan"} backgroundColor={"black"} _hover={"black"}>
+                  <BiCheck fontSize={"30px"} color={"cyan"} onClick={handleSubmit}/>
+                </Button>  
+                  <Text className="textshift">Submit</Text>
                 </Box>
               </Flex>
             </Box>
@@ -145,17 +155,17 @@ function Highlight() {
         <Text id="new_para" as={"p"} fontSize={"lg"}>
           {para}
         </Text>
-        <Box p={5}>
+        {/*<Box p={5}>
           <Button mx={5} onClick={handlePush}>
             Highlight
           </Button>
           <Button mx={5} onClick={handleReplace}>
-            Done
+            Done</Box>
           </Button>
           <Button mx={5} onClick={handleSubmit}>
             Submit
           </Button>
-        </Box>
+        </Box>*/}
         {/* </Stack> */}
       </Box>
     </>
