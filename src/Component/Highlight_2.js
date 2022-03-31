@@ -1,0 +1,36 @@
+import React, { useState } from "react";
+import "./highlightCSS.css";
+function HighlightTwo() {
+  const [para] = useState(
+    "Many novice writers tend to make a sharp distinction between content and style, thinking that a paper can be strong in one and weak in the other, but focusing on organization shows how content and style converge in deliberative academic writing. Your professors will view even the most elegant prose as rambling and tedious if there isn’t a careful, coherent argument to give the text meaning. Paragraphs are the “stuff ” of academic writing and, thus, worth our attention here."
+  );
+
+  const str_arr = para.split(" ");
+  const [index, setIndex] = useState([]);
+  console.log(index);
+  const handleHighlight = (e, idx) => {
+    e.preventDefault();
+    const new_index = [...index, idx];
+    setIndex(new_index);
+  };
+
+  return (
+    <div>
+      <p>
+        {str_arr.map((item, idx) => {
+          return (
+            <span
+              key={idx}
+              onClick={(e) => handleHighlight(e, idx)}
+              className={index.includes(idx) ? "highlight" : "hover-item"}
+            >
+              {item}{" "}
+            </span>
+          );
+        })}
+      </p>
+    </div>
+  );
+}
+
+export default HighlightTwo;

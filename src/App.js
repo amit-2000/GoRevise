@@ -2,7 +2,7 @@
 import "./App.css";
 import Contact from "./Component/Contact";
 import Create from "./Component/Create";
-import Highlight from "./Component/Highlight";
+// import Highlight from "./Component/Highlight";
 import Home from "./Component/Home";
 // import Navbar from "./Component/Navbar";
 import Quiz from "./Component/Quiz";
@@ -16,6 +16,7 @@ import {
   Routes,
   // Link
 } from "react-router-dom";
+import HighlightTwo from "./Component/Highlight_2";
 
 function App() {
   return (
@@ -23,7 +24,8 @@ function App() {
       <Routes>
         <Route path="/" exact element={<Home />} />
         <Route path="/quiz" exact element={<Quiz />} />
-        <Route path="/highlight" exact element={<Highlight />} />
+        {/* <Route path="/highlight" exact element={<Highlight />} /> */}
+        <Route path="/highlight" exact element={<HighlightTwo />} />
         <Route path="/create" exact element={<Create />} />
         <Route path="/contact" exact element={<Contact />} />
         <Route path="/input" exact element={<Input />} />

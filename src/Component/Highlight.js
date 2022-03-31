@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import { Box, Button, HStack, Text, Flex } from "@chakra-ui/react";
 import { BiUndo, BiRedo, BiCheck } from "react-icons/bi";
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route,
-//   Routes,
-//   Link,
-// } from "react-router-dom";
+
 import Navbar from "./Navbar";
 import "./highlight.css";
 
