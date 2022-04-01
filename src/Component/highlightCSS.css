@@ -5,3 +5,7 @@
 .highlight{
     background-color:rgb(170, 170, 170);
 }
+
+.highlight__yellow{
+    background-color: yellow;
+}

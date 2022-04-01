@@ -47,8 +47,7 @@ function Highlight() {
     <span  id=${new_target_id} class="selected__text__hl" >${rm_word}</span>
     <span id=${new Date().valueOf() + 3}>${post}</span>`;
   };
-  // console.log("Index array ", index_array);
-  // console.log("removed word array ", removed_word_array);
+
 
   const handleReplace = () => {
     index_array.map((id, idx) => {
