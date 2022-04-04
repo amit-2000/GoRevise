@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const InputChange = ({ index, str_arr }) => {
   //   const [inp_arr, setInp__arr] = useState([]);
@@ -17,6 +17,7 @@ const InputChange = ({ index, str_arr }) => {
         const val = document.getElementById(idx).value;
         ans_array.push(val);
       }
+      return 0;
     });
     index.map((item, idx) => {
       //   console.log(ans_array);
@@ -34,14 +35,16 @@ const InputChange = ({ index, str_arr }) => {
         str_arr[item] = ans_array[idx];
         console.log("Wrong");
       }
+      return 0;
     });
-    let itr = 0;
-    str_arr.map((item, idx) => {
-      if (index.includes(idx)) {
-        console.log(idx);
-        const val = ans_array[itr++];
-      }
-    });
+    // let itr = 0;
+    // str_arr.map((item, idx) => {
+    //   if (index.includes(idx)) {
+    //     console.log(idx);
+    //     // const val = ans_array[itr++];
+    //   }
+    //   return 0;
+    // });
   };
   return (
     <div>
