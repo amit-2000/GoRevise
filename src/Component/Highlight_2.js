@@ -27,7 +27,7 @@ function HighlightTwo() {
     <div>
       <p>
         {inp ? (
-          <InputChange index={index} str_arr={str_arr} />
+          <InputChange id="" index={index} str_arr={str_arr} />
         ) : toogle ? (
           str_arr.map((item, idx) => {
             return (
