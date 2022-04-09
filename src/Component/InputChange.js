@@ -1,13 +1,7 @@
-import React from "react";
-
+import React, { useState } from "react";
+import Result from "./Result";
 const InputChange = ({ index, str_arr }) => {
-  //   const [inp_arr, setInp__arr] = useState([]);
-  //   const handleInpute = (e) => {
-  //     const val = [...inp_arr, e.target.value];
-  //     setInp__arr(val);
-  //   };
-  //   console.log(inp_arr);
-
+  const [submit, setSubmit] = useState(false);
   const handleSubmit = () => {
     console.log("Helllooo");
     index.sort();
@@ -19,24 +13,25 @@ const InputChange = ({ index, str_arr }) => {
       }
       return 0;
     });
+
     index.map((item, idx) => {
       //   console.log(ans_array);
-      const prevVal = str_arr[item].trim();
-      if (prevVal === ans_array[idx]) {
-        debugger;
+      const prevVal = str_arr[item]; // old value at index[item].
 
-        // console.log(prevVal, ans_array[idx]);
-        str_arr[item] = ans_array[idx];
-        document.getElementById(
-          idx
-        ).innerHTML = `<span class="correct">${ans_array[idx]}</span>`;
+      if (prevVal === ans_array[idx]) {
+        // debugger;
+        const inp_obj = { item: ans_array[idx], result: true };
+        str_arr[item] = inp_obj;
       } else {
         // console.log(prevVal, ans_array[idx]);
-        str_arr[item] = ans_array[idx];
+        const inp_obj = { item: ans_array[idx], result: false };
+        str_arr[item] = inp_obj;
         console.log("Wrong");
       }
       return 0;
     });
+    setSubmit(true);
+
     // let itr = 0;
     // str_arr.map((item, idx) => {
     //   if (index.includes(idx)) {
@@ -46,13 +41,24 @@ const InputChange = ({ index, str_arr }) => {
     //   return 0;
     // });
   };
+  console.log(submit);
   return (
     <div>
-      {str_arr.map((item, idx) => {
+      {submit ? (
+        <Result str_arr={str_arr} />
+      ) : (
+        str_arr.map((item, idx) => {
+          if (index.includes(idx)) {
+            return <input id={idx}></input>;
+          } else return <span key={idx}>{item} </span>;
+        })
+      )}
+      {/* {str_arr.map((item, idx) => {
         if (index.includes(idx)) {
           return <input id={idx}></input>;
         } else return <span key={idx}>{item} </span>;
-      })}
+      })} */}
+      <br></br>
       <button onClick={handleSubmit}>Submit</button>
     </div>
   );
