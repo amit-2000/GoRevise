@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import "./highlightCSS.css";
+import { Box, Button, HStack, Text, Flex } from "@chakra-ui/react";
+import { BiUndo, BiRedo, BiCheck } from "react-icons/bi";
+import Navbar from "./Navbar";
 import InputChange from "./InputChange";
 function HighlightTwo() {
   const [para] = useState(
@@ -7,8 +10,10 @@ function HighlightTwo() {
   );
   const [toogle, setToggle] = useState(false);
   const [inp, setInp] = useState(false);
-  const str_arr = para.split(" ");
+  // const str_arr = para.split(" ");
+  const [str_arr, setStr_arr] = useState(para.split(" "));
   const [index, setIndex] = useState([]);
+  const [submit, setSubmit] = useState(false);
   console.log(index);
   const handleHighlight = (e, idx) => {
     setToggle(false);
@@ -20,46 +25,169 @@ function HighlightTwo() {
     setToggle(true);
   };
   const handleInput = () => {
+    // debugger;
     setInp(true);
     // setToggle(false);
   };
+  const handleSubmit = () => {
+    console.log("Helllooo");
+    index.sort();
+    const ans_array = [];
+    str_arr.map((item, idx) => {
+      if (index.includes(idx)) {
+        const val = document.getElementById(idx).value;
+        ans_array.push(val);
+      }
+      return 0;
+    });
+
+    index.map((item, idx) => {
+      //   console.log(ans_array);
+      const prevVal = str_arr[item]; // old value at index[item].
+
+      if (prevVal === ans_array[idx]) {
+        // debugger;
+        const inp_obj = { item: ans_array[idx], result: true };
+        str_arr[item] = inp_obj;
+        const new_str_arr = str_arr;
+        setStr_arr(new_str_arr);
+      } else {
+        // console.log(prevVal, ans_array[idx]);
+        const inp_obj = { item: ans_array[idx], result: false };
+        str_arr[item] = inp_obj;
+        const new_str_arr = str_arr;
+        setStr_arr(new_str_arr);
+        console.log("Wrong");
+      }
+      return 0;
+    });
+    // debugger;
+    console.log(str_arr);
+    // setStr_arr(str_arr);
+    setSubmit(true);
+
+    // let itr = 0;
+    // str_arr.map((item, idx) => {
+    //   if (index.includes(idx)) {
+    //     console.log(idx);
+    //     // const val = ans_array[itr++];
+    //   }
+    //   return 0;
+    // });
+  };
   return (
-    <div>
-      <p>
-        {inp ? (
-          <InputChange id="" index={index} str_arr={str_arr} />
-        ) : toogle ? (
-          str_arr.map((item, idx) => {
-            return (
-              <span
-                key={idx}
-                onClick={(e) => handleHighlight(e, idx)}
-                className={
-                  index.includes(idx) ? "highlight__yellow" : "hover-item"
-                }
-              >
-                {item}{" "}
-              </span>
-            );
-          })
-        ) : (
-          str_arr.map((item, idx) => {
-            return (
-              <span
-                key={idx}
-                onClick={(e) => handleHighlight(e, idx)}
-                className={index.includes(idx) ? "highlight" : "hover-item"}
-              >
-                {item}{" "}
-              </span>
-            );
-          })
-        )}
-      </p>
-      <button onClick={highlight}>Highlight</button>
-      <br></br>
-      <button onClick={handleInput}>Done</button>
-    </div>
+    <>
+      <Navbar />
+      <Box bg={"white"} m={20} rounded={"2xl"}>
+        <HStack
+          my={5}
+          bg="black"
+          color="white"
+          px={"96"}
+          justifyContent={"space-around"}
+          alignItems={"center"}
+          roundedTop={"2xl"}
+          py={1}
+        >
+          <Box mx={5}>
+            <Button color={"cyan"} backgroundColor={"black"} _hover={"black"}>
+              <BiUndo fontSize={"30px"} color={"cyan"} />
+            </Button>
+            <Text className="textshift">Undo</Text>
+          </Box>
+
+          <Box mx={5}>
+            <Button color={"cyan"} backgroundColor={"black"} _hover={"black"}>
+              <BiRedo
+                fontSize={"30px"}
+                color={"cyan"}
+                // onClick={handleReplace}
+              />
+            </Button>
+            <Text className="textshift">Redo</Text>
+          </Box>
+          <Box>
+            <Flex justifyContent={"space-around"}>
+              <Box mx={5} onClick={highlight}>
+                <Button
+                  color={"cyan"}
+                  backgroundColor={"black"}
+                  _hover={"black"}
+                >
+                  <BiUndo fontSize={"30px"} color={"cyan"} />
+                </Button>
+                <Text className="textshift">Highlight</Text>
+              </Box>
+              <Box mx={5} onClick={handleInput}>
+                <Button
+                  color={"cyan"}
+                  backgroundColor={"black"}
+                  _hover={"black"}
+                >
+                  <BiCheck
+                    fontSize={"30px"}
+                    color={"cyan"}
+                    // onClick={handleReplace}
+                  />
+                </Button>
+                <Text className="textshift">Done</Text>
+              </Box>
+
+              <Box mx={5} onClick={handleSubmit}>
+                <Button
+                  color={"cyan"}
+                  backgroundColor={"black"}
+                  _hover={"black"}
+                >
+                  <BiCheck fontSize={"30px"} color={"cyan"} />
+                </Button>
+                <Text className="textshift">Submit</Text>
+              </Box>
+            </Flex>
+          </Box>
+        </HStack>
+
+        <Text>
+          {inp ? (
+            <InputChange
+              id=""
+              index={index}
+              str_arr={str_arr}
+              handleSubmit={handleSubmit}
+              submit={submit}
+              setSubmit={setSubmit}
+            />
+          ) : toogle ? (
+            str_arr.map((item, idx) => {
+              return (
+                <span
+                  key={idx}
+                  onClick={(e) => handleHighlight(e, idx)}
+                  className={
+                    index.includes(idx) ? "highlight__yellow" : "hover-item"
+                  }
+                >
+                  {item}{" "}
+                </span>
+              );
+            })
+          ) : (
+            str_arr.map((item, idx) => {
+              return (
+                <span
+                  key={idx}
+                  onClick={(e) => handleHighlight(e, idx)}
+                  className={index.includes(idx) ? "highlight" : "hover-item"}
+                >
+                  {item}{" "}
+                </span>
+              );
+            })
+          )}
+        </Text>
+      </Box>
+
+    </>
   );
 }
 

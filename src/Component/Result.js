@@ -1,6 +1,8 @@
 import React from "react";
 import "./result.css";
 const Result = ({ str_arr }) => {
+  console.log("In submit");
+  console.log(str_arr);
   return (
     <div>
       {str_arr.map((item, idx) => {
