@@ -147,7 +147,7 @@ function HighlightTwo() {
           </Box>
         </HStack>
 
-        <Text>
+        <Text id="new_para" as={"p"} fontSize={"lg"}>
           {inp ? (
             <InputChange
               id=""
@@ -186,7 +186,6 @@ function HighlightTwo() {
           )}
         </Text>
       </Box>
-
     </>
   );
 }
