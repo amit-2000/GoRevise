@@ -1,6 +1,7 @@
 import React from "react";
 import "./result.css";
 import ReactTooltip from "react-tooltip";
+
 const Result = ({ str_arr }) => {
   console.log("In submit");
   console.log(str_arr);
@@ -20,18 +21,18 @@ const Result = ({ str_arr }) => {
                   <span
                     className="ans__false"
                     data-tip
-                    data-for="registerTip"
+                    data-for={item.id}
                     key={idx}
                   >
                     {item.prevVal}
                   </span>
-                  <ReactTooltip id="registerTip" place="top" effect="solid">
-                    {item.item.trim()}
+                  <ReactTooltip id={item.id} place="top" effect="solid">
+                    {item.item}
                   </ReactTooltip>
                 </span>
               )
             ) : (
-              <span key={idx}> {item.trim()} </span>
+              <span key={idx}> {item} </span>
             )}
           </span>
         );

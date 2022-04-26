@@ -49,8 +49,8 @@ function HighlightTwo() {
 
       if (prevVal === ans_array[idx]) {
         // debugger;
+
         const inp_obj = {
-          prevVal: prevVal,
           item: ans_array[idx],
           result: true,
         };
@@ -58,8 +58,9 @@ function HighlightTwo() {
         const new_str_arr = str_arr;
         setStr_arr(new_str_arr);
       } else {
-        // console.log(prevVal, ans_array[idx]);
+        const id = item + Date.now().toString();
         const inp_obj = {
+          id: id,
           prevVal: prevVal,
           item: ans_array[idx],
           result: false,
@@ -104,7 +105,7 @@ function HighlightTwo() {
           alignItems={"center"}
           roundedTop={"2xl"}
           py={1}
-          textAlign="center"  
+          textAlign="center"
         >
           <Box mx={5}>
             <Button
