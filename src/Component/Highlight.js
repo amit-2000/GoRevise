@@ -48,7 +48,6 @@ function Highlight() {
     <span id=${new Date().valueOf() + 3}>${post}</span>`;
   };
 
-
   const handleReplace = () => {
     index_array.map((id, idx) => {
       return (document.getElementById(id).innerHTML = `<input id=${
@@ -88,7 +87,7 @@ function Highlight() {
 
   return (
     <>
-      <Navbar />
+      <Navbar color="gray.400" />
       <Box bg={"white"} m={20} rounded={"2xl"}>
         <HStack
           my={5}

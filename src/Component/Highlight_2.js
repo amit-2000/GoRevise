@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./highlightCSS.css";
 import { Box, Button, HStack, Text, Flex } from "@chakra-ui/react";
-import { BiUndo, BiRedo, BiCheck } from "react-icons/bi";
+import { BiUndo, BiRedo, BiCheck, BiPencil } from "react-icons/bi";
+import { BsCheck2Circle } from "react-icons/bs";
 import Navbar from "./Navbar";
 import InputChange from "./InputChange";
+
 function HighlightTwo() {
   const [para] = useState(
     "Many novice writers tend to make a sharp distinction between content and style, thinking that a paper can be strong in one and weak in the other, but focusing on organization shows how content and style converge in deliberative academic writing. Your professors will view even the most elegant prose as rambling and tedious if there isn’t a careful, coherent argument to give the text meaning. Paragraphs are the “stuff ” of academic writing and, thus, worth our attention here."
@@ -84,8 +86,14 @@ function HighlightTwo() {
     // });
   };
   return (
-    <>
-      <Navbar />
+    <Box
+      overflow="hidden"
+      bgImage={"/bg.png"}
+      minH={"100vh"}
+      bgRepeat={"no-repeat"}
+      bgSize={"cover"}
+    >
+      <Navbar color="white" />
       <Box bg={"white"} m={20} rounded={"2xl"}>
         <HStack
           my={5}
@@ -96,16 +104,28 @@ function HighlightTwo() {
           alignItems={"center"}
           roundedTop={"2xl"}
           py={1}
+          textAlign="center"  
         >
           <Box mx={5}>
-            <Button color={"cyan"} backgroundColor={"black"} _hover={"black"}>
+            <Button
+              color={"cyan"}
+              backgroundColor={"black"}
+              _hover={"black"}
+              _focus={{ border: "none" }}
+              variant={"unstyled"}
+            >
               <BiUndo fontSize={"30px"} color={"cyan"} />
             </Button>
             <Text className="textshift">Undo</Text>
           </Box>
-
           <Box mx={5}>
-            <Button color={"cyan"} backgroundColor={"black"} _hover={"black"}>
+            <Button
+              color={"cyan"}
+              backgroundColor={"black"}
+              _hover={"black"}
+              _focus={{ border: "none" }}
+              variant={"unstyled"}
+            >
               <BiRedo
                 fontSize={"30px"}
                 color={"cyan"}
@@ -114,48 +134,49 @@ function HighlightTwo() {
             </Button>
             <Text className="textshift">Redo</Text>
           </Box>
-          <Box>
-            <Flex justifyContent={"space-around"}>
-              <Box mx={5} onClick={highlight}>
-                <Button
-                  color={"cyan"}
-                  backgroundColor={"black"}
-                  _hover={"black"}
-                >
-                  <BiUndo fontSize={"30px"} color={"cyan"} />
-                </Button>
-                <Text className="textshift">Highlight</Text>
-              </Box>
-              <Box mx={5} onClick={handleInput}>
-                <Button
-                  color={"cyan"}
-                  backgroundColor={"black"}
-                  _hover={"black"}
-                >
-                  <BiCheck
-                    fontSize={"30px"}
-                    color={"cyan"}
-                    // onClick={handleReplace}
-                  />
-                </Button>
-                <Text className="textshift">Done</Text>
-              </Box>
-
-              <Box mx={5} onClick={handleSubmit}>
-                <Button
-                  color={"cyan"}
-                  backgroundColor={"black"}
-                  _hover={"black"}
-                >
-                  <BiCheck fontSize={"30px"} color={"cyan"} />
-                </Button>
-                <Text className="textshift">Submit</Text>
-              </Box>
-            </Flex>
+          <Box mx={5} onClick={highlight}>
+            <Button
+              color={"cyan"}
+              backgroundColor={"black"}
+              _hover={"black"}
+              _focus={{ border: "none" }}
+              variant={"unstyled"}
+            >
+              <BiPencil fontSize={"30px"} color={"cyan"} />
+            </Button>
+            <Text className="textshift">Highlight</Text>
+          </Box>
+          <Box mx={5} onClick={handleInput}>
+            <Button
+              color={"cyan"}
+              backgroundColor={"black"}
+              _hover={"black"}
+              _focus={{ border: "none" }}
+              variant={"unstyled"}
+            >
+              <BiCheck
+                fontSize={"30px"}
+                color={"cyan"}
+                // onClick={handleReplace}
+              />
+            </Button>
+            <Text className="textshift">Done</Text>
+          </Box>
+          <Box mx={5} onClick={handleSubmit}>
+            <Button
+              color={"cyan"}
+              backgroundColor={"black"}
+              _hover={"black"}
+              _focus={{ border: "none" }}
+              variant={"unstyled"}
+            >
+              <BsCheck2Circle fontSize={"30px"} color={"cyan"} />
+            </Button>
+            <Text className="textshift">Submit</Text>
           </Box>
         </HStack>
 
-        <Text id="new_para" as={"p"} fontSize={"lg"}>
+        <Text id="new_para" as={"p"} fontSize={"lg"} p="8">
           {inp ? (
             <InputChange
               id=""
@@ -194,7 +215,7 @@ function HighlightTwo() {
           )}
         </Text>
       </Box>
-    </>
+    </Box>
   );
 }
 
