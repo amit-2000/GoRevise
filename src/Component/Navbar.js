@@ -1,34 +1,32 @@
 import React from "react";
-import { Box, Button, Center, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Center, Flex, Heading, Text, chakra } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+
 function Navbar({ color }) {
   return (
     <Center>
-      <Box bg={color} m={10} w={"70rem"} borderRadius={"25px"}>
+      <Box bg={color} m={10} w={"70rem"} borderRadius={"25px"} py="2">
         <Flex
           justifyContent={"space-around"}
           alignItems={"center"}
           height={"50px"}
         >
-          <Flex>
+          <chakra.a href="/">
             <Heading color={"black"}>
               Go
               <Text as={"span"} color={"teal.300"}>
                 Revise
               </Text>
             </Heading>
-          </Flex>
+          </chakra.a>
           <Flex
             w={"200px"}
             justifyContent={"space-between"}
             alignItems={"center"}
+            fontSize={"lg"}
           >
-            <Button size={"xl"} p={2}>
-              <Link to="/">Home</Link>
-            </Button>
-            <Button size={"xl"} p={2}>
-              <Link to="/contact">Contact</Link>
-            </Button>
+            <Link to="/">Home</Link>
+            <Link to="/contact">Contact</Link>
           </Flex>
         </Flex>
       </Box>
