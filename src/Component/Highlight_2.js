@@ -47,13 +47,21 @@ function HighlightTwo() {
 
       if (prevVal === ans_array[idx]) {
         // debugger;
-        const inp_obj = { item: ans_array[idx], result: true };
+        const inp_obj = {
+          prevVal: prevVal,
+          item: ans_array[idx],
+          result: true,
+        };
         str_arr[item] = inp_obj;
         const new_str_arr = str_arr;
         setStr_arr(new_str_arr);
       } else {
         // console.log(prevVal, ans_array[idx]);
-        const inp_obj = { item: ans_array[idx], result: false };
+        const inp_obj = {
+          prevVal: prevVal,
+          item: ans_array[idx],
+          result: false,
+        };
         str_arr[item] = inp_obj;
         const new_str_arr = str_arr;
         setStr_arr(new_str_arr);

@@ -5,3 +5,7 @@
 .ans__false{
     border: 1px solid red;
 }
+
+.tooltip{
+    margin-top: 30px;
+}
