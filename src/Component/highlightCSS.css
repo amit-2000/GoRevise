@@ -9,4 +9,8 @@
 .highlight__yellow{
     background-color: yellow;
 }
+.list {
+    list-style:disc outside none;
+    display:list-item; 
+}
 
