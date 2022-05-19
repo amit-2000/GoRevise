@@ -9,4 +9,11 @@
 .highlight__yellow{
     background-color: yellow;
 }
-
+.list {
+    list-style:disc outside none;
+    display:list-item; 
+    font-size: 18px;
+}
+.title{
+    font-size: 18px;
+}
