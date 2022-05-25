@@ -5,11 +5,21 @@ import { BiUndo, BiRedo, BiCheck, BiPencil } from "react-icons/bi";
 import { BsCheck2Circle } from "react-icons/bs";
 import Navbar from "./Navbar";
 import InputChange from "./InputChange";
+import ReturnFocus from "./DialogPopover";
+// import { styled } from "@mui/material/styles";
+// import Dialog from "@mui/material/Dialog";
+// import DialogTitle from "@mui/material/DialogTitle";
+// import IconButton from "@mui/material/IconButton";
+// import CloseIcon from "@mui/icons-material/Close";
+// import Typography from "@mui/material/Typography";
+// import Box from "@mui/material/Box";
 
 function HighlightTwo() {
   const [para] = useState(
     "Many novice writers tend to make a sharp distinction between content and style, thinking that a paper can be strong in one and weak in the other, but focusing on organization shows how content and style converge in deliberative academic writing. Your professors will view even the most elegant prose as rambling and tedious if there isn’t a careful, coherent argument to give the text meaning. Paragraphs are the “stuff ” of academic writing and, thus, worth our attention here."
   );
+  const [correct_ans_count, setCorrect_ans_count] = useState(0);
+  const [count_blank, setCount_blank] = useState(0);
   const [toogle, setToggle] = useState(false);
   const [inp, setInp] = useState(false);
   // const str_arr = para.split(" ");
@@ -19,6 +29,7 @@ function HighlightTwo() {
   console.log(index);
   const handleHighlight = (e, idx) => {
     setToggle(false);
+    setCount_blank(count_blank + 1);
     e.preventDefault();
     const new_index = [...index, idx];
     setIndex(new_index);
@@ -49,7 +60,7 @@ function HighlightTwo() {
 
       if (prevVal === ans_array[idx]) {
         // debugger;
-
+        setCorrect_ans_count(correct_ans_count + 1);
         const inp_obj = {
           item: ans_array[idx],
           result: true,
@@ -72,20 +83,11 @@ function HighlightTwo() {
       }
       return 0;
     });
-    // debugger;
     console.log(str_arr);
-    // setStr_arr(str_arr);
     setSubmit(true);
-
-    // let itr = 0;
-    // str_arr.map((item, idx) => {
-    //   if (index.includes(idx)) {
-    //     console.log(idx);
-    //     // const val = ans_array[itr++];
-    //   }
-    //   return 0;
-    // });
   };
+  console.log("correct_ans_count", correct_ans_count);
+  console.log("wrong_ans_count", count_blank - correct_ans_count);
   return (
     <Box
       overflow="hidden"
@@ -95,20 +97,37 @@ function HighlightTwo() {
       bgSize={"cover"}
     >
       <Navbar color="white" />
-    <div className="field">
-    <Box color="white" rounded={"2xl"} px={"20"} m={20} bg= {"rgb(255,160,122,.9)"}>
-      <p class="title">Instructions:</p>
-      <div className="tag">
-      <p class="list" >Edit the text like a normal word document. You can add and remove text too.</p>
+      <ReturnFocus />
+      <div className="field">
+        <Box
+          color="white"
+          rounded={"2xl"}
+          px={"20"}
+          m={20}
+          bg={"rgb(255,160,122,.9)"}
+        >
+          <p class="title">Instructions:</p>
+          <div className="tag">
+            <p class="list">
+              Edit the text like a normal word document. You can add and remove
+              text too.
+            </p>
+          </div>
+          <div className="tag">
+            <p class="list">
+              Click on "Highlight" <BiPencil fontSize={"20px"} color={"cyan"} />
+              and simply highlight the words you want to blank out.
+            </p>
+          </div>
+          <div className="tag">
+            <p class="list">
+              After editing, click on "done"{" "}
+              <BiCheck fontSize={"30px"} color={"cyan"} /> to create your
+              fill-in quiz.
+            </p>
+          </div>
+        </Box>
       </div>
-      <div className="tag">
-      <p class="list">Click on "Highlight" <BiPencil fontSize={"20px"} color={"cyan"}/>and simply highlight the words you want to blank out.</p>
-      </div>
-      <div className="tag">
-      <p class="list">After editing, click on "done" <BiCheck fontSize={"30px"} color={"cyan"}/> to create your fill-in quiz.</p>
-      </div>
-    </Box>
-    </div>
       <Box bg={"white"} m={20} rounded={"2xl"}>
         <HStack
           my={5}
