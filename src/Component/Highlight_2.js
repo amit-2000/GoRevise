@@ -10,7 +10,7 @@ import { useDisclosure } from "@chakra-ui/react";
 
 function HighlightTwo() {
   const [para] = useState(
-    "Many novice writers tend to make a sharp distinction between content and style, thinking that a paper can be strong in one and weak in the other, but focusing on organization shows how content and style converge in deliberative academic writing. Your professors will view even the most elegant prose as rambling and tedious if there isn’t a careful, coherent argument to give the text meaning. Paragraphs are the “stuff ” of academic writing and, thus, worth our attention here."
+    "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text Many novice writers tend to make a sharp distinction between content and style, thinking that a paper can be strong in one and weak in the other, but focusing on organization shows how content and style converge in deliberative academic writing. Your professors will view even the most elegant prose as rambling and tedious if there isn’t a careful, coherent argument to give the text meaning. Paragraphs are I 'stuff' the of academic writing and, thus, worth our attention here. "
   );
   const finalRef = React.useRef();
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -94,7 +94,7 @@ function HighlightTwo() {
       bgSize={"cover"}
     >
       <Navbar color="white" />
-      
+
       <ReturnFocus
         isOpen={isOpen}
         onOpen={onOpen}
@@ -215,7 +215,7 @@ function HighlightTwo() {
           </Box>
         </HStack>
 
-        <Text id="new_para" as={"p"} fontSize={"lg"} p="8">
+        <Text id="new_para" as={"p"} mt={"-35px"} fontSize={"lg"} p="8">
           {inp ? (
             <InputChange
               id=""
@@ -228,7 +228,8 @@ function HighlightTwo() {
           ) : toogle ? (
             str_arr.map((item, idx) => {
               return (
-                <span
+                <Text
+                  as="span"
                   key={idx}
                   onClick={(e) => handleHighlight(e, idx)}
                   className={
@@ -236,19 +237,20 @@ function HighlightTwo() {
                   }
                 >
                   {item}{" "}
-                </span>
+                </Text>
               );
             })
           ) : (
             str_arr.map((item, idx) => {
               return (
-                <span
+                <Text
+                  as="span"
                   key={idx}
                   onClick={(e) => handleHighlight(e, idx)}
                   className={index.includes(idx) ? "highlight" : "hover-item"}
                 >
                   {item}{" "}
-                </span>
+                </Text>
               );
             })
           )}
