@@ -6,18 +6,14 @@ import { BsCheck2Circle } from "react-icons/bs";
 import Navbar from "./Navbar";
 import InputChange from "./InputChange";
 import ReturnFocus from "./DialogPopover";
-// import { styled } from "@mui/material/styles";
-// import Dialog from "@mui/material/Dialog";
-// import DialogTitle from "@mui/material/DialogTitle";
-// import IconButton from "@mui/material/IconButton";
-// import CloseIcon from "@mui/icons-material/Close";
-// import Typography from "@mui/material/Typography";
-// import Box from "@mui/material/Box";
+import { useDisclosure } from "@chakra-ui/react";
 
 function HighlightTwo() {
   const [para] = useState(
     "Many novice writers tend to make a sharp distinction between content and style, thinking that a paper can be strong in one and weak in the other, but focusing on organization shows how content and style converge in deliberative academic writing. Your professors will view even the most elegant prose as rambling and tedious if there isn’t a careful, coherent argument to give the text meaning. Paragraphs are the “stuff ” of academic writing and, thus, worth our attention here."
   );
+  const finalRef = React.useRef();
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const [correct_ans_count, setCorrect_ans_count] = useState(0);
   const [count_blank, setCount_blank] = useState(0);
   const [toogle, setToggle] = useState(false);
@@ -43,6 +39,7 @@ function HighlightTwo() {
     // setToggle(false);
   };
   const handleSubmit = () => {
+    onOpen();
     console.log("Helllooo");
     index.sort();
     const ans_array = [];
@@ -86,8 +83,8 @@ function HighlightTwo() {
     console.log(str_arr);
     setSubmit(true);
   };
-  console.log("correct_ans_count", correct_ans_count);
-  console.log("wrong_ans_count", count_blank - correct_ans_count);
+  // console.log("correct_ans_count", correct_ans_count);
+  // console.log("wrong_ans_count", count_blank - correct_ans_count);
   return (
     <Box
       overflow="hidden"
@@ -97,7 +94,15 @@ function HighlightTwo() {
       bgSize={"cover"}
     >
       <Navbar color="white" />
-      <ReturnFocus />
+      
+      <ReturnFocus
+        isOpen={isOpen}
+        onOpen={onOpen}
+        onClose={onClose}
+        finalRef={finalRef}
+        correct_ans_count={correct_ans_count}
+        count_blank={count_blank}
+      />
       <div className="field">
         <Box
           color="white"
@@ -106,21 +111,21 @@ function HighlightTwo() {
           m={20}
           bg={"rgb(255,160,122,.9)"}
         >
-          <p class="title">Instructions:</p>
+          <p className="title">Instructions:</p>
           <div className="tag">
-            <p class="list">
+            <p className="list">
               Edit the text like a normal word document. You can add and remove
               text too.
             </p>
           </div>
           <div className="tag">
-            <p class="list">
+            <p className="list">
               Click on "Highlight" <BiPencil fontSize={"20px"} color={"cyan"} />
               and simply highlight the words you want to blank out.
             </p>
           </div>
           <div className="tag">
-            <p class="list">
+            <p className="list">
               After editing, click on "done"{" "}
               <BiCheck fontSize={"30px"} color={"cyan"} /> to create your
               fill-in quiz.
