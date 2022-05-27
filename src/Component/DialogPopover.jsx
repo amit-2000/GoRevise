@@ -91,13 +91,15 @@ const ReturnFocus = ({
               bg="#14dbd1"
               mr={"auto"}
               ml="auto"
-              w={"200px"}
+              mt={"-10px"}
+              mb={"8px"}
+              w={"230px"}
               fontSize="23px"
               fontWeight="extrabold"
               letterSpacing={"0.5px"}
               onClick={onClose}
               borderRadius="60px"
-              boxShadow= "rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px"
+              boxShadow="rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px"
             >
               View Answers
             </Button>
