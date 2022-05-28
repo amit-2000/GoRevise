@@ -16,8 +16,8 @@ import {
   Routes,
   // Link
 } from "react-router-dom";
-import HighlightTwo from "./Component/Highlight_2";
-
+// import HighlightTwo from "./Component/Highlight_2";
+import InputHighlight from "./Component/Input_highlight";
 function App() {
   return (
     <Router>
@@ -25,7 +25,8 @@ function App() {
         <Route path="/" exact element={<Home />} />
         <Route path="/quiz" exact element={<Quiz />} />
         {/* <Route path="/highlight" exact element={<Highlight />} /> */}
-        <Route path="/highlight" exact element={<HighlightTwo />} />
+        {/* <Route path="/highlight" exact element={<HighlightTwo />} /> */}
+        <Route path="/test" exact element={<InputHighlight />} />
         <Route path="/create" exact element={<Create />} />
         <Route path="/contact" exact element={<Contact />} />
         <Route path="/input" exact element={<Input />} />

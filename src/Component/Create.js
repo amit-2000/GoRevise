@@ -7,10 +7,10 @@ function Create() {
   return (
     <>
       <Navbar color="gray.200" />
-      <Center pt="24">
+      <Center pt="24" mt={"-60px"}>
         <Flex
-          h={"sm"}
-          w={"sm"}
+          h={"380px"}
+          w={"350px"}
           bg={"gray.100"}
           flexDir={"column"}
           justifyContent={"space-around"}
@@ -19,11 +19,11 @@ function Create() {
         >
           <Box textAlign={"center"}>
             <Heading>Create</Heading>
-            <Text mt={10} fontSize={"xl"}>
+            <Text mt={7} fontSize={"xl"}>
               Create a fill-in quiz from scratch.
             </Text>
           </Box>
-          <Box>
+          <Box mt={-5}>
             <Button
               rounded={"full"}
               size={"lg"}
@@ -34,7 +34,7 @@ function Create() {
               _focus={{ border: "none" }}
             >
               <MdOutlineCreate fontSize={"24px"} />
-              <Link to="/highlight">Create</Link>
+              <Link to="/test">Create</Link>
             </Button>
           </Box>
         </Flex>

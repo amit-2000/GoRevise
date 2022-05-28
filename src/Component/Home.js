@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <>
       <Navbar color="gray.100" />
-      <Container maxW={"7xl"} minH={"100vh"}>
+      <Container maxW={"7xl"} minH={"100vh"} mt={-10}>
         <Stack
           align={"center"}
           spacing={{ base: 8, md: 10 }}
