@@ -15,7 +15,7 @@ function Create() {
           flexDir={"column"}
           justifyContent={"space-around"}
           alignItems={"center"}
-          rounded={"xl"}
+          rounded={"3xl"}
         >
           <Box textAlign={"center"}>
             <Heading>Create</Heading>
