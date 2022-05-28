@@ -90,12 +90,15 @@ function InputHighlight() {
             <textarea
               placeholder="Here is a sample placeholder"
               style={{
-                width: "100%",
+                width: "95%",
                 height: "50vh",
+                marginLeft: "10px",
+                marginBottom: "10px",
                 // resize: "none",
                 outline: "none",
                 border: "none",
                 padding: "10px",
+                paddingLeft: "20px",
               }}
               size="sm"
               resize={"none"}
