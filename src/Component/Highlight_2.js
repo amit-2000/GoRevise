@@ -20,6 +20,7 @@ const HighlightTwo = ({ inputText }) => {
   const [str_arr, setStr_arr] = useState(para.split(" "));
   const [index, setIndex] = useState([]);
   const [submit, setSubmit] = useState(false);
+  const [hideBtn, setHideBtn] = useState(false);
   console.log(index);
   const handleHighlight = (e, idx) => {
     setToggle(false);
@@ -34,6 +35,7 @@ const HighlightTwo = ({ inputText }) => {
   const handleInput = () => {
     // debugger;
     setInp(true);
+    setHideBtn(true);
     // setToggle(false);
   };
   const handleSubmit = () => {
@@ -131,8 +133,9 @@ const HighlightTwo = ({ inputText }) => {
           </div>
         </Box>
       </div>
+
       <Box bg={"white"} m={20} rounded={"2xl"}>
-        <HStack
+        {/* <HStack
           my={5}
           bg="black"
           color="white"
@@ -142,76 +145,100 @@ const HighlightTwo = ({ inputText }) => {
           roundedTop={"2xl"}
           py={1}
           textAlign="center"
-        >
-          <Box mx={5}>
-            <Button
-              color={"cyan"}
-              backgroundColor={"black"}
-              _hover={"black"}
-              _focus={{ border: "none" }}
-              variant={"unstyled"}
-            >
-              <BiUndo fontSize={"30px"} color={"cyan"} />
-            </Button>
-            <Text className="textshift">Undo</Text>
-          </Box>
-          <Box mx={5}>
-            <Button
-              color={"cyan"}
-              backgroundColor={"black"}
-              _hover={"black"}
-              _focus={{ border: "none" }}
-              variant={"unstyled"}
-            >
-              <BiRedo
-                fontSize={"30px"}
+        > */}
+        {!hideBtn && (
+          <HStack
+            my={5}
+            bg="black"
+            color="white"
+            px={"96"}
+            justifyContent={"space-around"}
+            alignItems={"center"}
+            roundedTop={"2xl"}
+            py={1}
+            textAlign="center"
+          >
+            <Box mx={5}>
+              <Button
                 color={"cyan"}
-                // onClick={handleReplace}
-              />
-            </Button>
-            <Text className="textshift">Redo</Text>
-          </Box>
-          <Box mx={5} onClick={highlight}>
-            <Button
-              color={"cyan"}
-              backgroundColor={"black"}
-              _hover={"black"}
-              _focus={{ border: "none" }}
-              variant={"unstyled"}
-            >
-              <BiPencil fontSize={"30px"} color={"cyan"} />
-            </Button>
-            <Text className="textshift">Highlight</Text>
-          </Box>
-          <Box mx={5} onClick={handleInput}>
-            <Button
-              color={"cyan"}
-              backgroundColor={"black"}
-              _hover={"black"}
-              _focus={{ border: "none" }}
-              variant={"unstyled"}
-            >
-              <BiCheck
-                fontSize={"30px"}
+                backgroundColor={"black"}
+                _hover={"black"}
+                _focus={{ border: "none" }}
+                variant={"unstyled"}
+              >
+                <BiUndo fontSize={"30px"} color={"cyan"} />
+              </Button>
+              <Text className="textshift">Undo</Text>
+            </Box>
+            <Box mx={5}>
+              <Button
                 color={"cyan"}
-                // onClick={handleReplace}
-              />
-            </Button>
-            <Text className="textshift">Done</Text>
-          </Box>
-          <Box mx={5} onClick={handleSubmit}>
-            <Button
-              color={"cyan"}
-              backgroundColor={"black"}
-              _hover={"black"}
-              _focus={{ border: "none" }}
-              variant={"unstyled"}
-            >
-              <BsCheck2Circle fontSize={"30px"} color={"cyan"} />
-            </Button>
-            <Text className="textshift">Submit</Text>
-          </Box>
-        </HStack>
+                backgroundColor={"black"}
+                _hover={"black"}
+                _focus={{ border: "none" }}
+                variant={"unstyled"}
+              >
+                <BiRedo
+                  fontSize={"30px"}
+                  color={"cyan"}
+                  // onClick={handleReplace}
+                />
+              </Button>
+              <Text className="textshift">Redo</Text>
+            </Box>
+            <Box mx={5} onClick={highlight}>
+              <Button
+                color={"cyan"}
+                backgroundColor={"black"}
+                _hover={"black"}
+                _focus={{ border: "none" }}
+                variant={"unstyled"}
+              >
+                <BiPencil fontSize={"30px"} color={"cyan"} />
+              </Button>
+              <Text className="textshift">Highlight</Text>
+            </Box>
+            <Box mx={5} onClick={handleInput}>
+              <Button
+                color={"cyan"}
+                backgroundColor={"black"}
+                _hover={"black"}
+                _focus={{ border: "none" }}
+                variant={"unstyled"}
+              >
+                <BiCheck fontSize={"30px"} color={"cyan"} />
+              </Button>
+              <Text className="textshift">Done</Text>
+            </Box>
+          </HStack>
+        )}
+        {hideBtn && (
+          <HStack
+            my={5}
+            bg="black"
+            color="white"
+            px={"8"}
+            justifyContent={"right"}
+            alignItems={"center"}
+            roundedTop={"2xl"}
+            py={1}
+            textAlign="center"
+          >
+            <Box mx={5} onClick={handleSubmit}>
+              <Button
+                color={"cyan"}
+                backgroundColor={"black"}
+                _hover={"black"}
+                _focus={{ border: "none" }}
+                variant={"unstyled"}
+              >
+                <BiCheck fontSize={"30px"} color={"cyan"} />
+              </Button>
+              <Text className="textshift">Done</Text>
+            </Box>
+          </HStack>
+        )}
+        {/* </HStack> */}
 
         <Text id="new_para" as={"p"} mt={"-35px"} fontSize={"lg"} p="8">
           {inp ? (

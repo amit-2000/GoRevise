@@ -5,9 +5,10 @@ import { BiCheck, BiPencil } from "react-icons/bi";
 import HighlightTwo from "./Highlight_2";
 import Navbar from "./Navbar";
 import { BsCheck2Circle } from "react-icons/bs";
-
+import TextareaAutosize from "react-textarea-autosize";
 function InputHighlight() {
   const [para, setPara] = useState("");
+  // const [textareaHeight, setTextareaHeight] = useState("10vh");
   const [showInput, setShowInpt] = useState(true);
   const handleInput = (e) => {
     console.log(e.target.value);
@@ -87,24 +88,20 @@ function InputHighlight() {
               </Box>
             </HStack>
 
-            <textarea
-              placeholder="Here is a sample placeholder"
+            <TextareaAutosize
+              placeholder="Enter your text here !!"
               style={{
                 width: "95%",
-                height: "50vh",
                 marginLeft: "10px",
                 marginBottom: "10px",
-                // resize: "none",
                 outline: "none",
                 border: "none",
                 padding: "10px",
                 paddingLeft: "20px",
+                resize: "none",
+                overflow: "hidden",
               }}
-              size="sm"
-              resize={"none"}
               onChange={(e) => handleInput(e)}
-              border="none"
-              outline={"none"}
             />
           </Box>
         </Box>
