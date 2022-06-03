@@ -6,9 +6,9 @@ import Create from "./Component/Create";
 import Home from "./Component/Home";
 // import Navbar from "./Component/Navbar";
 import Quiz from "./Component/Quiz";
-import Suffix from "./Component/Suffix";
-import Updated from "./Component/Updated";
-import Input from "./Component/Input";
+// import Suffix from "./Component/Suffix";
+// import Updated from "./Component/Updated";
+// import Input from "./Component/Input";
 import {
   BrowserRouter as Router,
   // Switch,
@@ -29,9 +29,9 @@ function App() {
         <Route path="/test" exact element={<InputHighlight />} />
         <Route path="/create" exact element={<Create />} />
         <Route path="/contact" exact element={<Contact />} />
-        <Route path="/input" exact element={<Input />} />
-        <Route path="/suffix" exact element={<Suffix />} />
-        <Route path="/updated" exact element={<Updated />} />
+        {/* <Route path="/input" exact element={<Input />} /> */}
+        {/* <Route path="/suffix" exact element={<Suffix />} /> */}
+        {/* <Route path="/updated" exact element={<Updated />} /> */}
       </Routes>
     </Router>
   );

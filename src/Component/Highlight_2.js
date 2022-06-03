@@ -151,14 +151,14 @@ const HighlightTwo = ({ inputText }) => {
             my={5}
             bg="black"
             color="white"
-            px={"96"}
-            justifyContent={"space-around"}
+            // px={"96"}
+            justifyContent={"center"}
             alignItems={"center"}
             roundedTop={"2xl"}
             py={1}
             textAlign="center"
           >
-            <Box mx={5}>
+            <Box mx={5} style={{ marginRight: "10px" }}>
               <Button
                 color={"cyan"}
                 backgroundColor={"black"}
@@ -170,7 +170,7 @@ const HighlightTwo = ({ inputText }) => {
               </Button>
               <Text className="textshift">Undo</Text>
             </Box>
-            <Box mx={5}>
+            <Box mx={10} style={{ marginRight: "10px" }}>
               <Button
                 color={"cyan"}
                 backgroundColor={"black"}
@@ -186,7 +186,7 @@ const HighlightTwo = ({ inputText }) => {
               </Button>
               <Text className="textshift">Redo</Text>
             </Box>
-            <Box mx={5} onClick={highlight}>
+            <Box mx={5} onClick={highlight} style={{ marginRight: "10px" }}>
               <Button
                 color={"cyan"}
                 backgroundColor={"black"}

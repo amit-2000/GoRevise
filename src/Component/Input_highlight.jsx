@@ -67,11 +67,11 @@ function InputHighlight() {
               my={5}
               bg="black"
               color="white"
-              px={"96"}
-              justifyContent={"space-around"}
+              px={"5"}
+              justifyContent={"right"}
               alignItems={"center"}
               roundedTop={"2xl"}
-              py={1}
+              py={0.5}
               textAlign="center"
             >
               <Box mx={5} onClick={handleSubmit}>
