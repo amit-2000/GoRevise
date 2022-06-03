@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./highlightCSS.css";
 import { Box, Button, HStack, Text } from "@chakra-ui/react";
 import { BiUndo, BiRedo, BiCheck, BiPencil } from "react-icons/bi";
-import { BsCheck2Circle } from "react-icons/bs";
+// import { BsCheck2Circle } from "react-icons/bs";
 import Navbar from "./Navbar";
 import InputChange from "./InputChange";
 import ReturnFocus from "./DialogPopover";
