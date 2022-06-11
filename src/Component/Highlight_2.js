@@ -7,10 +7,11 @@ import Navbar from "./Navbar";
 import InputChange from "./InputChange";
 import ReturnFocus from "./DialogPopover";
 import { useDisclosure } from "@chakra-ui/react";
-
+import Save from "./Save";
 const HighlightTwo = ({ inputText }) => {
   const [para] = useState(inputText);
   const finalRef = React.useRef();
+  const [showCreate, setCreate] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [correct_ans_count, setCorrect_ans_count] = useState(0);
   const [count_blank, setCount_blank] = useState(0);
@@ -34,6 +35,7 @@ const HighlightTwo = ({ inputText }) => {
   };
   const handleInput = () => {
     // debugger;
+    setCreate(true);
     setInp(true);
     setHideBtn(true);
     // setToggle(false);
@@ -83,205 +85,206 @@ const HighlightTwo = ({ inputText }) => {
     console.log(str_arr);
     setSubmit(true);
   };
+  const handleSave = () => {
+    setCreate(false);
+  };
   // console.log("correct_ans_count", correct_ans_count);
   // console.log("wrong_ans_count", count_blank - correct_ans_count);
   return (
-    <Box
-      overflow="hidden"
-      bgImage={"/bg.png"}
-      minH={"100vh"}
-      bgRepeat={"no-repeat"}
-      bgSize={"cover"}
-    >
-      <Navbar color="white" />
-
-      <ReturnFocus
-        isOpen={isOpen}
-        onOpen={onOpen}
-        onClose={onClose}
-        finalRef={finalRef}
-        correct_ans_count={correct_ans_count}
-        count_blank={count_blank}
-      />
-      <div className="field">
+    <>
+      {showCreate ? (
+        <Save handleSave={handleSave} />
+      ) : (
         <Box
-          color="white"
-          rounded={"2xl"}
-          px={"20"}
-          m={20}
-          bg={"rgb(255,160,122,.9)"}
+          overflow="hidden"
+          bgImage={"/bg.png"}
+          minH={"100vh"}
+          bgRepeat={"no-repeat"}
+          bgSize={"cover"}
         >
-          <p className="title">Instructions:</p>
-          <div className="tag">
-            <p className="list">
-              Edit the text like a normal word document. You can add and remove
-              text too.
-            </p>
-          </div>
-          <div className="tag">
-            <p className="list">
-              Click on "Highlight" <BiPencil fontSize={"20px"} color={"cyan"} />
-              and simply highlight the words you want to blank out.
-            </p>
-          </div>
-          <div className="tag">
-            <p className="list">
-              After editing, click on "done"{" "}
-              <BiCheck fontSize={"30px"} color={"cyan"} /> to create your
-              fill-in quiz.
-            </p>
-          </div>
-        </Box>
-      </div>
+          <Navbar color="white" />
 
-      <Box bg={"white"} m={20} rounded={"2xl"}>
-        {/* <HStack
-          my={5}
-          bg="black"
-          color="white"
-          px={"96"}
-          justifyContent={"space-around"}
-          alignItems={"center"}
-          roundedTop={"2xl"}
-          py={1}
-          textAlign="center"
-        > */}
-        {!hideBtn && (
-          <HStack
-            my={5}
-            bg="black"
-            color="white"
-            // px={"96"}
-            justifyContent={"center"}
-            alignItems={"center"}
-            roundedTop={"2xl"}
-            py={1}
-            textAlign="center"
-          >
-            <Box mx={5} style={{ marginRight: "10px" }}>
-              <Button
-                color={"cyan"}
-                backgroundColor={"black"}
-                _hover={"black"}
-                _focus={{ border: "none" }}
-                variant={"unstyled"}
-              >
-                <BiUndo fontSize={"30px"} color={"cyan"} />
-              </Button>
-              <Text className="textshift">Undo</Text>
+          <ReturnFocus
+            isOpen={isOpen}
+            onOpen={onOpen}
+            onClose={onClose}
+            finalRef={finalRef}
+            correct_ans_count={correct_ans_count}
+            count_blank={count_blank}
+          />
+          <div className="field">
+            <Box
+              color="white"
+              rounded={"2xl"}
+              px={"20"}
+              m={20}
+              bg={"rgb(255,160,122,.9)"}
+            >
+              <p className="title">Instructions:</p>
+              <div className="tag">
+                <p className="list">
+                  Edit the text like a normal word document. You can add and
+                  remove text too.
+                </p>
+              </div>
+              <div className="tag">
+                <p className="list">
+                  Click on "Highlight"{" "}
+                  <BiPencil fontSize={"20px"} color={"cyan"} />
+                  and simply highlight the words you want to blank out.
+                </p>
+              </div>
+              <div className="tag">
+                <p className="list">
+                  After editing, click on "done"{" "}
+                  <BiCheck fontSize={"30px"} color={"cyan"} /> to create your
+                  fill-in quiz.
+                </p>
+              </div>
             </Box>
-            <Box mx={10} style={{ marginRight: "10px" }}>
-              <Button
-                color={"cyan"}
-                backgroundColor={"black"}
-                _hover={"black"}
-                _focus={{ border: "none" }}
-                variant={"unstyled"}
+          </div>
+
+          <Box bg={"white"} m={20} rounded={"2xl"}>
+            {!hideBtn && (
+              <HStack
+                my={5}
+                bg="black"
+                color="white"
+                // px={"96"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                roundedTop={"2xl"}
+                py={1}
+                textAlign="center"
               >
-                <BiRedo
-                  fontSize={"30px"}
-                  color={"cyan"}
-                  // onClick={handleReplace}
+                <Box mx={5} style={{ marginRight: "10px" }}>
+                  <Button
+                    color={"cyan"}
+                    backgroundColor={"black"}
+                    _hover={"black"}
+                    _focus={{ border: "none" }}
+                    variant={"unstyled"}
+                  >
+                    <BiUndo fontSize={"30px"} color={"cyan"} />
+                  </Button>
+                  <Text className="textshift">Undo</Text>
+                </Box>
+                <Box mx={10} style={{ marginRight: "10px" }}>
+                  <Button
+                    color={"cyan"}
+                    backgroundColor={"black"}
+                    _hover={"black"}
+                    _focus={{ border: "none" }}
+                    variant={"unstyled"}
+                  >
+                    <BiRedo
+                      fontSize={"30px"}
+                      color={"cyan"}
+                      // onClick={handleReplace}
+                    />
+                  </Button>
+                  <Text className="textshift">Redo</Text>
+                </Box>
+                <Box mx={5} onClick={highlight} style={{ marginRight: "10px" }}>
+                  <Button
+                    color={"cyan"}
+                    backgroundColor={"black"}
+                    _hover={"black"}
+                    _focus={{ border: "none" }}
+                    variant={"unstyled"}
+                  >
+                    <BiPencil fontSize={"30px"} color={"cyan"} />
+                  </Button>
+                  <Text className="textshift">Highlight</Text>
+                </Box>
+                <Box mx={5} onClick={handleInput}>
+                  <Button
+                    color={"cyan"}
+                    backgroundColor={"black"}
+                    _hover={"black"}
+                    _focus={{ border: "none" }}
+                    variant={"unstyled"}
+                  >
+                    <BiCheck fontSize={"30px"} color={"cyan"} />
+                  </Button>
+                  <Text className="textshift">Done</Text>
+                </Box>
+              </HStack>
+            )}
+            {hideBtn && (
+              <HStack
+                my={5}
+                bg="black"
+                color="white"
+                px={"8"}
+                justifyContent={"right"}
+                alignItems={"center"}
+                roundedTop={"2xl"}
+                py={1}
+                textAlign="center"
+              >
+                <Box mx={5} onClick={handleSubmit}>
+                  <Button
+                    color={"cyan"}
+                    backgroundColor={"black"}
+                    _hover={"black"}
+                    _focus={{ border: "none" }}
+                    variant={"unstyled"}
+                  >
+                    <BiCheck fontSize={"30px"} color={"cyan"} />
+                  </Button>
+                  <Text className="textshift">Done</Text>
+                </Box>
+              </HStack>
+            )}
+            {/* </HStack> */}
+
+            <Text id="new_para" as={"p"} mt={"-35px"} fontSize={"lg"} p="8">
+              {inp ? (
+                <InputChange
+                  id=""
+                  index={index}
+                  str_arr={str_arr}
+                  handleSubmit={handleSubmit}
+                  submit={submit}
+                  setSubmit={setSubmit}
                 />
-              </Button>
-              <Text className="textshift">Redo</Text>
-            </Box>
-            <Box mx={5} onClick={highlight} style={{ marginRight: "10px" }}>
-              <Button
-                color={"cyan"}
-                backgroundColor={"black"}
-                _hover={"black"}
-                _focus={{ border: "none" }}
-                variant={"unstyled"}
-              >
-                <BiPencil fontSize={"30px"} color={"cyan"} />
-              </Button>
-              <Text className="textshift">Highlight</Text>
-            </Box>
-            <Box mx={5} onClick={handleInput}>
-              <Button
-                color={"cyan"}
-                backgroundColor={"black"}
-                _hover={"black"}
-                _focus={{ border: "none" }}
-                variant={"unstyled"}
-              >
-                <BiCheck fontSize={"30px"} color={"cyan"} />
-              </Button>
-              <Text className="textshift">Done</Text>
-            </Box>
-          </HStack>
-        )}
-        {hideBtn && (
-          <HStack
-            my={5}
-            bg="black"
-            color="white"
-            px={"8"}
-            justifyContent={"right"}
-            alignItems={"center"}
-            roundedTop={"2xl"}
-            py={1}
-            textAlign="center"
-          >
-            <Box mx={5} onClick={handleSubmit}>
-              <Button
-                color={"cyan"}
-                backgroundColor={"black"}
-                _hover={"black"}
-                _focus={{ border: "none" }}
-                variant={"unstyled"}
-              >
-                <BiCheck fontSize={"30px"} color={"cyan"} />
-              </Button>
-              <Text className="textshift">Done</Text>
-            </Box>
-          </HStack>
-        )}
-        {/* </HStack> */}
-
-        <Text id="new_para" as={"p"} mt={"-35px"} fontSize={"lg"} p="8">
-          {inp ? (
-            <InputChange
-              id=""
-              index={index}
-              str_arr={str_arr}
-              handleSubmit={handleSubmit}
-              submit={submit}
-              setSubmit={setSubmit}
-            />
-          ) : toogle ? (
-            str_arr.map((item, idx) => {
-              return (
-                <Text
-                  as="span"
-                  key={idx}
-                  onClick={(e) => handleHighlight(e, idx)}
-                  className={
-                    index.includes(idx) ? "highlight__yellow" : "hover-item"
-                  }
-                >
-                  {item}{" "}
-                </Text>
-              );
-            })
-          ) : (
-            str_arr.map((item, idx) => {
-              return (
-                <Text
-                  as="span"
-                  key={idx}
-                  onClick={(e) => handleHighlight(e, idx)}
-                  className={index.includes(idx) ? "highlight" : "hover-item"}
-                >
-                  {item}{" "}
-                </Text>
-              );
-            })
-          )}
-        </Text>
-      </Box>
-    </Box>
+              ) : toogle ? (
+                str_arr.map((item, idx) => {
+                  return (
+                    <Text
+                      as="span"
+                      key={idx}
+                      onClick={(e) => handleHighlight(e, idx)}
+                      className={
+                        index.includes(idx) ? "highlight__yellow" : "hover-item"
+                      }
+                    >
+                      {item}{" "}
+                    </Text>
+                  );
+                })
+              ) : (
+                str_arr.map((item, idx) => {
+                  return (
+                    <Text
+                      as="span"
+                      key={idx}
+                      onClick={(e) => handleHighlight(e, idx)}
+                      className={
+                        index.includes(idx) ? "highlight" : "hover-item"
+                      }
+                    >
+                      {item}{" "}
+                    </Text>
+                  );
+                })
+              )}
+            </Text>
+          </Box>
+        </Box>
+      )}
+    </>
   );
 };
 

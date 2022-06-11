@@ -1,5 +1,7 @@
 import React from "react";
 import Result from "./Result";
+import "./input.css";
+
 const InputChange = ({ index, str_arr, submit, setSubmit, handleSubmit }) => {
   let i = 1;
   return (
@@ -11,8 +13,8 @@ const InputChange = ({ index, str_arr, submit, setSubmit, handleSubmit }) => {
           if (index.includes(idx)) {
             return (
               <span>
-                <b >{i++}</b>
-                <input id={idx}></input>
+                <b>{i++}</b>
+                <input className="inputBorder" id={idx}></input>
               </span>
             );
           } else return <span key={idx}>{item} </span>;
