@@ -7,7 +7,7 @@ import Navbar from "./Navbar";
 import InputChange from "./InputChange";
 import ReturnFocus from "./DialogPopover";
 import { useDisclosure } from "@chakra-ui/react";
-import Save from "./Save";
+import Save from "./Save_take_Quiz";
 const HighlightTwo = ({ inputText }) => {
   const [para] = useState(inputText);
   const finalRef = React.useRef();
