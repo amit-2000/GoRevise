@@ -2,7 +2,7 @@ import React from "react";
 import Result from "./Result";
 import "./input.css";
 
-const InputChange = ({ index, str_arr, submit, setSubmit, handleSubmit }) => {
+const InputChange = ({ index, str_arr, submit, setSubmit }) => {
   let i = 1;
   return (
     <div>

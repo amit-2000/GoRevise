@@ -18,7 +18,9 @@ function InputHighlight() {
   const handleSubmit = () => {
     setShowInpt(false);
   };
-
+  const editText = () => {
+    showInput(true);
+  };
   return (
     <>
       {showInput ? (
@@ -106,7 +108,7 @@ function InputHighlight() {
           </Box>
         </Box>
       ) : (
-        <HighlightTwo inputText={para} />
+        <HighlightTwo inputText={para} editText={editText} />
       )}
     </>
   );

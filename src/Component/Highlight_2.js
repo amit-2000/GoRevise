@@ -8,7 +8,7 @@ import InputChange from "./InputChange";
 import ReturnFocus from "./DialogPopover";
 import { useDisclosure } from "@chakra-ui/react";
 import Save from "./Save_take_Quiz";
-const HighlightTwo = ({ inputText }) => {
+const HighlightTwo = ({ inputText, editText }) => {
   const [para] = useState(inputText);
   const finalRef = React.useRef();
   const [showCreate, setCreate] = useState(false);
@@ -23,16 +23,28 @@ const HighlightTwo = ({ inputText }) => {
   const [submit, setSubmit] = useState(false);
   const [hideBtn, setHideBtn] = useState(false);
   console.log(index);
+
   const handleHighlight = (e, idx) => {
+    let newIndexArr;
+    if (index.indexOf(idx) === -1) {
+      newIndexArr = [...index, idx];
+      setIndex(newIndexArr);
+      console.log(newIndexArr);
+    } else {
+      newIndexArr = index.filter((item) => item !== idx);
+      console.log(newIndexArr);
+      setIndex(newIndexArr);
+    }
     setToggle(false);
-    setCount_blank(count_blank + 1);
+    setCount_blank(index.length + 1);
+    console.log(count_blank);
     e.preventDefault();
-    const new_index = [...index, idx];
-    setIndex(new_index);
   };
+
   const highlight = () => {
     setToggle(true);
   };
+
   const handleInput = () => {
     // debugger;
     setCreate(true);
@@ -40,6 +52,7 @@ const HighlightTwo = ({ inputText }) => {
     setHideBtn(true);
     // setToggle(false);
   };
+
   const handleSubmit = () => {
     onOpen();
     console.log("Helllooo");
@@ -49,14 +62,15 @@ const HighlightTwo = ({ inputText }) => {
       if (index.includes(idx)) {
         const val = document.getElementById(idx).value;
         ans_array.push(val);
+        console.log(val);
       }
       return 0;
     });
-
+    index.sort();
     index.map((item, idx) => {
       //   console.log(ans_array);
       const prevVal = str_arr[item]; // old value at index[item].
-
+      console.log(ans_array[idx]);
       if (prevVal === ans_array[idx]) {
         // debugger;
         setCorrect_ans_count(correct_ans_count + 1);
@@ -68,7 +82,7 @@ const HighlightTwo = ({ inputText }) => {
         const new_str_arr = str_arr;
         setStr_arr(new_str_arr);
       } else {
-        const id = item + Date.now().toString();
+        let id = Date.now().toString() + prevVal;
         const inp_obj = {
           id: id,
           prevVal: prevVal,
@@ -85,11 +99,14 @@ const HighlightTwo = ({ inputText }) => {
     console.log(str_arr);
     setSubmit(true);
   };
+
   const handleSave = () => {
     setCreate(false);
   };
+
   // console.log("correct_ans_count", correct_ans_count);
   // console.log("wrong_ans_count", count_blank - correct_ans_count);
+  console.log(str_arr);
   return (
     <>
       {showCreate ? (
@@ -245,7 +262,6 @@ const HighlightTwo = ({ inputText }) => {
                   id=""
                   index={index}
                   str_arr={str_arr}
-                  handleSubmit={handleSubmit}
                   submit={submit}
                   setSubmit={setSubmit}
                 />
