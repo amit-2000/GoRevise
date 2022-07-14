@@ -24,18 +24,19 @@ function Create() {
             </Text>
           </Box>
           <Box mt={-5}>
-            <Button
-              rounded={"full"}
-              size={"lg"}
-              mt={"auto"}
-              px={6}
-              bg={"cyan.400"}
-              _hover={{ bg: "cyan.500" }}
-              _focus={{ border: "none" }}
-            >
-              <MdOutlineCreate fontSize={"24px"} />
-              <Link to="/test">Create</Link>
-            </Button>
+            <Link to="/test">
+              <Button
+                rounded={"full"}
+                size={"lg"}
+                mt={"auto"}
+                px={6}
+                bg={"cyan.400"}
+                _hover={{ bg: "cyan.500" }}
+                _focus={{ border: "none" }}
+              >
+                <MdOutlineCreate fontSize={"24px"} />Create
+              </Button>
+            </Link>
           </Box>
         </Flex>
       </Center>

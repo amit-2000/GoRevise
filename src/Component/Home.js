@@ -39,17 +39,19 @@ export default function Home() {
               spacing={{ base: 4, sm: 6 }}
               direction={{ base: "column", sm: "row" }}
             >
-              <Button
-                rounded={"full"}
-                size={"lg"}
-                fontWeight={"normal"}
-                px={6}
-                bg={"cyan.400"}
-                _hover={{ bg: "cyan.500" }}
-                _focus={{ border: "none" }}
-              >
-                <Link to="/create">Get started</Link>
-              </Button>
+              <Link to="/create">
+                <Button
+                  rounded={"full"}
+                  size={"lg"}
+                  fontWeight={"normal"}
+                  px={6}
+                  bg={"cyan.400"}
+                  _hover={{ bg: "cyan.500" }}
+                  _focus={{ border: "none" }}
+                >
+                  Get Started
+                </Button>
+              </Link>
             </Stack>
           </Stack>
           <Flex

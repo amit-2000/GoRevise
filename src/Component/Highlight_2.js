@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./highlightCSS.css";
 import { Box, Button, HStack, Text } from "@chakra-ui/react";
-import { BiUndo, BiRedo, BiCheck, BiPencil } from "react-icons/bi";
+import { BiUndo, BiCheck, BiPencil } from "react-icons/bi";
 // import { BsCheck2Circle } from "react-icons/bs";
 import Navbar from "./Navbar";
 import InputChange from "./InputChange";
@@ -15,14 +15,14 @@ const HighlightTwo = ({ inputText, editText }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [correct_ans_count, setCorrect_ans_count] = useState(0);
   const [count_blank, setCount_blank] = useState(0);
-  const [toogle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(false);
   const [inp, setInp] = useState(false);
   // const str_arr = para.split(" ");
   const [str_arr, setStr_arr] = useState(para.split(" "));
   const [index, setIndex] = useState([]);
   const [submit, setSubmit] = useState(false);
   const [hideBtn, setHideBtn] = useState(false);
-
+  //
   const handleHighlight = (e, idx) => {
     let newIndexArr;
     if (index.indexOf(idx) === -1) {
@@ -186,22 +186,7 @@ const HighlightTwo = ({ inputText, editText }) => {
                   </Button>
                   <Text className="textshift">Edit</Text>
                 </Box>
-                <Box mx={10} style={{ marginRight: "10px" }}>
-                  <Button
-                    color={"cyan"}
-                    backgroundColor={"black"}
-                    _hover={"black"}
-                    _focus={{ border: "none" }}
-                    variant={"unstyled"}
-                  >
-                    <BiRedo
-                      fontSize={"30px"}
-                      color={"cyan"}
-                      // onClick={handleReplace}
-                    />
-                  </Button>
-                  <Text className="textshift">Redo</Text>
-                </Box>
+
                 <Box mx={5} onClick={highlight} style={{ marginRight: "10px" }}>
                   <Button
                     color={"cyan"}
@@ -265,7 +250,7 @@ const HighlightTwo = ({ inputText, editText }) => {
                   submit={submit}
                   setSubmit={setSubmit}
                 />
-              ) : toogle ? (
+              ) : toggle ? (
                 str_arr.map((item, idx) => {
                   return (
                     <Text

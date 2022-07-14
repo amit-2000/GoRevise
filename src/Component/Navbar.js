@@ -11,14 +11,16 @@ function Navbar({ color }) {
           alignItems={"center"}
           height={"50px"}
         >
-          <chakra.a href="/">
-            <Heading color={"black"}>
-              Go
-              <Text as={"span"} color={"teal.300"}>
-                Revise
-              </Text>
-            </Heading>
-          </chakra.a>
+          <Link to="/">
+            <chakra.a>
+              <Heading color={"black"}>
+                Go
+                <Text as={"span"} color={"teal.300"}>
+                  Revise
+                </Text>
+              </Heading>
+            </chakra.a>
+          </Link>
           <Flex
             w={"200px"}
             justifyContent={"space-between"}

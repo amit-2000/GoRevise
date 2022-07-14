@@ -22,7 +22,6 @@ function InputHighlight() {
     setPara(para);
     setShowInpt(true);
   };
-  console.log("New para ", para);
   return (
     <>
       {showInput ? (
@@ -94,7 +93,7 @@ function InputHighlight() {
 
             <TextareaAutosize
               placeholder="Enter your text here !!"
-              value ={para }
+              value={para}
               style={{
                 width: "95%",
                 marginLeft: "10px",
@@ -105,7 +104,6 @@ function InputHighlight() {
                 paddingLeft: "20px",
                 resize: "none",
                 overflow: "hidden",
-                
               }}
               onChange={(e) => handleInput(e)}
             />
