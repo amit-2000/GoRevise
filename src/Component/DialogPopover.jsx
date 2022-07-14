@@ -36,7 +36,7 @@ const ReturnFocus = ({
         Open Modal
       </Button> */}
       <Modal finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
+        <ModalOverlay onClick={console.log("clicked")} />
         <ModalContent size="4xl">
           <ModalHeader
             my={"4"}

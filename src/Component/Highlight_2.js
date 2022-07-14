@@ -22,7 +22,6 @@ const HighlightTwo = ({ inputText, editText }) => {
   const [index, setIndex] = useState([]);
   const [submit, setSubmit] = useState(false);
   const [hideBtn, setHideBtn] = useState(false);
-  console.log(index);
 
   const handleHighlight = (e, idx) => {
     let newIndexArr;
@@ -181,10 +180,11 @@ const HighlightTwo = ({ inputText, editText }) => {
                     _hover={"black"}
                     _focus={{ border: "none" }}
                     variant={"unstyled"}
+                    onClick={(e) => editText(e, inputText)}
                   >
                     <BiUndo fontSize={"30px"} color={"cyan"} />
                   </Button>
-                  <Text className="textshift">Undo</Text>
+                  <Text className="textshift">Edit</Text>
                 </Box>
                 <Box mx={10} style={{ marginRight: "10px" }}>
                   <Button
