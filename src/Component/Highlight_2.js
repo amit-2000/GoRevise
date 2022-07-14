@@ -13,22 +13,22 @@ const HighlightTwo = ({ inputText, editText }) => {
   const finalRef = React.useRef();
   const [showCreate, setCreate] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [correct_ans_count, setCorrect_ans_count] = useState(0);
+  // const [correct_ans_count, setCorrect_ans_count] = useState(0);
   const [count_blank, setCount_blank] = useState(0);
   const [toggle, setToggle] = useState(false);
   const [inp, setInp] = useState(false);
-  // const str_arr = para.split(" ");
-  const [str_arr, setStr_arr] = useState(para.split(" "));
+  const [str_arr, setStr_arr] = useState(para.split(" ")); //split given input, each word is element of array.
   const [index, setIndex] = useState([]);
   const [submit, setSubmit] = useState(false);
   const [hideBtn, setHideBtn] = useState(false);
-  //
+
+  // Select-Deselect words
   const handleHighlight = (e, idx) => {
     let newIndexArr;
     if (index.indexOf(idx) === -1) {
       newIndexArr = [...index, idx];
       setIndex(newIndexArr);
-      console.log(newIndexArr);
+      // console.log(newIndexArr);
     } else {
       newIndexArr = index.filter((item) => item !== idx);
       console.log(newIndexArr);
@@ -40,39 +40,37 @@ const HighlightTwo = ({ inputText, editText }) => {
     e.preventDefault();
   };
 
+  // REMOVE for Direct yellow highlight
   const highlight = () => {
     setToggle(true);
   };
 
-  const handleInput = () => {
+  const handleDone = () => {
     // debugger;
     setCreate(true);
     setInp(true);
     setHideBtn(true);
-    // setToggle(false);
   };
 
+  //  Click on Done btn after filling the text in input.
   const handleSubmit = () => {
     onOpen();
-    console.log("Helllooo");
     index.sort();
     const ans_array = [];
     str_arr.map((item, idx) => {
       if (index.includes(idx)) {
         const val = document.getElementById(idx).value;
         ans_array.push(val);
-        console.log(val);
+        // console.log(val);
       }
       return 0;
     });
-    index.sort();
     index.map((item, idx) => {
-      //   console.log(ans_array);
       const prevVal = str_arr[item]; // old value at index[item].
-      console.log(ans_array[idx]);
       if (prevVal === ans_array[idx]) {
         // debugger;
-        setCorrect_ans_count(correct_ans_count + 1);
+
+        // setCorrect_ans_count(correct_ans_count + 1);
         const inp_obj = {
           item: ans_array[idx],
           result: true,
@@ -91,11 +89,11 @@ const HighlightTwo = ({ inputText, editText }) => {
         str_arr[item] = inp_obj;
         const new_str_arr = str_arr;
         setStr_arr(new_str_arr);
-        console.log("Wrong");
+        // console.log("Wrong");
       }
       return 0;
     });
-    console.log(str_arr);
+    // console.log(str_arr);
     setSubmit(true);
   };
 
@@ -103,9 +101,20 @@ const HighlightTwo = ({ inputText, editText }) => {
     setCreate(false);
   };
 
+  // count correct answers.
+  const corrcet_ans = () => {
+    let cnt = 0;
+    str_arr.map((item) => {
+      if (item.result === true) {
+        cnt++;
+      }
+      return cnt;
+    });
+    return cnt;
+  };
   // console.log("correct_ans_count", correct_ans_count);
   // console.log("wrong_ans_count", count_blank - correct_ans_count);
-  console.log(str_arr);
+  // console.log(str_arr);
   return (
     <>
       {showCreate ? (
@@ -125,7 +134,7 @@ const HighlightTwo = ({ inputText, editText }) => {
             onOpen={onOpen}
             onClose={onClose}
             finalRef={finalRef}
-            correct_ans_count={correct_ans_count}
+            correct_ans_count={corrcet_ans}
             count_blank={count_blank}
           />
           <div className="field">
@@ -199,7 +208,7 @@ const HighlightTwo = ({ inputText, editText }) => {
                   </Button>
                   <Text className="textshift">Highlight</Text>
                 </Box>
-                <Box mx={5} onClick={handleInput}>
+                <Box mx={5} onClick={handleDone}>
                   <Button
                     color={"cyan"}
                     backgroundColor={"black"}

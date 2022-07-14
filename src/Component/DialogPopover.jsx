@@ -26,17 +26,17 @@ const ReturnFocus = ({
   correct_ans_count,
   count_blank,
 }) => {
-  // const { isOpen, onOpen, onClose } = useDisclosure();
-  // const finalRef = React.useRef();
-  console.log("PPop up called", correct_ans_count, count_blank);
 
+  // console.log("PPop up called", correct_ans_count(), count_blank);
+  const ca = correct_ans_count();
+  const percentage = Math.round((ca / count_blank) * 100);
   return (
     <>
       {/* <Button mt={5} onClick={onOpen}>
         Open Modal
       </Button> */}
       <Modal finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay onClick={console.log("clicked")} />
+        <ModalOverlay  />
         <ModalContent size="4xl">
           <ModalHeader
             my={"4"}
@@ -59,13 +59,17 @@ const ReturnFocus = ({
                 fontWeight="bold"
                 mt={"-25px"}
               >
-                <Text>100%</Text>
+                <Text>{percentage}%</Text>
               </Circle>
             </Center>
           </Box>
 
           <Box mt={"10"} fontSize="lg" fontWeight="600">
-            <Center mt={"-34px"}>Go..little..Rockstar 🎸</Center>
+            <Center mt={"-34px"}>
+              {percentage >= 50
+                ? "Go..little..Rockstar 🎸"
+                : "You must be in Spain without the 'S' 😩"}
+            </Center>
           </Box>
           <ModalCloseButton />
           <ModalBody mt={"-20px"}>
@@ -73,12 +77,12 @@ const ReturnFocus = ({
               <HStack mt={"15px"} ml={"30px"}>
                 <Flex direction={"column"}>
                   <Text>Fill in the blanks: {count_blank}</Text>
-                  <Text>Correct answers: {correct_ans_count}</Text>
+                  <Text>Correct answers: {ca}</Text>
                   <Text>
                     Wrong answers:&nbsp;
                     <Text display={"inline"} ml={"-1px"}>
                       {" "}
-                      {count_blank - correct_ans_count}
+                      {count_blank - ca}
                     </Text>
                   </Text>
                 </Flex>

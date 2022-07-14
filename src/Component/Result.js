@@ -3,8 +3,8 @@ import "./result.css";
 import ReactTooltip from "react-tooltip";
 
 const Result = ({ str_arr }) => {
-  console.log("In submit");
-  console.log(str_arr);
+  // console.log("In submit");
+  // console.log(str_arr);
   return (
     <div>
       {str_arr.map((item, idx) => {

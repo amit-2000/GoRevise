@@ -11,19 +11,22 @@ function InputHighlight() {
   // const [textareaHeight, setTextareaHeight] = useState("10vh");
   const [showInput, setShowInpt] = useState(true);
   const handleInput = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setPara(e.target.value);
   };
 
+// Done with text input ready to select and test.
   const handleSubmit = () => {
     setShowInpt(false);
   };
+  // execute: edit text again.
   const editText = (e, text) => {
     setPara(para);
     setShowInpt(true);
   };
   return (
     <>
+    
       {showInput ? (
         <Box
           overflow="hidden"
