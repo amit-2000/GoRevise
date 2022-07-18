@@ -24,10 +24,10 @@ function InputHighlight() {
     setPara(para);
     setShowInpt(true);
   };
-  const handleGoBack = (e, text) => {
-    setPara(para);
-    setShowInpt(true);
-  };
+  // const handleGoBack = (e, text) => {
+  //   setPara(para);
+  //   setShowInpt(true);
+  // };
   return (
     <>
     

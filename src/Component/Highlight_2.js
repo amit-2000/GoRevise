@@ -42,9 +42,9 @@ const HighlightTwo = ({ inputText, editText }) => {
   };
 
   // REMOVE for Direct yellow highlight
-  const highlight = () => {
-    setToggle(true);
-  };
+  // const highlight = () => {
+  //   setToggle(true);
+  // };
 
   const handleDone = () => {
     // debugger;
