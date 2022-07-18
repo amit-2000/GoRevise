@@ -22,10 +22,7 @@ const Save = ({ handleSave }) => {
             <Text mt={7} fontSize={"xl"}>
               Save your fill-in quiz test as a pdf document
             </Text>
-            <Text mt={7} fontSize={"xl"}>
-              Tip: Next time, you can use this same document on this website to
-              save yourself same time.
-            </Text>
+           
           </Box>
           <Box mt={-5}>
             <Button

@@ -24,10 +24,10 @@ const Result = ({ str_arr }) => {
                     data-for={item.id}
                     key={idx}
                   >
-                    {item.prevVal}
+                    {item.item}
                   </span>
                   <ReactTooltip id={item.id} place="top" effect="solid">
-                    {item.item}
+                    {item.prevVal}
                   </ReactTooltip>
                 </span>
               )
