@@ -34,7 +34,8 @@ function Create() {
                 _hover={{ bg: "cyan.500" }}
                 _focus={{ border: "none" }}
               >
-                <MdOutlineCreate fontSize={"24px"} />Create
+                <MdOutlineCreate fontSize={"24px"} />
+                Create
               </Button>
             </Link>
           </Box>

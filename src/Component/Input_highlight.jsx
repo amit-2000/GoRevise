@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./highlightCSS.css";
 import { Box, Button, HStack, Text } from "@chakra-ui/react";
-import { BiCheck, BiPencil } from "react-icons/bi";
-import HighlightTwo from "./Highlight_2";
+import Test from "./Test";
 import Navbar from "./Navbar";
 import { BsCheck2Circle } from "react-icons/bs";
 import TextareaAutosize from "react-textarea-autosize";
+import Instructions from "./Instructions";
 function InputHighlight() {
   const [para, setPara] = useState("");
   // const [textareaHeight, setTextareaHeight] = useState("10vh");
@@ -15,7 +15,7 @@ function InputHighlight() {
     setPara(e.target.value);
   };
 
-// Done with text input ready to select and test.
+  // Done with text input ready to select and test.
   const handleSubmit = () => {
     setShowInpt(false);
   };
@@ -24,13 +24,12 @@ function InputHighlight() {
     setPara(para);
     setShowInpt(true);
   };
-  // const handleGoBack = (e, text) => {
-  //   setPara(para);
-  //   setShowInpt(true);
-  // };
+  const handleGoBack = (e, text) => {
+    setPara("");
+    setShowInpt(true);
+  };
   return (
     <>
-    
       {showInput ? (
         <Box
           overflow="hidden"
@@ -42,35 +41,7 @@ function InputHighlight() {
           <Navbar color="white" />
 
           <div className="field">
-            <Box
-              color="white"
-              rounded={"2xl"}
-              px={"20"}
-              m={20}
-              bg={"rgb(255,160,122,.9)"}
-            >
-              <p className="title">Instructions:</p>
-              <div className="tag">
-                <p className="list">
-                  Edit the text like a normal word document. You can add and
-                  remove text too.
-                </p>
-              </div>
-              <div className="tag">
-                <p className="list">
-                  Click on "Highlight"{" "}
-                  <BiPencil fontSize={"20px"} color={"cyan"} />
-                  and simply highlight the words you want to blank out.
-                </p>
-              </div>
-              <div className="tag">
-                <p className="list">
-                  After editing, click on "done"{" "}
-                  <BiCheck fontSize={"30px"} color={"cyan"} /> to create your
-                  fill-in quiz.
-                </p>
-              </div>
-            </Box>
+            <Instructions/>
           </div>
           <Box bg={"white"} m={20} rounded={"2xl"}>
             <HStack
@@ -117,7 +88,11 @@ function InputHighlight() {
           </Box>
         </Box>
       ) : (
-        <HighlightTwo inputText={para} editText={editText} />
+        <Test
+          inputText={para}
+          editText={editText}
+          handleGoBack={handleGoBack}
+        />
       )}
     </>
   );
