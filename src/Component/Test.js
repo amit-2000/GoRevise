@@ -10,6 +10,7 @@ import EditDoneNavbar from "./Edit_done_navbar";
 import SubmitPage from "./SubmitPage";
 import InputText from "./InputText";
 const Test = ({ inputText, editText }) => {
+  //
   const [para] = useState(inputText);
   const finalRef = React.useRef();
   const [showCreate, setCreate] = useState(false);
@@ -40,11 +41,6 @@ const Test = ({ inputText, editText }) => {
     e.preventDefault();
   };
 
-  // REMOVE for Direct yellow highlight
-  // const highlight = () => {
-  //   setToggle(true);
-  // };
-
   const handleDone = () => {
     // debugger;
     setCreate(true);
@@ -65,12 +61,12 @@ const Test = ({ inputText, editText }) => {
       }
       return 0;
     });
+
     index.map((item, idx) => {
       const prevVal = str_arr[item]; // old value at index[item].
       if (prevVal === ans_array[idx]) {
         // debugger;
 
-        // setCorrect_ans_count(correct_ans_count + 1);
         const inp_obj = {
           item: ans_array[idx],
           result: true,
@@ -112,9 +108,7 @@ const Test = ({ inputText, editText }) => {
     });
     return cnt;
   };
-  // console.log("correct_ans_count", correct_ans_count);
-  // console.log("wrong_ans_count", count_blank - correct_ans_count);
-  // console.log(str_arr);
+
   return (
     <>
       {showCreate ? (
