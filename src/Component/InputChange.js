@@ -12,7 +12,7 @@ const InputChange = ({ index, str_arr, submit, setSubmit }) => {
         str_arr.map((item, idx) => {
           if (index.includes(idx)) {
             return (
-              <span>
+              <span key={idx}>
                 <b>{i++}</b>
                 <input className="inputBorder" id={idx}></input>
               </span>

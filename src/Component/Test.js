@@ -37,7 +37,7 @@ const Test = ({ inputText, editText }) => {
     }
     setToggle(false);
     setCount_blank(index.length + 1);
-    console.log(count_blank);
+    // console.log(count_blank);
     e.preventDefault();
   };
 
