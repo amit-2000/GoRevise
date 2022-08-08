@@ -24,6 +24,7 @@ const HighlightTwo = ({ inputText, editText }) => {
   const [hideBtn, setHideBtn] = useState(false);
   const [viewScore, setViewScore] = useState(false);
   const [viewDone, setViewDone] = useState(true);
+  const [hightlightDone, setHighlightDOne] = useState(false);
   // Select-Deselect words
   const handleHighlight = (e, idx) => {
     let newIndexArr;
@@ -45,6 +46,7 @@ const HighlightTwo = ({ inputText, editText }) => {
   // REMOVE for Direct yellow highlight
   const highlight = () => {
     setToggle(true);
+    setHighlightDOne(true);
   };
 
   const handleDone = () => {
@@ -188,45 +190,55 @@ const HighlightTwo = ({ inputText, editText }) => {
                 py={1}
                 textAlign="center"
               >
-                <Box mx={5} style={{ marginRight: "10px" }}>
-                  <Button
-                    color={"cyan"}
-                    backgroundColor={"black"}
-                    _hover={"black"}
-                    _focus={{ border: "none" }}
-                    variant={"unstyled"}
-                    onClick={(e) => editText(e, inputText)}
-                  >
-                    <BiUndo fontSize={"30px"} color={"cyan"} />
-                  </Button>
-                  <Text className="textshift">Edit</Text>
-                </Box>
+                {!hightlightDone && (
+                  <Box mx={5} style={{ marginRight: "10px" }}>
+                    <Button
+                      color={"cyan"}
+                      backgroundColor={"black"}
+                      _hover={"black"}
+                      _focus={{ border: "none" }}
+                      variant={"unstyled"}
+                      onClick={(e) => editText(e, inputText)}
+                    >
+                      <BiUndo fontSize={"30px"} color={"cyan"} />
+                    </Button>
+                    <Text className="textshift">Edit</Text>
+                  </Box>
+                )}
 
-                <Box mx={5} onClick={highlight} style={{ marginRight: "10px" }}>
-                  <Button
-                    color={"cyan"}
-                    backgroundColor={"black"}
-                    _hover={"black"}
-                    _focus={{ border: "none" }}
-                    variant={"unstyled"}
+                {!hightlightDone && (
+                  <Box
+                    mx={5}
+                    onClick={highlight}
+                    style={{ marginRight: "10px" }}
                   >
-                    <BiPencil fontSize={"30px"} color={"cyan"} />
-                  </Button>
-                  <Text className="textshift">Highlight</Text>
-                </Box>
-                <Box mx={5} onClick={handleDone}>
-                  <Button
-                    color={"cyan"}
-                    backgroundColor={"black"}
-                    _hover={"black"}
-                    _focus={{ border: "none" }}
-                    variant={"unstyled"}
-                    // variant={"unstyled"}
-                  >
-                    <BiCheck fontSize={"30px"} color={"cyan"} />
-                  </Button>
-                  <Text className="textshift">Done</Text>
-                </Box>
+                    <Button
+                      color={"cyan"}
+                      backgroundColor={"black"}
+                      _hover={"black"}
+                      _focus={{ border: "none" }}
+                      variant={"unstyled"}
+                    >
+                      <BiPencil fontSize={"30px"} color={"cyan"} />
+                    </Button>
+                    <Text className="textshift">Highlight</Text>
+                  </Box>
+                )}
+                {hightlightDone && (
+                  <Box mx={5} onClick={handleDone}>
+                    <Button
+                      color={"cyan"}
+                      backgroundColor={"black"}
+                      _hover={"black"}
+                      _focus={{ border: "none" }}
+                      variant={"unstyled"}
+                      // variant={"unstyled"}
+                    >
+                      <BiCheck fontSize={"30px"} color={"cyan"} />
+                    </Button>
+                    <Text className="textshift">Done</Text>
+                  </Box>
+                )}
               </HStack>
             )}
             {hideBtn && (
