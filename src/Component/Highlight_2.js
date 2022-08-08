@@ -221,6 +221,7 @@ const HighlightTwo = ({ inputText, editText }) => {
                     _hover={"black"}
                     _focus={{ border: "none" }}
                     variant={"unstyled"}
+                    // variant={"unstyled"}
                   >
                     <BiCheck fontSize={"30px"} color={"cyan"} />
                   </Button>
