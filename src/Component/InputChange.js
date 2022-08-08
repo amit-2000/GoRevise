@@ -2,7 +2,7 @@ import React from "react";
 import Result from "./Result";
 import "./input.css";
 
-const InputChange = ({ index, str_arr, submit, setSubmit }) => {
+const InputChange = ({ index, str_arr, submit, setSubmit, disableInput }) => {
   let i = 1;
   return (
     <div>
@@ -14,7 +14,11 @@ const InputChange = ({ index, str_arr, submit, setSubmit }) => {
             return (
               <span>
                 <b>{i++}</b>
-                <input className="inputBorder" id={idx}></input>
+                <input
+                  className="inputBorder"
+                  disabled={disableInput}
+                  id={idx}
+                ></input>
               </span>
             );
           } else return <span key={idx}>{item} </span>;

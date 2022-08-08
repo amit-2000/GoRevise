@@ -9,6 +9,7 @@ import InputChange from "./InputChange";
 import ReturnFocus from "./DialogPopover";
 import { useDisclosure } from "@chakra-ui/react";
 import Save from "./Save_take_Quiz";
+
 const HighlightTwo = ({ inputText, editText }) => {
   const [para] = useState(inputText);
   const finalRef = React.useRef();
@@ -25,6 +26,7 @@ const HighlightTwo = ({ inputText, editText }) => {
   const [viewScore, setViewScore] = useState(false);
   const [viewDone, setViewDone] = useState(true);
   const [hightlightDone, setHighlightDOne] = useState(false);
+  const [disableInput, setDisableInput] = useState(false);
   // Select-Deselect words
   const handleHighlight = (e, idx) => {
     let newIndexArr;
@@ -122,6 +124,7 @@ const HighlightTwo = ({ inputText, editText }) => {
   const handleViewScore_and_done = () => {
     setViewScore(true);
     setViewDone(false);
+    setDisableInput(true);
   };
   return (
     <>
@@ -190,21 +193,19 @@ const HighlightTwo = ({ inputText, editText }) => {
                 py={1}
                 textAlign="center"
               >
-                {!hightlightDone && (
-                  <Box mx={5} style={{ marginRight: "10px" }}>
-                    <Button
-                      color={"cyan"}
-                      backgroundColor={"black"}
-                      _hover={"black"}
-                      _focus={{ border: "none" }}
-                      variant={"unstyled"}
-                      onClick={(e) => editText(e, inputText)}
-                    >
-                      <BiUndo fontSize={"30px"} color={"cyan"} />
-                    </Button>
-                    <Text className="textshift">Edit</Text>
-                  </Box>
-                )}
+                <Box mx={5} style={{ marginRight: "10px" }}>
+                  <Button
+                    color={"cyan"}
+                    backgroundColor={"black"}
+                    _hover={"black"}
+                    _focus={{ border: "none" }}
+                    variant={"unstyled"}
+                    onClick={(e) => editText(e, inputText)}
+                  >
+                    <BiUndo fontSize={"30px"} color={"cyan"} />
+                  </Button>
+                  <Text className="textshift">Edit</Text>
+                </Box>
 
                 {!hightlightDone && (
                   <Box
@@ -309,6 +310,7 @@ const HighlightTwo = ({ inputText, editText }) => {
                   str_arr={str_arr}
                   submit={submit}
                   setSubmit={setSubmit}
+                  disableInput={disableInput}
                 />
               ) : toggle ? (
                 str_arr.map((item, idx) => {
