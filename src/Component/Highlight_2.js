@@ -4,7 +4,7 @@ import { Box, Button, HStack, Text } from "@chakra-ui/react";
 import { BiUndo, BiCheck, BiPencil } from "react-icons/bi";
 // import { BsCheck2Circle } from "react-icons/bs";
 import Navbar from "./Navbar";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import InputChange from "./InputChange";
 import ReturnFocus from "./DialogPopover";
 import { useDisclosure } from "@chakra-ui/react";
@@ -22,7 +22,8 @@ const HighlightTwo = ({ inputText, editText }) => {
   const [index, setIndex] = useState([]);
   const [submit, setSubmit] = useState(false);
   const [hideBtn, setHideBtn] = useState(false);
-
+  const [viewScore, setViewScore] = useState(false);
+  const [viewDone, setViewDone] = useState(true);
   // Select-Deselect words
   const handleHighlight = (e, idx) => {
     let newIndexArr;
@@ -42,9 +43,9 @@ const HighlightTwo = ({ inputText, editText }) => {
   };
 
   // REMOVE for Direct yellow highlight
-  // const highlight = () => {
-  //   setToggle(true);
-  // };
+  const highlight = () => {
+    setToggle(true);
+  };
 
   const handleDone = () => {
     // debugger;
@@ -116,6 +117,10 @@ const HighlightTwo = ({ inputText, editText }) => {
   // console.log("correct_ans_count", correct_ans_count);
   // console.log("wrong_ans_count", count_blank - correct_ans_count);
   // console.log(str_arr);
+  const handleViewScore_and_done = () => {
+    setViewScore(true);
+    setViewDone(false);
+  };
   return (
     <>
       {showCreate ? (
@@ -197,7 +202,7 @@ const HighlightTwo = ({ inputText, editText }) => {
                   <Text className="textshift">Edit</Text>
                 </Box>
 
-                {/* <Box mx={5} onClick={highlight} style={{ marginRight: "10px" }}>
+                <Box mx={5} onClick={highlight} style={{ marginRight: "10px" }}>
                   <Button
                     color={"cyan"}
                     backgroundColor={"black"}
@@ -208,7 +213,7 @@ const HighlightTwo = ({ inputText, editText }) => {
                     <BiPencil fontSize={"30px"} color={"cyan"} />
                   </Button>
                   <Text className="textshift">Highlight</Text>
-                </Box> */}
+                </Box>
                 <Box mx={5} onClick={handleDone}>
                   <Button
                     color={"cyan"}
@@ -235,32 +240,37 @@ const HighlightTwo = ({ inputText, editText }) => {
                 py={1}
                 textAlign="center"
               >
-                <Box mx={5} onClick={handleSubmit}>
-                  <Button
-                    color={"cyan"}
-                    backgroundColor={"black"}
-                    _hover={"black"}
-                    _focus={{ border: "none" }}
-                    variant={"unstyled"}
-                  >
-                    <BiCheck fontSize={"30px"} color={"cyan"} />
-                  </Button>
-                  <Text className="textshift">view score</Text>
-                </Box>
-                <Box mx={5}>
-                  <Button
-                    color={"cyan"}
-                    backgroundColor={"black"}
-                    _hover={"black"}
-                    _focus={{ border: "none" }}
-                    variant={"unstyled"}
-                  >
-                    <BiCheck fontSize={"30px"} color={"cyan"} />
-                  </Button>
-                  <Text className="textshift">Go back</Text>
-                </Box>
-                <Link to="/">
-                  <Box mx={5} onClick={(e) => editText(e, "")}>
+                {viewScore && (
+                  <Box mx={5} onClick={handleSubmit}>
+                    <Button
+                      color={"cyan"}
+                      backgroundColor={"black"}
+                      _hover={"black"}
+                      _focus={{ border: "none" }}
+                      variant={"unstyled"}
+                    >
+                      <BiCheck fontSize={"30px"} color={"cyan"} />
+                    </Button>
+                    <Text className="textshift">view score</Text>
+                  </Box>
+                )}
+                {viewScore && (
+                  <Box mx={5}>
+                    <Button
+                      color={"cyan"}
+                      backgroundColor={"black"}
+                      _hover={"black"}
+                      _focus={{ border: "none" }}
+                      variant={"unstyled"}
+                    >
+                      <BiCheck fontSize={"30px"} color={"cyan"} />
+                    </Button>
+                    <Text className="textshift">Go back</Text>
+                  </Box>
+                )}
+                {/* <Link to="/"> */}
+                {viewDone && (
+                  <Box mx={5} onClick={(e) => handleViewScore_and_done()}>
                     <Button
                       color={"cyan"}
                       backgroundColor={"black"}
@@ -272,7 +282,8 @@ const HighlightTwo = ({ inputText, editText }) => {
                     </Button>
                     <Text className="textshift">Done</Text>
                   </Box>
-                </Link>
+                )}
+                {/* </Link> */}
               </HStack>
             )}
             {/* </HStack> */}
