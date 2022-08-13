@@ -30,7 +30,6 @@ function InputHighlight() {
   // };
   return (
     <>
-    
       {showInput ? (
         <Box
           overflow="hidden"
@@ -83,6 +82,7 @@ function InputHighlight() {
               roundedTop={"2xl"}
               py={0.5}
               textAlign="center"
+              cursor="pointer"
             >
               <Box mx={5} onClick={handleSubmit}>
                 <Button

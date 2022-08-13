@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import "./highlightCSS.css";
 import { Box, Button, HStack, Text } from "@chakra-ui/react";
-import { BiUndo, BiCheck, BiPencil } from "react-icons/bi";
+import {
+  BiUndo,
+  BiCheck,
+  BiPencil,
+  BiShare,
+  BiSpreadsheet,
+} from "react-icons/bi";
 // import { BsCheck2Circle } from "react-icons/bs";
 import Navbar from "./Navbar";
-// import { Link } from "react-router-dom";
 import InputChange from "./InputChange";
 import ReturnFocus from "./DialogPopover";
 import { useDisclosure } from "@chakra-ui/react";
@@ -183,6 +188,7 @@ const HighlightTwo = ({ inputText, editText }) => {
           <Box bg={"white"} m={20} rounded={"2xl"}>
             {!hideBtn && (
               <HStack
+                cursor="pointer"
                 my={5}
                 bg="black"
                 color="white"
@@ -253,6 +259,7 @@ const HighlightTwo = ({ inputText, editText }) => {
                 roundedTop={"2xl"}
                 py={1}
                 textAlign="center"
+                cursor="pointer"
               >
                 {viewScore && (
                   <Box mx={5} onClick={handleSubmit}>
@@ -263,7 +270,7 @@ const HighlightTwo = ({ inputText, editText }) => {
                       _focus={{ border: "none" }}
                       variant={"unstyled"}
                     >
-                      <BiCheck fontSize={"30px"} color={"cyan"} />
+                      <BiSpreadsheet fontSize={"30px"} color={"cyan"} />
                     </Button>
                     <Text className="textshift">view score</Text>
                   </Box>
@@ -277,7 +284,7 @@ const HighlightTwo = ({ inputText, editText }) => {
                       _focus={{ border: "none" }}
                       variant={"unstyled"}
                     >
-                      <BiCheck fontSize={"30px"} color={"cyan"} />
+                      <BiShare fontSize={"30px"} color={"cyan"} />
                     </Button>
                     <Text className="textshift">Go back</Text>
                   </Box>
