@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./highlightCSS.css";
 import { Box, Button, HStack, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import {
   BiUndo,
   BiCheck,
@@ -289,7 +290,22 @@ const HighlightTwo = ({ inputText, editText }) => {
                     <Text className="textshift">Go back</Text>
                   </Box>
                 )}
-                {/* <Link to="/"> */}
+                {viewScore && (
+                  <Link to="/">
+                    <Box mx={5} onClick={(e) => handleViewScore_and_done()}>
+                      <Button
+                        color={"cyan"}
+                        backgroundColor={"black"}
+                        _hover={"black"}
+                        _focus={{ border: "none" }}
+                        variant={"unstyled"}
+                      >
+                        <BiCheck fontSize={"30px"} color={"cyan"} />
+                      </Button>
+                      <Text className="textshift">Done</Text>
+                    </Box>
+                  </Link>
+                )}
                 {viewDone && (
                   <Box mx={5} onClick={(e) => handleViewScore_and_done()}>
                     <Button
@@ -304,7 +320,6 @@ const HighlightTwo = ({ inputText, editText }) => {
                     <Text className="textshift">Done</Text>
                   </Box>
                 )}
-                {/* </Link> */}
               </HStack>
             )}
             {/* </HStack> */}
