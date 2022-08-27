@@ -17,7 +17,7 @@ import { useDisclosure } from "@chakra-ui/react";
 import Save from "./Save_take_Quiz";
 
 const HighlightTwo = ({ inputText, editText }) => {
-  const [para] = useState(inputText);
+  // const [para] = useState(inputText);
   const finalRef = React.useRef();
   const [showCreate, setCreate] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -25,7 +25,7 @@ const HighlightTwo = ({ inputText, editText }) => {
   const [count_blank, setCount_blank] = useState(0);
   const [toggle, setToggle] = useState(false);
   const [inp, setInp] = useState(false);
-  const [str_arr, setStr_arr] = useState(para.split(" ")); //split given input, each word is element of array.
+  const [str_arr, setStr_arr] = useState(inputText.split(" ")); //split given input, each word is element of array.
   const [index, setIndex] = useState([]);
   const [submit, setSubmit] = useState(false);
   const [hideBtn, setHideBtn] = useState(false);
