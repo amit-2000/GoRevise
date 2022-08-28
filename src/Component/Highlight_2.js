@@ -31,7 +31,7 @@ const HighlightTwo = ({ inputText, editText }) => {
   const [hideBtn, setHideBtn] = useState(false);
   const [viewScore, setViewScore] = useState(false);
   const [viewDone, setViewDone] = useState(true);
-  const [hightlightDone, setHighlightDOne] = useState(false);
+  const [hightlightDone, setHighlightDone] = useState(false);
   const [disableInput, setDisableInput] = useState(false);
   // Select-Deselect words
   const handleHighlight = (e, idx) => {
@@ -54,7 +54,7 @@ const HighlightTwo = ({ inputText, editText }) => {
   // REMOVE for Direct yellow highlight
   const highlight = () => {
     setToggle(true);
-    setHighlightDOne(true);
+    setHighlightDone(true);
   };
 
   const handleDone = () => {
@@ -128,6 +128,8 @@ const HighlightTwo = ({ inputText, editText }) => {
   // console.log("wrong_ans_count", count_blank - correct_ans_count);
   // console.log(str_arr);
   const handleViewScore_and_done = () => {
+    handleSubmit();
+    onOpen();
     setViewScore(true);
     setViewDone(false);
     setDisableInput(true);
@@ -317,7 +319,7 @@ const HighlightTwo = ({ inputText, editText }) => {
                     >
                       <BiCheck fontSize={"30px"} color={"cyan"} />
                     </Button>
-                    <Text className="textshift">Done</Text>
+                    <Text className="textshift">Done </Text>
                   </Box>
                 )}
               </HStack>
