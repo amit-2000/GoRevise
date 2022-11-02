@@ -1,7 +1,7 @@
 import { Box, Button, Center, Flex, Heading, Text } from "@chakra-ui/react";
 import React from "react";
 import { MdOutlineCreate } from "react-icons/md";
-import {MdReply} from "react-icons/md"
+import { MdReply } from "react-icons/md";
 import Navbar from "./Navbar";
 
 const Save = ({ handleSave }) => {
@@ -23,7 +23,6 @@ const Save = ({ handleSave }) => {
             <Text mt={7} fontSize={"xl"}>
               Save your fill-in quiz test as a pdf document
             </Text>
-           
           </Box>
           <Box mt={-5}>
             <Button
@@ -77,18 +76,18 @@ const Save = ({ handleSave }) => {
         </Flex>
       </Center>
       <Button
-              rounded={"full"}
-              size={"lg"}
-              mt={20}
-              ml={780}
-              px={6}
-              bg={"cyan.400"}
-              _hover={{ bg: "cyan.500" }}
-              _focus={{ border: "none" }}
-            >
-              <MdReply fontSize={"28px"}/>
-              <Text>Go Back</Text>
-            </Button>
+        rounded={"full"}
+        size={"lg"}
+        mt={20}
+        ml={780}
+        px={6}
+        bg={"cyan.400"}
+        _hover={{ bg: "cyan.500" }}
+        _focus={{ border: "none" }}
+      >
+        <MdReply fontSize={"28px"} />
+        <Text>Go Back</Text>
+      </Button>
     </>
   );
 };
