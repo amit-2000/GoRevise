@@ -8,6 +8,21 @@ const Save = ({ handleSave }) => {
   return (
     <>
       <Navbar color="gray.200" />
+      <Center>
+      <Button
+              rounded={"full"}
+              size={"lg"}
+              mt={20}
+              px={6}
+              bg={"cyan.400"}
+              _hover={{ bg: "cyan.500" }}
+              _focus={{ border: "none" }}
+              // onClick={() => handleSave(false)}
+            >
+              <MdReply fontSize={"28px"}/>
+              <Text>Go Back</Text>
+       </Button>
+       </Center>
       <Center pt="24" mt={"-60px"}>
         <Flex
           h={"380px"}
@@ -75,19 +90,6 @@ const Save = ({ handleSave }) => {
           </Box>
         </Flex>
       </Center>
-      <Button
-        rounded={"full"}
-        size={"lg"}
-        mt={20}
-        ml={780}
-        px={6}
-        bg={"cyan.400"}
-        _hover={{ bg: "cyan.500" }}
-        _focus={{ border: "none" }}
-      >
-        <MdReply fontSize={"28px"} />
-        <Text>Go Back</Text>
-      </Button>
     </>
   );
 };
