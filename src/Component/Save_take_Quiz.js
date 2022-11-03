@@ -4,25 +4,25 @@ import { MdOutlineCreate } from "react-icons/md";
 import { MdReply } from "react-icons/md";
 import Navbar from "./Navbar";
 
-const Save = ({ handleSave }) => {
+const SaveAndTakeQuiz = ({ handleSave }) => {
   return (
     <>
       <Navbar color="gray.200" />
       <Center>
-      <Button
-              rounded={"full"}
-              size={"lg"}
-              mt={20}
-              px={6}
-              bg={"cyan.400"}
-              _hover={{ bg: "cyan.500" }}
-              _focus={{ border: "none" }}
-              // onClick={() => handleSave(false)}
-            >
-              <MdReply fontSize={"28px"}/>
-              <Text>Go Back</Text>
-       </Button>
-       </Center>
+        <Button
+          rounded={"full"}
+          size={"lg"}
+          mt={20}
+          px={6}
+          bg={"cyan.400"}
+          _hover={{ bg: "cyan.500" }}
+          _focus={{ border: "none" }}
+          // onClick={() => handleSave(false)}
+        >
+          <MdReply fontSize={"28px"} />
+          <Text>Go Back</Text>
+        </Button>
+      </Center>
       <Center pt="24" mt={"-60px"}>
         <Flex
           h={"380px"}
@@ -34,9 +34,9 @@ const Save = ({ handleSave }) => {
           rounded={"3xl"}
         >
           <Box textAlign={"center"}>
-            <Heading>Save</Heading>
+            <Heading>SaveAndTakeQuiz</Heading>
             <Text mt={7} fontSize={"xl"}>
-              Save your fill-in quiz test as a pdf document
+              SaveAndTakeQuiz your fill-in quiz test as a pdf document
             </Text>
           </Box>
           <Box mt={-5}>
@@ -50,7 +50,7 @@ const Save = ({ handleSave }) => {
               _focus={{ border: "none" }}
             >
               <MdOutlineCreate fontSize={"24px"} />
-              <Text>Save</Text>
+              <Text>SaveAndTakeQuiz</Text>
             </Button>
           </Box>
         </Flex>
@@ -93,4 +93,4 @@ const Save = ({ handleSave }) => {
     </>
   );
 };
-export default Save;
+export default SaveAndTakeQuiz;

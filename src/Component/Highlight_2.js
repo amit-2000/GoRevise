@@ -14,24 +14,25 @@ import Navbar from "./Navbar";
 import InputChange from "./InputChange";
 import ReturnFocus from "./DialogPopover";
 import { useDisclosure } from "@chakra-ui/react";
-import Save from "./Save_take_Quiz";
+import SaveAndTakeQuiz from "./Save_take_Quiz";
+import Instruction from "./Instruction";
+import EnterInInputBox from "./EnterInInputBox";
 
 const HighlightTwo = ({ inputText, editText }) => {
-  // const [para] = useState(inputText);
   const finalRef = React.useRef();
-  const [showCreate, setCreate] = useState(false);
+  const [show_choice_page, setShow_page] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   // const [correct_ans_count, setCorrect_ans_count] = useState(0);
   const [count_blank, setCount_blank] = useState(0);
   const [toggle, setToggle] = useState(false);
-  const [inp, setInp] = useState(false);
+  const [disable_input_box, setDisable_input_box] = useState(false);
   const [str_arr, setStr_arr] = useState(inputText.split(" ")); //split given input, each word is element of array.
   const [index, setIndex] = useState([]);
   const [submit, setSubmit] = useState(false);
   const [hideBtn, setHideBtn] = useState(false);
   const [viewScore, setViewScore] = useState(false);
   const [viewDone, setViewDone] = useState(true);
-  const [hightlightDone, setHighlightDone] = useState(false);
+  const [hightlight, setHighlight] = useState(false);
   const [disableInput, setDisableInput] = useState(false);
   // Select-Deselect words
   const handleHighlight = (e, idx) => {
@@ -39,7 +40,6 @@ const HighlightTwo = ({ inputText, editText }) => {
     if (index.indexOf(idx) === -1) {
       newIndexArr = [...index, idx];
       setIndex(newIndexArr);
-      // console.log(newIndexArr);
     } else {
       newIndexArr = index.filter((item) => item !== idx);
       console.log(newIndexArr);
@@ -54,13 +54,13 @@ const HighlightTwo = ({ inputText, editText }) => {
   // REMOVE for Direct yellow highlight
   const highlight = () => {
     setToggle(true);
-    setHighlightDone(true);
+    setHighlight(true);
   };
 
   const handleDone = () => {
     // debugger;
-    setCreate(true);
-    setInp(true);
+    setShow_page(true);
+    setDisable_input_box(true);
     setHideBtn(true);
   };
 
@@ -110,7 +110,7 @@ const HighlightTwo = ({ inputText, editText }) => {
   };
 
   const handleSave = () => {
-    setCreate(false);
+    setShow_page(false);
   };
 
   // count correct answers.
@@ -136,8 +136,8 @@ const HighlightTwo = ({ inputText, editText }) => {
   };
   return (
     <>
-      {showCreate ? (
-        <Save handleSave={handleSave} />
+      {show_choice_page ? (
+        <SaveAndTakeQuiz handleSave={handleSave} />
       ) : (
         <Box
           overflow="hidden"
@@ -156,37 +156,7 @@ const HighlightTwo = ({ inputText, editText }) => {
             correct_ans_count={corrcet_ans}
             count_blank={count_blank}
           />
-          <div className="field">
-            <Box
-              color="white"
-              rounded={"2xl"}
-              px={"20"}
-              m={20}
-              bg={"rgb(255,160,122,.9)"}
-            >
-              <p className="title">Instructions:</p>
-              <div className="tag">
-                <p className="list">
-                  Edit the text like a normal word document. You can add and
-                  remove text too.
-                </p>
-              </div>
-              <div className="tag">
-                <p className="list">
-                  Click on "Highlight"{" "}
-                  <BiPencil fontSize={"20px"} color={"cyan"} />
-                  and simply highlight the words you want to blank out.
-                </p>
-              </div>
-              <div className="tag">
-                <p className="list">
-                  After editing, click on "done"{" "}
-                  <BiCheck fontSize={"30px"} color={"cyan"} /> to create your
-                  fill-in quiz.
-                </p>
-              </div>
-            </Box>
-          </div>
+          <Instruction />
 
           <Box bg={"white"} m={20} rounded={"2xl"}>
             {!hideBtn && (
@@ -216,7 +186,7 @@ const HighlightTwo = ({ inputText, editText }) => {
                   <Text className="textshift">Edit</Text>
                 </Box>
 
-                {!hightlightDone && (
+                {!hightlight && (
                   <Box
                     mx={5}
                     onClick={highlight}
@@ -234,7 +204,7 @@ const HighlightTwo = ({ inputText, editText }) => {
                     <Text className="textshift">Highlight</Text>
                   </Box>
                 )}
-                {hightlightDone && (
+                {hightlight && (
                   <Box mx={5} onClick={handleDone}>
                     <Button
                       color={"cyan"}
@@ -327,7 +297,7 @@ const HighlightTwo = ({ inputText, editText }) => {
             {/* </HStack> */}
 
             <Text id="new_para" as={"p"} mt={"-35px"} fontSize={"lg"} p="8">
-              {inp ? (
+              {disable_input_box ? (
                 <InputChange
                   id=""
                   index={index}
@@ -336,36 +306,14 @@ const HighlightTwo = ({ inputText, editText }) => {
                   setSubmit={setSubmit}
                   disableInput={disableInput}
                 />
-              ) : toggle ? (
-                str_arr.map((item, idx) => {
-                  return (
-                    <Text
-                      as="span"
-                      key={idx}
-                      onClick={(e) => handleHighlight(e, idx)}
-                      className={
-                        index.includes(idx) ? "highlight__yellow" : "hover-item"
-                      }
-                    >
-                      {item}{" "}
-                    </Text>
-                  );
-                })
               ) : (
-                str_arr.map((item, idx) => {
-                  return (
-                    <Text
-                      as="span"
-                      key={idx}
-                      onClick={(e) => handleHighlight(e, idx)}
-                      className={
-                        index.includes(idx) ? "highlight" : "hover-item"
-                      }
-                    >
-                      {item}{" "}
-                    </Text>
-                  );
-                })
+                <EnterInInputBox
+                  disable_input_box={disable_input_box}
+                  handleHighlight={handleHighlight}
+                  index={index}
+                  str_arr={str_arr}
+                  toggle={toggle}
+                />
               )}
             </Text>
           </Box>
