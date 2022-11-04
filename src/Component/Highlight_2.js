@@ -1,15 +1,6 @@
 import React, { useState } from "react";
 import "./highlightCSS.css";
-import { Box, Button, HStack, Text } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
-import {
-  BiUndo,
-  BiCheck,
-  BiPencil,
-  BiShare,
-  BiSpreadsheet,
-} from "react-icons/bi";
-// import { BsCheck2Circle } from "react-icons/bs";
+import { Box, Text } from "@chakra-ui/react";
 import Navbar from "./Navbar";
 import InputChange from "./InputChange";
 import ReturnFocus from "./DialogPopover";
@@ -18,6 +9,7 @@ import SaveAndTakeQuiz from "./Save_take_Quiz";
 import Instruction from "./Instruction";
 import EnterInInputBox from "./EnterInInputBox";
 import ShowButtons from "./ShowButtons";
+import ResultButtons from "./ResultButtons";
 const HighlightTwo = ({ inputText, editText }) => {
   const finalRef = React.useRef();
   const [show_choice_page, setShow_page] = useState(false);
@@ -32,7 +24,7 @@ const HighlightTwo = ({ inputText, editText }) => {
   const [hideBtn, setHideBtn] = useState(false);
   const [viewScore, setViewScore] = useState(false);
   const [viewDone, setViewDone] = useState(true);
-  const [hightlight, setHighlight] = useState(false);
+  const [isHighlight_Done, setHighlight] = useState(false);
   const [disableInput, setDisableInput] = useState(false);
   // Select-Deselect words
   const handleHighlight = (e, idx) => {
@@ -53,9 +45,9 @@ const HighlightTwo = ({ inputText, editText }) => {
 
   // REMOVE for Direct yellow highlight
   const highlight = () => {
-    debugger;
     setToggle(true);
     setHighlight(true);
+    console.log("in the highlight");
   };
 
   const handleDone = () => {
@@ -125,9 +117,6 @@ const HighlightTwo = ({ inputText, editText }) => {
     });
     return cnt;
   };
-  // console.log("correct_ans_count", correct_ans_count);
-  // console.log("wrong_ans_count", count_blank - correct_ans_count);
-  // console.log(str_arr);
   const handleViewScore_and_done = () => {
     handleSubmit();
     onOpen();
@@ -167,140 +156,17 @@ const HighlightTwo = ({ inputText, editText }) => {
                 handleDone={handleDone}
                 inputText={inputText}
                 highlight={highlight}
+                isHighlight_Done={isHighlight_Done}
               />
-              // <HStack
-              //   cursor="pointer"
-              //   my={5}
-              //   bg="black"
-              //   color="white"
-              //   // px={"96"}
-              //   justifyContent={"center"}
-              //   alignItems={"center"}
-              //   roundedTop={"2xl"}
-              //   py={1}
-              //   textAlign="center"
-              // >
-              //   <Box mx={5} style={{ marginRight: "10px" }}>
-              //     <Button
-              //       color={"cyan"}
-              //       backgroundColor={"black"}
-              //       _hover={"black"}
-              //       _focus={{ border: "none" }}
-              //       variant={"unstyled"}
-              //       onClick={(e) => editText(e, inputText)}
-              //     >
-              //       <BiUndo fontSize={"30px"} color={"cyan"} />
-              //     </Button>
-              //     <Text className="textshift">Edit</Text>
-              //   </Box>
-
-              //   {!hightlight && (
-              //     <Box
-              //       mx={5}
-              //       onClick={highlight}
-              //       style={{ marginRight: "10px" }}
-              //     >
-              //       <Button
-              //         color={"cyan"}
-              //         backgroundColor={"black"}
-              //         _hover={"black"}
-              //         _focus={{ border: "none" }}
-              //         variant={"unstyled"}
-              //       >
-              //         <BiPencil fontSize={"30px"} color={"cyan"} />
-              //       </Button>
-              //       <Text className="textshift">Highlight</Text>
-              //     </Box>
-              //   )}
-              //   {hightlight && (
-              //     <Box mx={5} onClick={handleDone}>
-              //       <Button
-              //         color={"cyan"}
-              //         backgroundColor={"black"}
-              //         _hover={"black"}
-              //         _focus={{ border: "none" }}
-              //         variant={"unstyled"}
-              //         // variant={"unstyled"}
-              //       >
-              //         <BiCheck fontSize={"30px"} color={"cyan"} />
-              //       </Button>
-              //       <Text className="textshift">Done</Text>
-              //     </Box>
-              //   )}
-              // </HStack>
             )}
+
             {hideBtn && (
-              <HStack
-                my={5}
-                bg="black"
-                color="white"
-                px={"8"}
-                justifyContent={"right"}
-                alignItems={"center"}
-                roundedTop={"2xl"}
-                py={1}
-                textAlign="center"
-                cursor="pointer"
-              >
-                {viewScore && (
-                  <Box mx={5} onClick={handleSubmit}>
-                    <Button
-                      color={"cyan"}
-                      backgroundColor={"black"}
-                      _hover={"black"}
-                      _focus={{ border: "none" }}
-                      variant={"unstyled"}
-                    >
-                      <BiSpreadsheet fontSize={"30px"} color={"cyan"} />
-                    </Button>
-                    <Text className="textshift">view score</Text>
-                  </Box>
-                )}
-                {viewScore && (
-                  <Box mx={5}>
-                    <Button
-                      color={"cyan"}
-                      backgroundColor={"black"}
-                      _hover={"black"}
-                      _focus={{ border: "none" }}
-                      variant={"unstyled"}
-                    >
-                      <BiShare fontSize={"30px"} color={"cyan"} />
-                    </Button>
-                    <Text className="textshift">Go back</Text>
-                  </Box>
-                )}
-                {viewScore && (
-                  <Link to="/">
-                    <Box mx={5} onClick={(e) => handleViewScore_and_done()}>
-                      <Button
-                        color={"cyan"}
-                        backgroundColor={"black"}
-                        _hover={"black"}
-                        _focus={{ border: "none" }}
-                        variant={"unstyled"}
-                      >
-                        <BiCheck fontSize={"30px"} color={"cyan"} />
-                      </Button>
-                      <Text className="textshift">Done</Text>
-                    </Box>
-                  </Link>
-                )}
-                {viewDone && (
-                  <Box mx={5} onClick={(e) => handleViewScore_and_done()}>
-                    <Button
-                      color={"cyan"}
-                      backgroundColor={"black"}
-                      _hover={"black"}
-                      _focus={{ border: "none" }}
-                      variant={"unstyled"}
-                    >
-                      <BiCheck fontSize={"30px"} color={"cyan"} />
-                    </Button>
-                    <Text className="textshift">Done </Text>
-                  </Box>
-                )}
-              </HStack>
+              <ResultButtons
+                handleSubmit={handleSubmit}
+                viewScore={viewScore}
+                handleViewScore_and_done={handleViewScore_and_done}
+                viewDone={viewDone}
+              />
             )}
             {/* </HStack> */}
 

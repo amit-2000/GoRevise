@@ -9,6 +9,7 @@ const ShowButtons = ({
   highlight,
   handleDone,
   inputText,
+  isHighlight_Done,
 }) => {
   return (
     <HStack
@@ -36,7 +37,7 @@ const ShowButtons = ({
         <Text className="textshift">Edit</Text>
       </Box>
 
-      {!hightlight && (
+      {!isHighlight_Done && (
         <Box mx={5} onClick={() => highlight()} style={{ marginRight: "10px" }}>
           <Button
             color={"cyan"}
@@ -50,7 +51,7 @@ const ShowButtons = ({
           <Text className="textshift">Highlight</Text>
         </Box>
       )}
-      {hightlight && (
+      {isHighlight_Done && (
         <Box mx={5} onClick={handleDone}>
           <Button
             color={"cyan"}
