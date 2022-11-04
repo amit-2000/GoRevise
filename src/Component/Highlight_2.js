@@ -17,7 +17,7 @@ import { useDisclosure } from "@chakra-ui/react";
 import SaveAndTakeQuiz from "./Save_take_Quiz";
 import Instruction from "./Instruction";
 import EnterInInputBox from "./EnterInInputBox";
-
+import ShowButtons from "./ShowButtons";
 const HighlightTwo = ({ inputText, editText }) => {
   const finalRef = React.useRef();
   const [show_choice_page, setShow_page] = useState(false);
@@ -53,6 +53,7 @@ const HighlightTwo = ({ inputText, editText }) => {
 
   // REMOVE for Direct yellow highlight
   const highlight = () => {
+    debugger;
     setToggle(true);
     setHighlight(true);
   };
@@ -160,66 +161,73 @@ const HighlightTwo = ({ inputText, editText }) => {
 
           <Box bg={"white"} m={20} rounded={"2xl"}>
             {!hideBtn && (
-              <HStack
-                cursor="pointer"
-                my={5}
-                bg="black"
-                color="white"
-                // px={"96"}
-                justifyContent={"center"}
-                alignItems={"center"}
-                roundedTop={"2xl"}
-                py={1}
-                textAlign="center"
-              >
-                <Box mx={5} style={{ marginRight: "10px" }}>
-                  <Button
-                    color={"cyan"}
-                    backgroundColor={"black"}
-                    _hover={"black"}
-                    _focus={{ border: "none" }}
-                    variant={"unstyled"}
-                    onClick={(e) => editText(e, inputText)}
-                  >
-                    <BiUndo fontSize={"30px"} color={"cyan"} />
-                  </Button>
-                  <Text className="textshift">Edit</Text>
-                </Box>
+              <ShowButtons
+                hideBtn={hideBtn}
+                editText={editText}
+                handleDone={handleDone}
+                inputText={inputText}
+                highlight={highlight}
+              />
+              // <HStack
+              //   cursor="pointer"
+              //   my={5}
+              //   bg="black"
+              //   color="white"
+              //   // px={"96"}
+              //   justifyContent={"center"}
+              //   alignItems={"center"}
+              //   roundedTop={"2xl"}
+              //   py={1}
+              //   textAlign="center"
+              // >
+              //   <Box mx={5} style={{ marginRight: "10px" }}>
+              //     <Button
+              //       color={"cyan"}
+              //       backgroundColor={"black"}
+              //       _hover={"black"}
+              //       _focus={{ border: "none" }}
+              //       variant={"unstyled"}
+              //       onClick={(e) => editText(e, inputText)}
+              //     >
+              //       <BiUndo fontSize={"30px"} color={"cyan"} />
+              //     </Button>
+              //     <Text className="textshift">Edit</Text>
+              //   </Box>
 
-                {!hightlight && (
-                  <Box
-                    mx={5}
-                    onClick={highlight}
-                    style={{ marginRight: "10px" }}
-                  >
-                    <Button
-                      color={"cyan"}
-                      backgroundColor={"black"}
-                      _hover={"black"}
-                      _focus={{ border: "none" }}
-                      variant={"unstyled"}
-                    >
-                      <BiPencil fontSize={"30px"} color={"cyan"} />
-                    </Button>
-                    <Text className="textshift">Highlight</Text>
-                  </Box>
-                )}
-                {hightlight && (
-                  <Box mx={5} onClick={handleDone}>
-                    <Button
-                      color={"cyan"}
-                      backgroundColor={"black"}
-                      _hover={"black"}
-                      _focus={{ border: "none" }}
-                      variant={"unstyled"}
-                      // variant={"unstyled"}
-                    >
-                      <BiCheck fontSize={"30px"} color={"cyan"} />
-                    </Button>
-                    <Text className="textshift">Done</Text>
-                  </Box>
-                )}
-              </HStack>
+              //   {!hightlight && (
+              //     <Box
+              //       mx={5}
+              //       onClick={highlight}
+              //       style={{ marginRight: "10px" }}
+              //     >
+              //       <Button
+              //         color={"cyan"}
+              //         backgroundColor={"black"}
+              //         _hover={"black"}
+              //         _focus={{ border: "none" }}
+              //         variant={"unstyled"}
+              //       >
+              //         <BiPencil fontSize={"30px"} color={"cyan"} />
+              //       </Button>
+              //       <Text className="textshift">Highlight</Text>
+              //     </Box>
+              //   )}
+              //   {hightlight && (
+              //     <Box mx={5} onClick={handleDone}>
+              //       <Button
+              //         color={"cyan"}
+              //         backgroundColor={"black"}
+              //         _hover={"black"}
+              //         _focus={{ border: "none" }}
+              //         variant={"unstyled"}
+              //         // variant={"unstyled"}
+              //       >
+              //         <BiCheck fontSize={"30px"} color={"cyan"} />
+              //       </Button>
+              //       <Text className="textshift">Done</Text>
+              //     </Box>
+              //   )}
+              // </HStack>
             )}
             {hideBtn && (
               <HStack
