@@ -20,7 +20,6 @@ import {
 
 const ReturnFocus = ({
   isOpen,
-  onOpen,
   onClose,
   finalRef,
   correct_ans_count,

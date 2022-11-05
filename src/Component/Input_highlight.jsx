@@ -7,12 +7,11 @@ import { BsCheck2Circle } from "react-icons/bs";
 import TextareaAutosize from "react-textarea-autosize";
 import Instruction from "./Instruction";
 function InputHighlight() {
+  // Taking input
   const [para, setPara] = useState("");
-  // const [textareaHeight, setTextareaHeight] = useState("10vh");
   const [showInput, setShowInpt] = useState(true);
 
   const handleInput = (e) => {
-    // console.log(e.target.value);
     setPara(e.target.value);
   };
 

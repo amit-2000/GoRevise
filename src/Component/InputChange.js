@@ -12,10 +12,11 @@ const InputChange = ({ index, str_arr, submit, setSubmit, disableInput }) => {
       </Pdf>
       <div id="makepdf" className="pdf" ref={ref} style={{ marginBottom: 10 }}>
         {submit ? (
-          <Result str_arr={str_arr} />
+          <Result str_arr={str_arr} /> // showing correct and wrong ans with colored border and tooltip
         ) : (
           str_arr.map((item, idx) => {
             if (index.includes(idx)) {
+              // taking input in input boxes
               return (
                 <span>
                   <b>{i++}</b>
@@ -26,7 +27,7 @@ const InputChange = ({ index, str_arr, submit, setSubmit, disableInput }) => {
                   ></input>
                 </span>
               );
-            } else return <span key={idx}>{item} </span>;
+            } else return <span key={idx}>{item} </span>; //not selected words
           })
         )}
       </div>

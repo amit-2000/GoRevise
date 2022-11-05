@@ -26,7 +26,7 @@ const HighlightTwo = ({ inputText, editText }) => {
   const [viewDone, setViewDone] = useState(true);
   const [isHighlight_Done, setHighlight] = useState(false);
   const [disableInput, setDisableInput] = useState(false);
-  // Select-Deselect words
+
   const handleHighlight = (e, idx) => {
     let newIndexArr;
     if (index.indexOf(idx) === -1) {
@@ -124,6 +124,7 @@ const HighlightTwo = ({ inputText, editText }) => {
     setViewDone(false);
     setDisableInput(true);
   };
+
   return (
     <>
       {show_choice_page ? (
@@ -137,7 +138,7 @@ const HighlightTwo = ({ inputText, editText }) => {
           bgSize={"cover"}
         >
           <Navbar color="white" />
-
+          {/* viewscore popup */}
           <ReturnFocus
             isOpen={isOpen}
             onOpen={onOpen}
@@ -181,6 +182,7 @@ const HighlightTwo = ({ inputText, editText }) => {
                   disableInput={disableInput}
                 />
               ) : (
+                //Taking input in to inpur boxes, and disabling those when click on submit
                 <EnterInInputBox
                   disable_input_box={disable_input_box}
                   handleHighlight={handleHighlight}
