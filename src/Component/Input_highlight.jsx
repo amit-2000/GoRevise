@@ -6,8 +6,8 @@ import Navbar from "./Navbar";
 import { BsCheck2Circle } from "react-icons/bs";
 import TextareaAutosize from "react-textarea-autosize";
 import Instruction from "./Instruction";
+// Taking input
 function InputHighlight() {
-  // Taking input
   const [para, setPara] = useState("");
   const [showInput, setShowInpt] = useState(true);
 

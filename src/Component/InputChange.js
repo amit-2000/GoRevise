@@ -3,7 +3,13 @@ import Result from "./Result";
 import "./input.css";
 import Pdf from "react-to-pdf";
 const ref = React.createRef();
-const InputChange = ({ index, str_arr, submit, setSubmit, disableInput }) => {
+const InputChange = ({
+  index,
+  str_arr,
+  submit,
+  setSubmit,
+  disable_input_box,
+}) => {
   let i = 1;
   return (
     <div>
@@ -22,7 +28,7 @@ const InputChange = ({ index, str_arr, submit, setSubmit, disableInput }) => {
                   <b>{i++}</b>
                   <input
                     className="inputBorder"
-                    disabled={disableInput}
+                    disabled={disable_input_box}
                     id={idx}
                   ></input>
                 </span>

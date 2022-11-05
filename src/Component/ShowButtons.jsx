@@ -5,7 +5,7 @@ import "./highlightCSS.css";
 
 const ShowButtons = ({
   editText,
-  hightlight,
+
   highlight,
   handleDone,
   inputText,
@@ -38,7 +38,7 @@ const ShowButtons = ({
       </Box>
 
       {!isHighlight_Done && (
-        <Box mx={5} onClick={() => highlight()} style={{ marginRight: "10px" }}>
+        <Box mx={5} onClick={highlight} style={{ marginRight: "10px" }}>
           <Button
             color={"cyan"}
             backgroundColor={"black"}

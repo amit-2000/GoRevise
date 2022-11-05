@@ -11,14 +11,14 @@ import EnterInInputBox from "./EnterInInputBox";
 import ShowButtons from "./ShowButtons";
 import ResultButtons from "./ResultButtons";
 const HighlightTwo = ({ inputText, editText }) => {
+  const [str_arr, setStr_arr] = useState(inputText.split(" ")); //split given input, each word is element of array.
   const finalRef = React.useRef();
   const [show_choice_page, setShow_page] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   // const [correct_ans_count, setCorrect_ans_count] = useState(0);
   const [count_blank, setCount_blank] = useState(0);
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(false); //to go back in word selection phase
   const [disable_input_box, setDisable_input_box] = useState(false);
-  const [str_arr, setStr_arr] = useState(inputText.split(" ")); //split given input, each word is element of array.
   const [index, setIndex] = useState([]);
   const [submit, setSubmit] = useState(false);
   const [hideBtn, setHideBtn] = useState(false);
@@ -27,6 +27,7 @@ const HighlightTwo = ({ inputText, editText }) => {
   const [isHighlight_Done, setHighlight] = useState(false);
   const [disableInput, setDisableInput] = useState(false);
 
+  // select and deselect words
   const handleHighlight = (e, idx) => {
     let newIndexArr;
     if (index.indexOf(idx) === -1) {
@@ -37,19 +38,18 @@ const HighlightTwo = ({ inputText, editText }) => {
       console.log(newIndexArr);
       setIndex(newIndexArr);
     }
-    setToggle(false);
+    setToggle(false); //to go back in word selection phase
     setCount_blank(index.length + 1);
-    console.log(count_blank);
-    e.preventDefault();
+    // console.log(count_blank);
+    // e.preventDefault();
   };
 
-  // REMOVE for Direct yellow highlight
+  // Handle highlight to change buttons
   const highlight = () => {
     setToggle(true);
     setHighlight(true);
-    console.log("in the highlight");
   };
-
+  // Handle Done after selecting words
   const handleDone = () => {
     // debugger;
     setShow_page(true);
@@ -152,7 +152,6 @@ const HighlightTwo = ({ inputText, editText }) => {
           <Box bg={"white"} m={20} rounded={"2xl"}>
             {!hideBtn && (
               <ShowButtons
-                hideBtn={hideBtn}
                 editText={editText}
                 handleDone={handleDone}
                 inputText={inputText}
@@ -173,6 +172,7 @@ const HighlightTwo = ({ inputText, editText }) => {
 
             <Text id="new_para" as={"p"} mt={"-35px"} fontSize={"lg"} p="8">
               {disable_input_box ? (
+                //Taking input in to inpur boxes, and disabling those when click on submit
                 <InputChange
                   id=""
                   index={index}
@@ -182,7 +182,7 @@ const HighlightTwo = ({ inputText, editText }) => {
                   disableInput={disableInput}
                 />
               ) : (
-                //Taking input in to inpur boxes, and disabling those when click on submit
+                //select deselect words
                 <EnterInInputBox
                   disable_input_box={disable_input_box}
                   handleHighlight={handleHighlight}

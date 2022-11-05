@@ -1,15 +1,14 @@
-import React from 'react'
-import {Text } from "@chakra-ui/react";
+import React from "react";
+import { Text } from "@chakra-ui/react";
 
 function EnterInInputBox({ toggle, str_arr, handleHighlight, index }) {
   return toggle
     ? str_arr.map((item, idx) => {
-      
         return (
           <Text
             as="span"
             key={idx}
-            onClick={(e) => handleHighlight(e, idx)}
+            onClick={() => handleHighlight(idx)}
             className={index.includes(idx) ? "highlight__yellow" : "hover-item"}
           >
             {item}{" "}
@@ -30,4 +29,4 @@ function EnterInInputBox({ toggle, str_arr, handleHighlight, index }) {
       });
 }
 
-export default EnterInInputBox
+export default EnterInInputBox;
