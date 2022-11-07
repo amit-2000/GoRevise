@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./highlightCSS.css";
 import { Box, Button, HStack, Text } from "@chakra-ui/react";
-import HighlightTwo from "./Highlight_2";
+import Test from "./TestHome";
 import Navbar from "./Navbar";
 import { BsCheck2Circle } from "react-icons/bs";
 import TextareaAutosize from "react-textarea-autosize";
@@ -84,7 +84,7 @@ function InputHighlight() {
           </Box>
         </Box>
       ) : (
-        <HighlightTwo inputText={para} editText={editText} />
+        <Test inputText={para} editText={editText} />
       )}
     </>
   );

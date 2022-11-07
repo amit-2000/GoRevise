@@ -1,7 +1,7 @@
 import React from "react";
 import { Text } from "@chakra-ui/react";
 
-function EnterInInputBox({ toggle, str_arr, handleHighlight, index }) {
+function Texts({ toggle, str_arr, handleHighlight, index }) {
   return toggle
     ? str_arr.map((item, idx) => {
         return (
@@ -29,4 +29,4 @@ function EnterInInputBox({ toggle, str_arr, handleHighlight, index }) {
       });
 }
 
-export default EnterInInputBox;
+export default Texts;

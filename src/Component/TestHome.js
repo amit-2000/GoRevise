@@ -7,10 +7,10 @@ import ReturnFocus from "./DialogPopover";
 import { useDisclosure } from "@chakra-ui/react";
 import SaveAndTakeQuiz from "./Save_take_Quiz";
 import Instruction from "./Instruction";
-import EnterInInputBox from "./EnterInInputBox";
+import Texts from "./Texts";
 import ShowButtons from "./ShowButtons";
 import ResultButtons from "./ResultButtons";
-const HighlightTwo = ({ inputText, editText }) => {
+const Test = ({ inputText, editText }) => {
   const [str_arr, setStr_arr] = useState(inputText.split(" ")); //split given input, each word is element of array.
   const finalRef = React.useRef();
   const [show_choice_page, setShow_page] = useState(false);
@@ -172,7 +172,7 @@ const HighlightTwo = ({ inputText, editText }) => {
 
             <Text id="new_para" as={"p"} mt={"-35px"} fontSize={"lg"} p="8">
               {disable_input_box ? (
-                //Taking input in to inpur boxes, and disabling those when click on submit
+                //Taking input in to input boxes, and disabling those when click on submit
                 <InputChange
                   id=""
                   index={index}
@@ -182,9 +182,8 @@ const HighlightTwo = ({ inputText, editText }) => {
                   disableInput={disableInput}
                 />
               ) : (
-                //select deselect words
-                <EnterInInputBox
-                  disable_input_box={disable_input_box}
+                // Normal Text to select and deselect
+                <Texts
                   handleHighlight={handleHighlight}
                   index={index}
                   str_arr={str_arr}
@@ -199,4 +198,4 @@ const HighlightTwo = ({ inputText, editText }) => {
   );
 };
 
-export default HighlightTwo;
+export default Test;
