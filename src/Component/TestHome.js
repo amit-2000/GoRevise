@@ -10,7 +10,7 @@ import Instruction from "./Instruction";
 import Texts from "./Texts";
 import ShowButtons from "./ShowButtons";
 import ResultButtons from "./ResultButtons";
-const Test = ({ inputText, editText }) => {
+const TestHome = ({ inputText, editText }) => {
   const [str_arr, setStr_arr] = useState(inputText.split(" ")); //split given input, each word is element of array.
   const finalRef = React.useRef();
   const [show_choice_page, setShow_page] = useState(false);
@@ -66,10 +66,10 @@ const Test = ({ inputText, editText }) => {
       if (index.includes(idx)) {
         const val = document.getElementById(idx).value;
         ans_array.push(val);
-        // console.log(val);
       }
       return 0;
     });
+    console.log("Answers Array ", ans_array);
     index.map((item, idx) => {
       const prevVal = str_arr[item]; // old value at index[item].
       if (prevVal === ans_array[idx]) {
@@ -117,6 +117,7 @@ const Test = ({ inputText, editText }) => {
     });
     return cnt;
   };
+
   const handleViewScore_and_done = () => {
     handleSubmit();
     onOpen();
@@ -198,4 +199,4 @@ const Test = ({ inputText, editText }) => {
   );
 };
 
-export default Test;
+export default TestHome;

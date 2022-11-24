@@ -4,7 +4,8 @@ import ReactTooltip from "react-tooltip";
 
 const Result = ({ str_arr }) => {
   // console.log("In submit");
-  // console.log(str_arr);
+  console.log("str_arr ", str_arr);
+
   return (
     <div>
       {str_arr.map((item, idx) => {
