@@ -30,10 +30,11 @@ function InputHighlight() {
       {showInput ? (
         <Box
           overflow="hidden"
-          bgImage={"/bg.png"}
           minH={"100vh"}
-          bgRepeat={"no-repeat"}
-          bgSize={"cover"}
+          // bgImage={"/bg.png"}
+          // bgRepeat={"no-repeat"}
+          // bgSize={"cover"}
+          backgroundColor={"#100F5F"}
         >
           <Navbar color="white" />
           <Instruction />
@@ -61,12 +62,12 @@ function InputHighlight() {
                 >
                   <BsCheck2Circle fontSize={"30px"} color={"cyan"} />
                 </Button>
-                <Text className="textshift">Ok</Text>
+                <Text className="textshift">Done</Text>
               </Box>
             </HStack>
 
             <TextareaAutosize
-              placeholder="Enter your text here !!"
+              placeholder="Enter your text here!"
               value={para}
               style={{
                 width: "95%",

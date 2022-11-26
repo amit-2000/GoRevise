@@ -1,6 +1,7 @@
 import React from "react";
-import { Box } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import { BiCheck, BiPencil } from "react-icons/bi";
+
 function Instruction() {
   return (
     <div className="field">
@@ -9,27 +10,30 @@ function Instruction() {
         rounded={"2xl"}
         px={"20"}
         m={20}
-        bg={"rgb(255,160,122,.9)"}
+        backgroundColor="rgba(142, 141, 141, .5)"
       >
-        <p className="title">Instructions:</p>
+        {" "}
+        <Box display={"flex"}>
+          <img
+            style={{
+              width: "25px",
+              marginTop: "3px",
+            }}
+            src="images/note_icon.png"
+            alt="BigCo Inc. logo"
+          />
+          <Text className="title"> Instructions</Text>
+        </Box>
         <div className="tag">
-          <p className="list">
-            Edit the text like a normal word document. You can add and remove
-            text too.
-          </p>
+          <Text className="list">
+            Enter your text in the below editor. You can also paste your text.
+          </Text>
         </div>
         <div className="tag">
-          <p className="list">
-            Click on "Highlight" <BiPencil fontSize={"20px"} color={"cyan"} />
-            and simply highlight the words you want to blank out.
-          </p>
-        </div>
-        <div className="tag">
-          <p className="list">
-            After editing, click on "done"{" "}
-            <BiCheck fontSize={"30px"} color={"cyan"} /> to create your fill-in
-            quiz.
-          </p>
+          <Text className="list">
+            Click on Done <BiPencil fontSize={"20px"} color={"cyan"} />
+            once completed
+          </Text>
         </div>
       </Box>
     </div>
