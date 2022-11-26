@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Text } from "@chakra-ui/react";
-import { BiCheck, BiPencil } from "react-icons/bi";
+import {  BiPencil } from "react-icons/bi";
 
 function Instruction() {
   return (
