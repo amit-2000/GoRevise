@@ -11,7 +11,7 @@ import Texts from "./Texts";
 import ShowButtons from "./ShowButtons";
 import ResultButtons from "./ResultButtons";
 const TestHome = ({ inputText, editText }) => {
-  const [str_arr, setStr_arr] = useState(inputText.split(" ")); //split given input, each word is element of array.
+  const [str_arr] = useState(inputText.split(" ")); //split given input, each word is element of array.
   const finalRef = React.useRef();
   const [show_choice_page, setShow_page] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -26,7 +26,7 @@ const TestHome = ({ inputText, editText }) => {
   const [viewDone, setViewDone] = useState(true);
   const [isHighlight_Done, setHighlight] = useState(false);
   const [disableInput, setDisableInput] = useState(false);
-
+  const [user_inputeted_answers, set_users_inputed_ans] = useState([]);
   // select and deselect words
   const handleHighlight = (e, idx) => {
     let newIndexArr;
@@ -61,43 +61,44 @@ const TestHome = ({ inputText, editText }) => {
   const handleSubmit = () => {
     onOpen();
     index.sort();
-    const ans_array = [];
+    const arr = [];
     str_arr.map((item, idx) => {
       if (index.includes(idx)) {
         const val = document.getElementById(idx).value;
-        ans_array.push(val);
+        arr.push(val);
       }
+      set_users_inputed_ans(arr);
       return 0;
     });
-    console.log("Answers Array ", ans_array);
-    index.map((item, idx) => {
-      const prevVal = str_arr[item]; // old value at index[item].
-      if (prevVal === ans_array[idx]) {
-        // debugger;
+    console.log("users entered ans array Array ", user_inputeted_answers);
+    // index.map((item, idx) => {
+    //   const prevVal = str_arr[item]; // old value at index[item].
+    //   if (prevVal === user_inputeted_answers[idx]) {
+    //     // debugger;
 
-        // setCorrect_ans_count(correct_ans_count + 1);
-        const inp_obj = {
-          item: ans_array[idx],
-          result: true,
-        };
-        str_arr[item] = inp_obj;
-        const new_str_arr = str_arr;
-        setStr_arr(new_str_arr);
-      } else {
-        let id = Date.now().toString() + prevVal;
-        const inp_obj = {
-          id: id,
-          prevVal: prevVal,
-          item: ans_array[idx],
-          result: false,
-        };
-        str_arr[item] = inp_obj;
-        const new_str_arr = str_arr;
-        setStr_arr(new_str_arr);
-        // console.log("Wrong");
-      }
-      return 0;
-    });
+    //     // setCorrect_ans_count(correct_ans_count + 1);
+    //     const inp_obj = {
+    //       item: user_inputeted_answers[idx],
+    //       result: true,
+    //     };
+    //     str_arr[item] = inp_obj;
+    //     const new_str_arr = str_arr;
+    //     setStr_arr(new_str_arr);
+    //   } else {
+    //     let id = Date.now().toString() + prevVal;
+    //     const inp_obj = {
+    //       id: id,
+    //       prevVal: prevVal,
+    //       item: user_inputeted_answers[idx],
+    //       result: false,
+    //     };
+    //     str_arr[item] = inp_obj;
+    //     const new_str_arr = str_arr;
+    //     setStr_arr(new_str_arr);
+    //     // console.log("Wrong");
+    //   }
+    //   return 0;
+    // });
     // console.log(str_arr);
     setSubmit(true);
   };
@@ -181,6 +182,7 @@ const TestHome = ({ inputText, editText }) => {
                   submit={submit}
                   setSubmit={setSubmit}
                   disableInput={disableInput}
+                  user_inputeted_answers={user_inputeted_answers}
                 />
               ) : (
                 // Normal Text to select and deselect

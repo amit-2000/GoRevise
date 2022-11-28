@@ -4,10 +4,10 @@ import "./input.css";
 import Pdf from "react-to-pdf";
 const ref = React.createRef();
 const InputChange = ({
+  user_inputeted_answers,
   index,
   str_arr,
   submit,
-  setSubmit,
   disable_input_box,
 }) => {
   let i = 1;
@@ -18,7 +18,11 @@ const InputChange = ({
       </Pdf>
       <div id="makepdf" className="pdf" ref={ref} style={{ marginBottom: 10 }}>
         {submit ? (
-          <Result str_arr={str_arr} /> // showing correct and wrong ans with colored border and tooltip
+          <Result
+            user_inputeted_answers={user_inputeted_answers}
+            index={index}
+            str_arr={str_arr}
+          /> // showing correct and wrong ans with colored border and tooltip
         ) : (
           str_arr.map((item, idx) => {
             if (index.includes(idx)) {
