@@ -1,21 +1,24 @@
 import React, { useState, useEffect } from "react";
 import "./result.css";
 import ReactTooltip from "react-tooltip";
-import { span, Box } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 
 const Result = ({ user_inputeted_answers, index, str_arr }) => {
   const [corrcet_ans, setCorrectAns] = useState([]);
   console.log("index arr ", index);
   index.sort();
+
   useEffect(() => {
     str_arr.map((item, idx) => {
       if (index.includes(idx)) {
         corrcet_ans.push(item);
       }
-      return "";
+      return null;
     });
     setCorrectAns(corrcet_ans);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   console.log(
     "correcr answers  ",
     corrcet_ans,
@@ -23,27 +26,42 @@ const Result = ({ user_inputeted_answers, index, str_arr }) => {
     user_inputeted_answers
   );
 
-  let i = 0;
+  let i = -1;
+
   return (
     <Box>
       {str_arr.map((item, idx) => {
-        <span>{i++}</span>;
-
-        if (index.includes(idx)) {
-          if (corrcet_ans[i] === user_inputeted_answers[i]) {
-            return <span> {0}</span>;
+        if (index.includes(idx) === true) {
+          i++;
+          if (item === user_inputeted_answers[i]) {
+            return (
+              <span key={idx} className="ans__true">
+                {item.trim()}
+              </span>
+            );
           } else {
             return (
               <span>
-                <span>{item}</span>
-                <ReactTooltip id={idx} place="top" effect="solid">
+                <span
+                  className="ans__false"
+                  data-tip
+                  data-for={item.id}
+                  key={idx}
+                >
+                  {item}
+                </span>
+                <ReactTooltip
+                  id={Date.now().toString() + item}
+                  place="top"
+                  effect="solid"
+                >
                   {item}
                 </ReactTooltip>
               </span>
             );
           }
         } else {
-          <span key={idx}> {item} </span>;
+          return <span> {item} </span>;
         }
       })}
 

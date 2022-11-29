@@ -1,8 +1,9 @@
 import React from "react";
 import Result from "./Result";
 import "./input.css";
-import Pdf from "react-to-pdf";
+// import Pdf from "react-to-pdf";
 const ref = React.createRef();
+
 const InputChange = ({
   user_inputeted_answers,
   index,
@@ -13,9 +14,9 @@ const InputChange = ({
   let i = 1;
   return (
     <div>
-      <Pdf targetRef={ref} filename="code-example.pdf">
+      {/* <Pdf targetRef={ref} filename="code-example.pdf">
         {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
-      </Pdf>
+      </Pdf> */}
       <div id="makepdf" className="pdf" ref={ref} style={{ marginBottom: 10 }}>
         {submit ? (
           <Result
@@ -44,5 +45,6 @@ const InputChange = ({
     </div>
   );
 };
+
 
 export default InputChange;
