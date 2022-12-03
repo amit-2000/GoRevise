@@ -71,6 +71,7 @@ const TestHome = ({ inputText, editText }) => {
       return 0;
     });
     console.log("users entered ans array Array ", user_inputeted_answers);
+
     // index.map((item, idx) => {
     //   const prevVal = str_arr[item]; // old value at index[item].
     //   if (prevVal === user_inputeted_answers[idx]) {
@@ -85,7 +86,7 @@ const TestHome = ({ inputText, editText }) => {
     //     const new_str_arr = str_arr;
     //     setStr_arr(new_str_arr);
     //   } else {
-    //     let id = Date.now().toString() + prevVal;
+    //     let id = Date.now().toString() + prevVal; // Math.random().toStirng();
     //     const inp_obj = {
     //       id: id,
     //       prevVal: prevVal,
@@ -100,6 +101,7 @@ const TestHome = ({ inputText, editText }) => {
     //   return 0;
     // });
     // console.log(str_arr);
+
     setSubmit(true);
   };
 
@@ -134,7 +136,8 @@ const TestHome = ({ inputText, editText }) => {
       ) : (
         <Box
           overflow="hidden"
-          bgImage={"/bg.png"}
+          // bgImage={"/bg.png"}
+          backgroundColor={"#100F5F"}
           minH={"100vh"}
           bgRepeat={"no-repeat"}
           bgSize={"cover"}

@@ -14,19 +14,20 @@ function Instruction() {
       >
         {" "}
         <Box display={"flex"}>
-          <img
+          {/* <img
             style={{
               width: "25px",
               marginTop: "3px",
             }}
-            src="images/note_icon.png"
+            // src="images/note_icon.png"
             alt="BigCo Inc. logo"
-          />
+          /> */}
           <Text className="title"> Instructions</Text>
         </Box>
         <div className="tag">
           <Text className="list">
-            Enter your text in the below editor. You can also paste your text.
+            Enter your text in the below editor. You can copy-paste
+            your text too.
           </Text>
         </div>
         <div className="tag">
