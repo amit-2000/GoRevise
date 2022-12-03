@@ -1,14 +1,14 @@
 import { Box, Button, Center, Flex, Heading, Text } from "@chakra-ui/react";
 import React from "react";
 import { MdOutlineCreate } from "react-icons/md";
-import { MdReply } from "react-icons/md";
+// import { MdReply } from "react-icons/md";
 import Navbar from "./Navbar";
 
 const SaveAndTakeQuiz = ({ handleSave }) => {
   return (
     <>
       <Navbar color="gray.200" />
-      <Center>
+      {/* <Center>
         <Button
           rounded={"full"}
           size={"lg"}
@@ -22,7 +22,7 @@ const SaveAndTakeQuiz = ({ handleSave }) => {
           <MdReply fontSize={"28px"} />
           <Text>Go Back</Text>
         </Button>
-      </Center>
+      </Center> */}
       <Center pt="24" mt={"-60px"}>
         <Flex
           h={"380px"}
