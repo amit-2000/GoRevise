@@ -19,9 +19,9 @@ export default function Home() {
 
       <Container
         maxW={"7xl"}
-        mt={-5}
-        minH={{ base: "65vh", sm: "70vh", lg: "70vh" }}
-        px={{ base: 5, sm: 5, lg: 12 }}
+        mt={-2}
+        minH={{ base: "50vh", sm: "70vh", lg: "70vh" }}
+        px={{ base: 2, sm: 5, lg: 12 }}
       >
         <Stack
           bg="rgb(230,255,255)"
@@ -57,7 +57,7 @@ export default function Home() {
                   _hover={{ bg: "cyan.500" }}
                   _focus={{ border: "none" }}
                   fontWeight={700}
-                  fontSize={{ base: "sm", sm: "lg", lg: "2xl" }}
+                  fontSize={{ base: "lg", sm: "lg", lg: "2xl" }}
                 >
                   Get Started
                 </Button>
@@ -108,7 +108,7 @@ export default function Home() {
       <Container
         maxW={"7xl"}
         mt={4}
-        minH={{ base: "50vh", sm: "60vh", lg: "80vh" }}
+        minH={{ base: "57vh", sm: "60vh", lg: "80vh" }}
         px={{ base: 5, sm: 5, lg: 12 }}
       >
         <Stack

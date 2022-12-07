@@ -26,8 +26,8 @@ function Instruction() {
         </Box>
         <div className="tag">
           <Text className="list">
-            Enter your text in the below editor. You can copy-paste
-            your text too.
+            Enter your text in the below editor. You can copy-paste your text
+            too.
           </Text>
         </div>
         <div className="tag">

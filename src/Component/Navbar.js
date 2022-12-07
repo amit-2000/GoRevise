@@ -8,6 +8,7 @@ function Navbar({ color }) {
       <Box
         bg={color}
         m={10}
+        mt={5}
         w={"120%"}
         borderRadius={"25px"}
         py="2"
