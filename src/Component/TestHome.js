@@ -28,6 +28,7 @@ const TestHome = ({ inputText, editText }) => {
   const [disableInput, setDisableInput] = useState(false);
   const [user_inputeted_answers, set_users_inputed_ans] = useState([]);
   // select and deselect words
+  console.log("The array of words ", str_arr);
   const handleHighlight = (e, idx) => {
     let newIndexArr;
     if (index.indexOf(idx) === -1) {
@@ -77,7 +78,7 @@ const TestHome = ({ inputText, editText }) => {
     //   const prevVal = str_arr[item]; // old value at index[item].
     //   if (prevVal === user_inputeted_answers[idx]) {
     //     // debugger;
-    
+
     //     // setCorrect_ans_count(correct_ans_count + 1);
 
     //     const inp_obj = {

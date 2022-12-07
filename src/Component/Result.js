@@ -19,15 +19,8 @@ const Result = ({ user_inputeted_answers, index, str_arr }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(
-    "correcr answers  ",
-    corrcet_ans,
-    " users input ",
-    user_inputeted_answers
-  );
-
   let i = -1;
-
+  let j = 0;
   return (
     <Box>
       {str_arr.map((item, idx) => {
@@ -45,17 +38,17 @@ const Result = ({ user_inputeted_answers, index, str_arr }) => {
                 <span
                   className="ans__false"
                   data-tip
-                  data-for={item.id}
+                  data-for={Date.now().toString() + user_inputeted_answers[j]}
                   key={idx}
                 >
                   {item}
                 </span>
                 <ReactTooltip
-                  id={Date.now().toString() + item}
+                  id={Date.now().toString() + user_inputeted_answers[j]}
                   place="top"
                   effect="solid"
                 >
-                  {item}
+                  {user_inputeted_answers[j++]}
                 </ReactTooltip>
               </span>
             );
