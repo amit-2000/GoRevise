@@ -38,13 +38,13 @@ const Result = ({ user_inputeted_answers, index, str_arr }) => {
                 <span
                   className="ans__false"
                   data-tip
-                  data-for={Date.now().toString() + user_inputeted_answers[j]}
+                  data-for={user_inputeted_answers[j]}
                   key={idx}
                 >
                   {item}
                 </span>
                 <ReactTooltip
-                  id={Date.now().toString() + user_inputeted_answers[j]}
+                  id={user_inputeted_answers[j]}
                   place="top"
                   effect="solid"
                 >
