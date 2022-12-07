@@ -16,18 +16,27 @@ export default function Home() {
   return (
     <>
       <Navbar color="gray.100" />
-      <Container maxW={"7xl"} minH={"100vh"} mt={-10}>
+
+      <Container
+        maxW={"7xl"}
+        mt={-5}
+        minH={{ base: "65vh", sm: "70vh", lg: "70vh" }}
+        px={{ base: 5, sm: 5, lg: 12 }}
+      >
         <Stack
+          bg="rgb(230,255,255)"
           align={"center"}
           spacing={{ base: 8, md: 10 }}
-          py={{ base: 20, md: 28 }}
+          p={10}
+          py={{ base: 5, md: 10 }}
           direction={{ base: "column", md: "row" }}
+          borderRadius={"20px"}
         >
           <Stack flex={1} spacing={{ base: 5, md: 10 }}>
             <Heading
-              lineHeight={1.1}
-              fontWeight={600}
-              fontSize={{ base: "3xl", sm: "4xl", lg: "6xl" }}
+              lineHeight={1.4}
+              fontWeight={700}
+              fontSize={{ base: "2xl", sm: "3xl", lg: "5xl" }}
             >
               <Text as={"span"} position={"relative"}>
                 A simple tool to help
@@ -43,11 +52,12 @@ export default function Home() {
                 <Button
                   rounded={"full"}
                   size={"lg"}
-                  fontWeight={"normal"}
-                  px={6}
+                  px={7}
                   bg={"cyan.400"}
                   _hover={{ bg: "cyan.500" }}
                   _focus={{ border: "none" }}
+                  fontWeight={700}
+                  fontSize={{ base: "sm", sm: "lg", lg: "2xl" }}
                 >
                   Get Started
                 </Button>
@@ -92,6 +102,67 @@ export default function Home() {
               />
             </Box>
           </Flex>
+        </Stack>
+      </Container>
+
+      <Container
+        maxW={"7xl"}
+        mt={4}
+        minH={{ base: "50vh", sm: "60vh", lg: "80vh" }}
+        px={{ base: 5, sm: 5, lg: 12 }}
+      >
+        <Stack
+          bg="rgb(255,230,195)"
+          align={"center"}
+          spacing={{ base: 8, md: 10 }}
+          p={10}
+          direction={{ base: "column", md: "row" }}
+          borderRadius={"20px"}
+        >
+          <Stack flex={1} spacing={{ base: 5, md: 10 }}>
+            <Heading
+              lineHeight={1.1}
+              fontWeight={700}
+              fontSize={{ base: "3xl", sm: "4xl", lg: "5xl" }}
+            >
+              <Text as={"span"} position={"relative"}>
+                How to use? 🤔
+              </Text>
+            </Heading>
+            <Box
+              lineHeight={1.4}
+              fontWeight={700}
+              fontSize={{ base: "lg", sm: "xl", lg: "2xl" }}
+            >
+              <Text as={"p"} position={"relative"}>
+                step 1: Click on{" "}
+                <Text as={"span"} color={"cyan.600"}>
+                  Get Started
+                </Text>
+              </Text>
+              <Text as={"p"} position={"relative"}>
+                step 2: Create your quiz by typing in the text box or pasting
+                text directly
+              </Text>
+              <Text as={"p"} position={"relative"}>
+                step 3: Select and Highlight the text to create a fill-in
+              </Text>
+              <Text as={"p"} position={"relative"}>
+                step 4: Take the test! ✨ Good Luck✨
+              </Text>
+
+              <br />
+              <Heading
+                lineHeight={1.1}
+                fontWeight={700}
+                fontSize={{ base: "3xl", sm: "4xl", lg: "6xl" }}
+              >
+                <Text as={"span"} position={"relative"}>
+                  It's That Simple!
+                </Text>
+              </Heading>
+            </Box>
+          </Stack>
         </Stack>
       </Container>
     </>

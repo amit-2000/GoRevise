@@ -5,9 +5,16 @@ import { Link } from "react-router-dom";
 function Navbar({ color }) {
   return (
     <Center>
-      <Box bg={color} m={10} w={"70rem"} borderRadius={"25px"} py="2">
+      <Box
+        bg={color}
+        m={10}
+        w={"120%"}
+        borderRadius={"25px"}
+        py="2"
+        mx={{ base: 2, sm: 2, lg: 12 }}
+      >
         <Flex
-          justifyContent={"space-around"}
+          justifyContent="space-around"
           alignItems={"center"}
           height={"50px"}
         >
@@ -22,8 +29,12 @@ function Navbar({ color }) {
             </chakra.a>
           </Link>
           <Flex
-            w={"200px"}
-            justifyContent={"space-between"}
+            w={{ base: "140px", sm: "150px", lg: "200px" }}
+            justifyContent={{
+              base: "space-around",
+              sm: "space-between",
+              lg: "space-between",
+            }}
             alignItems={"center"}
             fontSize={"lg"}
           >

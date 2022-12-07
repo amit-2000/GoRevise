@@ -136,8 +136,8 @@ const TestHome = ({ inputText, editText }) => {
       ) : (
         <Box
           overflow="hidden"
-          // bgImage={"/bg.png"}
-          backgroundColor={"#100F5F"}
+          bgImage={"/bg.png"}
+          // backgroundColor={"#100F5F"}
           minH={"100vh"}
           bgRepeat={"no-repeat"}
           bgSize={"cover"}
