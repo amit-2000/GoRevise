@@ -3,8 +3,8 @@ import "./highlightCSS.css";
 import { Box, Text } from "@chakra-ui/react";
 import Navbar from "./Navbar";
 import InputChange from "./InputChange";
-import ReturnFocus from "./DialogPopover";
-import { useDisclosure } from "@chakra-ui/react";
+// import ReturnFocus from "./ResultPopup";
+// import { useDisclosure } from "@chakra-ui/react";
 import SaveAndTakeQuiz from "./Save_take_Quiz";
 import Instruction from "./Instruction";
 import Texts from "./Texts";
@@ -12,11 +12,11 @@ import ShowButtons from "./ShowButtons";
 import ResultButtons from "./ResultButtons";
 const TestHome = ({ inputText, editText }) => {
   const [str_arr] = useState(inputText.split(" ")); //split given input, each word is element of array.
-  const finalRef = React.useRef();
+  // const finalRef = React.useRef();
   const [show_choice_page, setShow_page] = useState(false);
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  // const { isOpen, onOpen, onClose } = useDisclosure();
   // const [correct_ans_count, setCorrect_ans_count] = useState(0);
-  const [count_blank, setCount_blank] = useState(0);
+  // const [count_blank, setCount_blank] = useState(0);
   const [toggle, setToggle] = useState(false); //to go back in word selection phase
   const [disable_input_box, setDisable_input_box] = useState(false);
   const [index, setIndex] = useState([]);
@@ -40,7 +40,7 @@ const TestHome = ({ inputText, editText }) => {
       setIndex(newIndexArr);
     }
     setToggle(false); //to go back in word selection phase
-    setCount_blank(index.length + 1);
+    // setCount_blank(index.length + 1);
     // console.log(count_blank);
     // e.preventDefault();
   };
@@ -60,7 +60,7 @@ const TestHome = ({ inputText, editText }) => {
 
   //  Click on Done btn after filling the text in input.
   const handleSubmit = () => {
-    onOpen();
+    // onOpen();
     index.sort();
     const arr = [];
     str_arr.map((item, idx) => {
@@ -114,20 +114,18 @@ const TestHome = ({ inputText, editText }) => {
   };
 
   // count correct answers.
-  const corrcet_ans = () => {
-    let cnt = 0;
-    str_arr.map((item) => {
-      if (item.result === true) {
-        cnt++;
-      }
-      return cnt;
-    });
-    return cnt;
-  };
+  // const corrcet_ans = () => {
+  //   str_arr.map((item, idx) => {
+  //     if (index.includes(idx)) {
+  //       corrcet_ans.push(item);
+  //     }
+  //     return null;
+  //   });
+  // };
 
   const handleViewScore_and_done = () => {
     handleSubmit();
-    onOpen();
+    // onOpen();
     setViewScore(true);
     setViewDone(false);
     setDisableInput(true);
@@ -148,14 +146,14 @@ const TestHome = ({ inputText, editText }) => {
         >
           <Navbar color="white" />
           {/* viewscore popup */}
-          <ReturnFocus
+          {/* <ReturnFocus
             isOpen={isOpen}
             onOpen={onOpen}
             onClose={onClose}
             finalRef={finalRef}
             correct_ans_count={corrcet_ans}
             count_blank={count_blank}
-          />
+          /> */}
           <Instruction />
 
           <Box bg={"white"} m={20} rounded={"2xl"}>

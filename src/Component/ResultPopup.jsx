@@ -14,8 +14,6 @@ import {
   HStack,
   Circle,
   Flex,
-  //   Lorem,
-  // useDisclosure,
 } from "@chakra-ui/react";
 
 const ReturnFocus = ({
@@ -25,17 +23,15 @@ const ReturnFocus = ({
   correct_ans_count,
   count_blank,
 }) => {
-
-  // console.log("PPop up called", correct_ans_count(), count_blank);
-  const ca = correct_ans_count();
-  const percentage = Math.round((ca / count_blank) * 100);
+  console.log(correct_ans_count);
+  const percentage = Math.round((correct_ans_count / count_blank) * 100);
   return (
     <>
       {/* <Button mt={5} onClick={onOpen}>
         Open Modal
       </Button> */}
       <Modal finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay  />
+        <ModalOverlay />
         <ModalContent size="4xl">
           <ModalHeader
             my={"4"}
@@ -76,12 +72,12 @@ const ReturnFocus = ({
               <HStack mt={"15px"} ml={"30px"}>
                 <Flex direction={"column"}>
                   <Text>Fill in the blanks: {count_blank}</Text>
-                  <Text>Correct answers: {ca}</Text>
+                  <Text>Correct answers: {correct_ans_count}</Text>
                   <Text>
                     Wrong answers:&nbsp;
                     <Text display={"inline"} ml={"-1px"}>
                       {" "}
-                      {count_blank - ca}
+                      {count_blank - correct_ans_count}
                     </Text>
                   </Text>
                 </Flex>

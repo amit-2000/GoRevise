@@ -2,27 +2,47 @@ import React, { useState, useEffect } from "react";
 import "./result.css";
 import ReactTooltip from "react-tooltip";
 import { Box } from "@chakra-ui/react";
-
+import ReturnFocus from "./ResultPopup";
+import { useDisclosure } from "@chakra-ui/react";
 const Result = ({ user_inputeted_answers, index, str_arr }) => {
-  const [corrcet_ans, setCorrectAns] = useState([]);
+  const finalRef = React.useRef();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  //
+  // const [corrcet_ans, setCorrectAns] = useState([]);
   console.log("index arr ", index);
   index.sort();
+  const [correct_ans_count, setCorrect_ans_count] = useState(0);
 
   useEffect(() => {
+    var cnt = 0;
+    var itr = -1;
     str_arr.map((item, idx) => {
-      if (index.includes(idx)) {
-        corrcet_ans.push(item);
+      if (index.includes(idx) === true) {
+        itr++;
+        if (item === user_inputeted_answers[itr]) {
+          cnt = cnt + 1;
+        }
       }
-      return null;
+      return "";
     });
-    setCorrectAns(corrcet_ans);
+    setCorrect_ans_count(cnt);
+    onOpen();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  console.log(correct_ans_count);
   let i = -1;
   let j = 0;
   return (
     <Box>
+      <ReturnFocus
+        isOpen={isOpen}
+        onOpen={onOpen}
+        onClose={onClose}
+        finalRef={finalRef}
+        correct_ans_count={correct_ans_count}
+        count_blank={index.length}
+      />
       {str_arr.map((item, idx) => {
         if (index.includes(idx) === true) {
           i++;
@@ -57,7 +77,6 @@ const Result = ({ user_inputeted_answers, index, str_arr }) => {
           return <span> {item} </span>;
         }
       })}
-
       {/* <span key={idx} >
               {item.item ? (
                 item.result === true ? (
