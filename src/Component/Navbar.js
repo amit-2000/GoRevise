@@ -19,6 +19,7 @@ function Navbar({ color }) {
           justifyContent="space-around"
           alignItems={"center"}
           height={"50px"}
+          ml={{ base: 0, sm: "30px", lg: "100px" }}
         >
           <Link to="/">
             <chakra.a>
@@ -31,7 +32,7 @@ function Navbar({ color }) {
             </chakra.a>
           </Link>
           <Flex
-            w={{ base: "140px", sm: "150px", lg: "200px" }}
+            w={{ base: "140px", sm: "150px", lg: "150px" }}
             justifyContent={{
               base: "space-around",
               sm: "space-between",
@@ -39,9 +40,10 @@ function Navbar({ color }) {
             }}
             alignItems={"center"}
             fontSize={"lg"}
+            mr={{ base: 0, sm: "30px", lg: "100px" }}
           >
             <Link to="/">Home</Link>
-            <Link to="/contact">Contact</Link>
+            <Link to="/contact">Contact Us</Link>
           </Flex>
         </Flex>
       </Box>
