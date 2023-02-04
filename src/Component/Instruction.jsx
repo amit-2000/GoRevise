@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Text } from "@chakra-ui/react";
-import { BiPencil } from "react-icons/bi";
+import { BsCheck2Circle } from "react-icons/bs";
 
 function Instruction() {
   return (
@@ -22,7 +22,7 @@ function Instruction() {
             // src="images/note_icon.png"
             alt="BigCo Inc. logo"
           /> */}
-          <Text className="title"> Instructions</Text>
+          <Text className="title">🗒 Instructions</Text>
         </Box>
         <div className="tag">
           <Text className="list">
@@ -32,7 +32,10 @@ function Instruction() {
         </div>
         <div className="tag">
           <Text className="list">
-            Click on Done <BiPencil fontSize={"20px"} color={"cyan"} />
+            Click on Done{" "}
+            <Text p={1}>
+              <BsCheck2Circle fontSize={"25px"} color={"cyan"} />
+            </Text>
             once completed
           </Text>
         </div>
