@@ -1,6 +1,8 @@
 import React from "react";
 import { Box, Button, HStack, Text } from "@chakra-ui/react";
 import { BiUndo, BiCheck, BiPencil } from "react-icons/bi";
+import { BsCheck2Circle } from "react-icons/bs";
+
 import "./highlightCSS.css";
 
 const ShowButtons = ({
@@ -61,7 +63,7 @@ const ShowButtons = ({
             variant={"unstyled"}
             // variant={"unstyled"}
           >
-            <BiCheck fontSize={"30px"} color={"cyan"} />
+            <BsCheck2Circle fontSize={"25px"} color={"cyan"} />
           </Button>
           <Text className="textshift">Done</Text>
         </Box>

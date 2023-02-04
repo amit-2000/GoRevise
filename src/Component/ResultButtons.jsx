@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Button, HStack, Text } from "@chakra-ui/react";
 import { BiCheck, BiShare, BiSpreadsheet } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import { BsCheck2Circle } from "react-icons/bs";
 
 function ResultButtons({
   handleViewScore_and_done,
@@ -60,7 +61,7 @@ function ResultButtons({
               _focus={{ border: "none" }}
               variant={"unstyled"}
             >
-              <BiCheck fontSize={"30px"} color={"cyan"} />
+              <BsCheck2Circle fontSize={"25px"} color={"cyan"} />
             </Button>
             <Text className="textshift">Done</Text>
           </Box>
@@ -75,7 +76,7 @@ function ResultButtons({
             _focus={{ border: "none" }}
             variant={"unstyled"}
           >
-            <BiCheck fontSize={"30px"} color={"cyan"} />
+            <BsCheck2Circle fontSize={"25px"} color={"cyan"} />
           </Button>
           <Text className="textshift">Done </Text>
         </Box>
