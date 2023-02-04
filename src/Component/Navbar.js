@@ -13,6 +13,7 @@ function Navbar({ color }) {
         borderRadius={"25px"}
         py="2"
         mx={{ base: 2, sm: 2, lg: 12 }}
+        boxShadow="md"
       >
         <Flex
           justifyContent="space-around"

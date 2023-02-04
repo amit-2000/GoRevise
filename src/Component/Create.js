@@ -16,6 +16,7 @@ function Create() {
           justifyContent={"space-around"}
           alignItems={"center"}
           rounded={"3xl"}
+          boxShadow="lg"
         >
           <Box textAlign={"center"}>
             <Heading>Create</Heading>
@@ -33,8 +34,10 @@ function Create() {
                 bg={"cyan.400"}
                 _hover={{ bg: "cyan.500" }}
                 _focus={{ border: "none" }}
+                boxShadow="lg"
               >
-                <MdOutlineCreate fontSize={"24px"} />Create
+                <MdOutlineCreate fontSize={"24px"} />
+                Create
               </Button>
             </Link>
           </Box>

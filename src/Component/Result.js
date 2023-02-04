@@ -58,13 +58,13 @@ const Result = ({ user_inputeted_answers, index, str_arr }) => {
                 <span
                   className="ans__false"
                   data-tip
-                  data-for={user_inputeted_answers[j]}
+                  data-for={Math.random() + user_inputeted_answers[j]}
                   key={idx}
                 >
                   {item}
                 </span>
                 <ReactTooltip
-                  id={user_inputeted_answers[j]}
+                  id={Math.random() + user_inputeted_answers[j]}
                   place="top"
                   effect="solid"
                 >

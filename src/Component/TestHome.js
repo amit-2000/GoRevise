@@ -111,6 +111,7 @@ const TestHome = ({ inputText, editText }) => {
 
   const handleSave = () => {
     setShow_page(false);
+    
   };
 
   // count correct answers.

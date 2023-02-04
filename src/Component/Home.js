@@ -31,6 +31,7 @@ export default function Home() {
           py={{ base: 5, md: 10 }}
           direction={{ base: "column", md: "row" }}
           borderRadius={"20px"}
+          boxShadow="md"
         >
           <Stack flex={1} spacing={{ base: 5, md: 10 }}>
             <Heading
@@ -58,6 +59,7 @@ export default function Home() {
                   _focus={{ border: "none" }}
                   fontWeight={700}
                   fontSize={{ base: "lg", sm: "lg", lg: "2xl" }}
+                  boxShadow="lg"
                 >
                   Get Started
                 </Button>
@@ -107,9 +109,9 @@ export default function Home() {
 
       <Container
         maxW={"7xl"}
-        mt={4}
+        mt={2}
         minH={{ base: "57vh", sm: "60vh", lg: "80vh" }}
-        px={{ base: 5, sm: 5, lg: 12 }}
+        px={{ base: 5, sm: 5, lg: 10 }}
       >
         <Stack
           bg="rgb(255,230,195)"
@@ -118,6 +120,7 @@ export default function Home() {
           p={10}
           direction={{ base: "column", md: "row" }}
           borderRadius={"20px"}
+          boxShadow="md"
         >
           <Stack flex={1} spacing={{ base: 5, md: 10 }}>
             <Heading
